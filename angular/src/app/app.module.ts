@@ -9,11 +9,14 @@ import { AdminComponent } from './admin/admin.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorsComponent } from './errors/errors.component';
 import { ProfilComponent } from './profil/profil.component';
+import { RequestComponent } from './request/request.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CardComponent } from './card/card.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
   {path:'profil',component:ProfilComponent},
-
+  {path:'request',component:RequestComponent},
   {path:'**',component:ErrorsComponent}
 ]
 @NgModule({
@@ -25,7 +28,10 @@ const appRoutes:Routes=[
     AdminComponent,
 
     ErrorsComponent,
-     ProfilComponent
+     ProfilComponent,
+     RequestComponent,
+     NavbarComponent,
+     CardComponent
   ],
   imports: [
     BrowserModule,
