@@ -13,7 +13,12 @@ import { RequestComponent } from './request/request.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CardComponent } from './card/card.component';
 import {NavbarComponent1} from "./student/navbar/navbar.component";
-import { SidebarComponent } from './student/sidebar/sidebar.component'
+import { SidebarComponent } from './student/sidebar/sidebar.component';
+import { LectureComponent } from './student/lecture/lecture.component';
+import { CheckpointComponent } from './student/checkpoint/checkpoint.component';
+import { ExerciceComponent } from './student/exercice/exercice.component';
+import { SignInComponent } from './student/sign-in/sign-in.component';
+import { SignUpComponent } from './student/sign-up/sign-up.component'
 
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
@@ -37,7 +42,12 @@ const appRoutes:Routes=[
      NavbarComponent,
      CardComponent,
      NavbarComponent1,
-     SidebarComponent
+     SidebarComponent,
+     LectureComponent,
+     CheckpointComponent,
+     ExerciceComponent,
+     SignInComponent,
+     SignUpComponent
   ],
   imports: [
     BrowserModule,
