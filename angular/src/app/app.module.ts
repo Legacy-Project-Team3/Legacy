@@ -9,6 +9,8 @@ import { AdminComponent } from './admin/admin.component';
 import { SharedComponent } from './shared/shared.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorsComponent } from './errors/errors.component';
+import { SidebareComponent } from './admin/sidebare/sidebare.component';
+import { TeatchersComponent } from './admin/teatchers/teatchers.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
@@ -23,7 +25,9 @@ const appRoutes:Routes=[
     HomeComponent,
     AdminComponent,
     SharedComponent,
-    ErrorsComponent
+    ErrorsComponent,
+    SidebareComponent,
+    TeatchersComponent
   ],
   imports: [
     BrowserModule,
