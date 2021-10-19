@@ -7,7 +7,14 @@ import { StudentComponent } from './student/student.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { SharedComponent } from './shared/shared.component';
-
+import { RouterModule, Routes } from '@angular/router';
+import { ErrorsComponent } from './errors/errors.component';
+const appRoutes:Routes=[
+  {path:'',component:HomeComponent},
+  {path:'teacher',component:TeacherComponent},
+  {path:'admin',component:AdminComponent},
+  {path:'**',component:ErrorsComponent}
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,10 +22,12 @@ import { SharedComponent } from './shared/shared.component';
     StudentComponent,
     HomeComponent,
     AdminComponent,
-    SharedComponent
+    SharedComponent,
+    ErrorsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
