@@ -8,9 +8,12 @@ import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorsComponent } from './errors/errors.component';
+import { ProfilComponent } from './profil/profil.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
+  {path:'profil',component:ProfilComponent},
+
   {path:'**',component:ErrorsComponent}
 ]
 @NgModule({
@@ -21,7 +24,8 @@ const appRoutes:Routes=[
     HomeComponent,
     AdminComponent,
 
-    ErrorsComponent
+    ErrorsComponent,
+     ProfilComponent
   ],
   imports: [
     BrowserModule,
