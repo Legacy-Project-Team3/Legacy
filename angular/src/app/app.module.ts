@@ -9,6 +9,7 @@ import { AdminComponent } from './admin/admin.component';
 import { SharedComponent } from './shared/shared.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorsComponent } from './errors/errors.component';
+import { NavBarComponent } from './home/nav-bar/nav-bar.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
@@ -22,7 +23,8 @@ const appRoutes:Routes=[
     HomeComponent,
     AdminComponent,
     SharedComponent,
-    ErrorsComponent
+    ErrorsComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
