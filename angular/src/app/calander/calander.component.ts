@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare let $: any;
 import { CalendarOptions } from '@fullcalendar/angular';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-calander',
   templateUrl: './calander.component.html',
@@ -18,8 +20,13 @@ export class CalanderComponent {
   // stop here if form is invalid and reset the validations
   this.addEventForm.get('title').setValidators([Validators.required]);
   this.addEventForm.get('title').updateValueAndValidity();
+
+
   if (this.addEventForm.invalid) {
-      return;
+
+
+
+      return Swal.fire('You must make title to your event');
   }
 }
 constructor(private formBuilder: FormBuilder){}
