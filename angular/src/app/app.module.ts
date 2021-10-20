@@ -40,7 +40,7 @@ const appRoutes:Routes=[
   {path:'teacher',component:TeacherComponent},
   {path:'profil',component:ProfilComponent},
   {path:'request',component:RequestComponent},
-  //student path 
+  //student path component
   {path:'cours',component:CreatLectureComponent},
   {path:'calander',component:CalanderComponent},
   {path:"student",component:StudentComponent},
@@ -51,7 +51,7 @@ const appRoutes:Routes=[
   {path:"student-Checkpoint",component:CheckpointComponent},
   {path:"student-Messanger",component:MessangerComponent},
   {path:"student-Account",component:ManageAccountComponent},
-  //student path 
+  //student path
   {path:'signin',component:SigninComponent},
   {path:'signup',component:SignupComponent},
   {path:'request',component:RequestComponent},
