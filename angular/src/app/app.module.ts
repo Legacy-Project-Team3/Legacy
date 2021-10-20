@@ -29,6 +29,7 @@ const appRoutes:Routes=[
   {path:'profil',component:ProfilComponent},
   {path:'request',component:RequestComponent},
   {path:"student",component:StudentComponent},
+  {path:"student-Signin",component:SignInComponent},
   {path:'**',component:ErrorsComponent}
 ]
 FullCalendarModule.registerPlugins([ 
