@@ -6,12 +6,18 @@ import { AdminComponent } from './admin/admin.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorsComponent } from './errors/errors.component';
 import { ProfilComponent } from './profil/profil.component';
+import { SigninComponent } from './home/signin/signin.component';
+import { SignupComponent } from './home/signup/signup.component';
+import { StatsComponent } from './admin/stats/stats.component';
+import { SidebareComponent } from './admin/sidebare/sidebare.component';
+import { TeatchersComponent } from './admin/teatchers/teatchers.component';
 /*student*/
 import { StudentComponent } from './student/student.component';
 import { SignInComponentStudent } from './student/sign-in/sign-in.component';
 import { SignUpComponentStudent } from './student/sign-up/sign-up.component';
 import {NavbarComponent1} from "./student/navbar/navbar.component";
 import { SidebarComponent } from './student/sidebar/sidebar.component';
+import { LectureComponent } from './student/lecture/lecture.component';
 import { CheckpointComponent } from './student/checkpoint/checkpoint.component';
 import { ExerciceComponent } from './student/exercice/exercice.component';
 import { MessangerComponent } from './student/messanger/messanger.component';
@@ -22,24 +28,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 // teacher
 import { TeacherComponent } from './teacher/teacher.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
-
-
-import { SigninComponent } from './home/signin/signin.component';
-import { SignupComponent } from './home/signup/signup.component';
-import { RequestComponent } from './request/request.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
 import { CardComponent } from './card/card.component';
-
-
+import { NavbarComponent } from './navbar/navbar.component';
 import { CreatLectureComponent } from './creat-lecture/creat-lecture.component';
 import { CalanderComponent } from './calander/calander.component';
-
-import { StatsComponent } from './admin/stats/stats.component';
-import { SidebareComponent } from './admin/sidebare/sidebare.component';
-import { TeatchersComponent } from './admin/teatchers/teatchers.component';
-import { LectureComponent } from './lecture/lecture.component';
-
-
+import { RequestComponent } from './request/request.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
@@ -60,16 +55,13 @@ const appRoutes:Routes=[
   {path:'signin',component:SigninComponent},
   {path:'signup',component:SignupComponent},
   {path:'request',component:RequestComponent},
-  {path:'admin',component:AdminComponent},  
-  {path: 'lecture', component:LectureComponent},
-
-  {path:'**',component:ErrorsComponent},
+  {path:'admin',component:AdminComponent},
+  {path:'**',component:ErrorsComponent}
 ]
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
   interactionPlugin
 ])
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,8 +77,8 @@ FullCalendarModule.registerPlugins([
      CardComponent,
      CreatLectureComponent,
      CalanderComponent,
-
      SidebarComponent,
+     LectureComponent,
      CheckpointComponent,
      ExerciceComponent,
      SignInComponentStudent,
@@ -101,8 +93,6 @@ FullCalendarModule.registerPlugins([
      RequestComponent,
      NavbarComponent,
      CardComponent,
-     LectureComponent,
-     
      ManageAccountComponent,
      MessangerComponent,
      CalendarComponent
@@ -110,7 +100,6 @@ FullCalendarModule.registerPlugins([
   imports: [
     BrowserModule,
     FullCalendarModule,
-
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
