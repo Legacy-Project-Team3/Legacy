@@ -34,6 +34,7 @@ import { CheckpointComponent } from './student/checkpoint/checkpoint.component';
 import { ExerciceComponent } from './student/exercice/exercice.component';
 import { MessangerComponent } from './student/messanger/messanger.component';
 import { ManageAccountComponent } from './student/manage-account/manage-account.component';
+import { CalendarComponent } from './student/calendar/calendar.component';
 /*student*/
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
@@ -91,7 +92,8 @@ FullCalendarModule.registerPlugins([
      NavbarComponent,
      CardComponent,
      ManageAccountComponent,
-     MessangerComponent
+     MessangerComponent,
+     CalendarComponent
   ],
   imports: [
     BrowserModule,
