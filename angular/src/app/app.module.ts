@@ -35,6 +35,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CreatLectureComponent } from './creat-lecture/creat-lecture.component';
 import { CalanderComponent } from './calander/calander.component';
 import { RequestComponent } from './request/request.component';
+import { ChckpointToDoComponent } from './student/checkpoint/chckpoint-to-do/chckpoint-to-do.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
@@ -97,7 +98,8 @@ FullCalendarModule.registerPlugins([
      CardComponent,
      ManageAccountComponent,
      MessangerComponent,
-     CalendarComponent
+     CalendarComponent,
+     ChckpointToDoComponent
   ],
   imports: [
     BrowserModule,
