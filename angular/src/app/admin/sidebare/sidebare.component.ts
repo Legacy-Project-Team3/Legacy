@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebare.component.css']
 })
 export class SidebareComponent implements OnInit {
-
+//comontaire
   constructor() { }
 
   ngOnInit(): void {
