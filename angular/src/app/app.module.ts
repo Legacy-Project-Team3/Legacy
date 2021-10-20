@@ -17,7 +17,7 @@ import { SignInComponentStudent } from './student/sign-in/sign-in.component';
 import { SignUpComponentStudent } from './student/sign-up/sign-up.component';
 import {NavbarComponent1} from "./student/navbar/navbar.component";
 import { SidebarComponent } from './student/sidebar/sidebar.component';
-import { LectureComponent } from './student/lecture/lecture.component';
+import { LectureComponent } from './lecture/lecture.component';
 import { CheckpointComponent } from './student/checkpoint/checkpoint.component';
 import { ExerciceComponent } from './student/exercice/exercice.component';
 import { MessangerComponent } from './student/messanger/messanger.component';
@@ -51,6 +51,7 @@ const appRoutes:Routes=[
   {path:"student-Checkpoint",component:CheckpointComponent},
   {path:"student-Messanger",component:MessangerComponent},
   {path:"student-Account",component:ManageAccountComponent},
+  {path:"lecture",component:LectureComponent},
   //student path
   {path:'signin',component:SigninComponent},
   {path:'signup',component:SignupComponent},
