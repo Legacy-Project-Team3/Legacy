@@ -62,7 +62,6 @@ FullCalendarModule.registerPlugins([
   dayGridPlugin,
   interactionPlugin
 ])
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +77,6 @@ FullCalendarModule.registerPlugins([
      CardComponent,
      CreatLectureComponent,
      CalanderComponent,
-
      SidebarComponent,
      LectureComponent,
      CheckpointComponent,
@@ -102,7 +100,6 @@ FullCalendarModule.registerPlugins([
   imports: [
     BrowserModule,
     FullCalendarModule,
-
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
