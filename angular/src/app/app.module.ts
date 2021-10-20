@@ -18,7 +18,10 @@ import { LectureComponent } from './student/lecture/lecture.component';
 import { CheckpointComponent } from './student/checkpoint/checkpoint.component';
 import { ExerciceComponent } from './student/exercice/exercice.component';
 import { SignInComponent } from './student/sign-in/sign-in.component';
-import { SignUpComponent } from './student/sign-up/sign-up.component'
+import { SignUpComponent } from './student/sign-up/sign-up.component';
+import { FullCalendarModule } from '@fullcalendar/angular'; 
+import dayGridPlugin from '@fullcalendar/daygrid'; 
+import interactionPlugin from '@fullcalendar/interaction'; 
 
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
@@ -28,6 +31,11 @@ const appRoutes:Routes=[
   {path:"student",component:StudentComponent},
   {path:'**',component:ErrorsComponent}
 ]
+FullCalendarModule.registerPlugins([ 
+  dayGridPlugin,
+  interactionPlugin
+])
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +59,7 @@ const appRoutes:Routes=[
   ],
   imports: [
     BrowserModule,
+    FullCalendarModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

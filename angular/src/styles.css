@@ -2,3 +2,11 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 /* You can add global styles to this file, and also import other style files */
+html {
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+    width: 0px; 
+}
