@@ -9,11 +9,25 @@ import { AdminComponent } from './admin/admin.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorsComponent } from './errors/errors.component';
 import { ProfilComponent } from './profil/profil.component';
+
+
+import { CardComponent } from './card/card.component';
+import {NavbarComponent1} from "./student/navbar/navbar.component";
+import { SidebarComponent } from './student/sidebar/sidebar.component';
+import { LectureComponent } from './student/lecture/lecture.component';
+import { CheckpointComponent } from './student/checkpoint/checkpoint.component';
+import { ExerciceComponent } from './student/exercice/exercice.component';
+import { SignInComponent } from './student/sign-in/sign-in.component';
+import { SignUpComponent } from './student/sign-up/sign-up.component';
+import { FullCalendarModule } from '@fullcalendar/angular'; 
+import dayGridPlugin from '@fullcalendar/daygrid'; 
+import interactionPlugin from '@fullcalendar/interaction'; 
+
 import { SigninComponent } from './home/signin/signin.component';
 import { SignupComponent } from './home/signup/signup.component';
 import { RequestComponent } from './request/request.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { CardComponent } from './card/card.component';
+
 import { StatsComponent } from './admin/stats/stats.component';
 import { SidebareComponent } from './admin/sidebare/sidebare.component';
 import { TeatchersComponent } from './admin/teatchers/teatchers.component';
@@ -21,12 +35,20 @@ const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
   {path:'profil',component:ProfilComponent},
+  {path:'request',component:RequestComponent},
+  {path:"student",component:StudentComponent},
+  {path:"student-Signin",component:SignInComponent},
   {path:'signin',component:SigninComponent},
   {path:'signup',component:SignupComponent},
   {path:'request',component:RequestComponent},
   {path:'admin',component:AdminComponent},
   {path:'**',component:ErrorsComponent}
 ]
+FullCalendarModule.registerPlugins([ 
+  dayGridPlugin,
+  interactionPlugin
+])
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +57,20 @@ const appRoutes:Routes=[
     HomeComponent,
     TeatchersComponent,
     AdminComponent,
+
     ErrorsComponent,
+     ProfilComponent,
+     RequestComponent,
+     NavbarComponent,
+     CardComponent,
+     NavbarComponent1,
+     SidebarComponent,
+     LectureComponent,
+     CheckpointComponent,
+     ExerciceComponent,
+     SignInComponent,
+     SignUpComponent,
+   
     SidebareComponent,
     StatsComponent,
     ErrorsComponent,
@@ -48,6 +83,7 @@ const appRoutes:Routes=[
   ],
   imports: [
     BrowserModule,
+    FullCalendarModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
