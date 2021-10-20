@@ -1,0 +1,94 @@
+<div class="  grid grid-row-6  min-h-screen">
+
+
+  <div class="row-span-1  grid grid-row-2 ">
+
+      <div class="  row-span-1">
+        <app-navbar></app-navbar>
+      </div>
+      <div class=" row-span-1">
+
+      </div>
+  </div>
+  <div class="row-span-5 grid  ">
+    <div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2">
+
+      <!--Title-->
+      <h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-8 text-xl md:text-2xl">
+         Table Of request Student
+      </h1>
+
+
+      <!--Card-->
+       <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
+
+
+        <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+          <thead>
+            <tr>
+              <th data-priority="1">Name of student</th>
+              <th data-priority="2">Email</th>
+              <th data-priority="3">image</th>
+              <th data-priority="4">faculty</th>
+              <th data-priority="5">Reasion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tiger Nixon</td>
+              <td>System Architect</td>
+              <td>Edinburgh</td>
+              <td>61</td>
+              <td>2011/04/25</td>
+              <td>61</td>
+              <td>2011/04/25</td>
+            </tr>
+
+
+            <tr>
+              <td>Donna Snider</td>
+              <td>Customer Support</td>
+              <td>New York</td>
+              <td>27</td>
+              <td>2011/01/25</td>
+            </tr>
+          </tbody>
+
+        </table>
+
+
+      </div>
+      <!--/Card-->
+
+
+      </div>
+
+
+<!-- Does this resource worth a follow? -->
+
+  </div>
+
+  <footer class="bg-indigo-700">
+    <div class=" text-white text-center pt-4">
+        Team FRDG - All Rights Reserved
+    </div>
+    <div class=" text-white text-center pb-4 ">
+        2021
+    </div>
+</footer>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+	<!--Datatables -->
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+	<script>
+		$(document).ready(function() {
+
+			var table = $('#example').DataTable( {
+					responsive: true
+				} )
+				.columns.adjust()
+				.responsive.recalc();
+		} );
+
+	</script>
