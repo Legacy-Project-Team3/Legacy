@@ -9,11 +9,14 @@ import { AdminComponent } from './admin/admin.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorsComponent } from './errors/errors.component';
 import { ProfilComponent } from './profil/profil.component';
+import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
   {path:'profil',component:ProfilComponent},
-
+  {path:'signin',component:SigninComponent},
+  {path:'signup',component:SignupComponent},
   {path:'**',component:ErrorsComponent}
 ]
 @NgModule({
@@ -25,7 +28,9 @@ const appRoutes:Routes=[
     AdminComponent,
 
     ErrorsComponent,
-     ProfilComponent
+     ProfilComponent,
+     SigninComponent,
+     SignupComponent,
   ],
   imports: [
     BrowserModule,
