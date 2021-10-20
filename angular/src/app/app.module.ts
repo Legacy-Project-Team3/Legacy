@@ -15,6 +15,7 @@ import { TeatchersComponent } from './admin/teatchers/teatchers.component';
 import { StudentComponent } from './student/student.component';
 import { SignInComponentStudent } from './student/sign-in/sign-in.component';
 import { SignUpComponentStudent } from './student/sign-up/sign-up.component';
+
 import {NavbarComponent1} from "./student/navbar/navbar.component";
 import { SidebarComponent } from './student/sidebar/sidebar.component';
 import { LectureComponent } from './student/lecture/lecture.component';
