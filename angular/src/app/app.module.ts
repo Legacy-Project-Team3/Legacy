@@ -50,6 +50,7 @@ import { StatsComponent } from './admin/stats/stats.component';
 import { SidebareComponent } from './admin/sidebare/sidebare.component';
 import { TeatchersComponent } from './admin/teatchers/teatchers.component';
 import { AdminComponent } from './admin/admin.component';
+import { ClassComponent } from './admin/class/class.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
@@ -74,6 +75,7 @@ const appRoutes:Routes=[
   {path:'teatchers',component:TeatchersComponent},
   {path:'stats',component:StatsComponent},
   {path:'students',component:StudentsComponent},
+  {path:'class',component:ClassComponent},
   {path:'**',component:ErrorsComponent}
 ]
 FullCalendarModule.registerPlugins([
@@ -114,7 +116,8 @@ FullCalendarModule.registerPlugins([
      MessangerComponent,
      CalendarComponent,
      StudentsComponent,
-     HomevueComponent
+     HomevueComponent,
+     ClassComponent
   ],
   imports: [
   BrowserModule,
