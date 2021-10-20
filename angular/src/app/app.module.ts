@@ -66,7 +66,8 @@ const appRoutes:Routes=[
   {path:'**',component:ErrorsComponent},
 ]
 FullCalendarModule.registerPlugins([
-
+  dayGridPlugin,
+  interactionPlugin
 ])
 
 @NgModule({
