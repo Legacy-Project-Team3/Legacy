@@ -11,6 +11,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ErrorsComponent } from './errors/errors.component';
 import { SidebareComponent } from './admin/sidebare/sidebare.component';
 import { TeatchersComponent } from './admin/teatchers/teatchers.component';
+import { StatsComponent } from './admin/stats/stats.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
@@ -27,7 +28,8 @@ const appRoutes:Routes=[
     SharedComponent,
     ErrorsComponent,
     SidebareComponent,
-    TeatchersComponent
+    TeatchersComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,
