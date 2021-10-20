@@ -14,6 +14,9 @@ import { SignupComponent } from './home/signup/signup.component';
 import { RequestComponent } from './request/request.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CardComponent } from './card/card.component';
+import { StatsComponent } from './admin/stats/stats.component';
+import { SidebareComponent } from './admin/sidebare/sidebare.component';
+import { TeatchersComponent } from './admin/teatchers/teatchers.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
@@ -21,6 +24,7 @@ const appRoutes:Routes=[
   {path:'signin',component:SigninComponent},
   {path:'signup',component:SignupComponent},
   {path:'request',component:RequestComponent},
+  {path:'admin',component:AdminComponent},
   {path:'**',component:ErrorsComponent}
 ]
 @NgModule({
@@ -29,8 +33,11 @@ const appRoutes:Routes=[
     TeacherComponent,
     StudentComponent,
     HomeComponent,
+    TeatchersComponent,
     AdminComponent,
-
+    ErrorsComponent,
+    SidebareComponent,
+    StatsComponent,
     ErrorsComponent,
      ProfilComponent,
      SigninComponent,
