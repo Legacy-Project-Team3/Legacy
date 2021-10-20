@@ -23,7 +23,7 @@ import { CheckpointComponent } from './student/checkpoint/checkpoint.component';
 import { ExerciceComponent } from './student/exercice/exercice.component';
 import { MessangerComponent } from './student/messanger/messanger.component';
 import { ManageAccountComponent } from './student/manage-account/manage-account.component';
-import { CalendarComponent } from './student/calendar/calendar.component';
+// import { CalendarComponent } from './student/calendar/calendar.component';
 /*student*/
 import { ReactiveFormsModule } from '@angular/forms';
 // teacher
@@ -37,6 +37,7 @@ import { CreatLectureComponent } from './creat-lecture/creat-lecture.component';
 import { CalanderComponent } from './calander/calander.component';
 import { RequestComponent } from './request/request.component';
 import { ChckpointToDoComponent } from './student/checkpoint/chckpoint-to-do/chckpoint-to-do.component';
+import { CalendarstudentComponent } from './student/calendarstudent/calendarstudent.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
@@ -44,7 +45,7 @@ const appRoutes:Routes=[
   {path:'request',component:RequestComponent},
   //student path 
   {path:'cours',component:CreatLectureComponent},
-  {path:'calander',component:CalanderComponent},
+  {path:'calander/student',component:CalanderComponent},
   {path:"student",component:StudentComponent},
   {path:"signup-student",component:SignUpComponentStudent},
   {path:"student-Signin",component:SignInComponentStudent},
@@ -99,8 +100,9 @@ FullCalendarModule.registerPlugins([
      CardComponent,
      ManageAccountComponent,
      MessangerComponent,
-     CalendarComponent,
-     ChckpointToDoComponent
+    //  CalendarComponent,
+     ChckpointToDoComponent,
+     CalendarstudentComponent
   ],
   imports: [
     BrowserModule,
