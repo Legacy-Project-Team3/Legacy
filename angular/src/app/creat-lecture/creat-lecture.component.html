@@ -1,1 +1,456 @@
-<p>creat-lecture works!</p>
+<nav class="bg-indigo-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="white">
+              <path d="M12 14l9-5-9-5-9 5 9 5z" />
+              <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+            </svg>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              <a  class="text-gray-50 hover:bg-white hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium no-underline" routerLink='../teacher'  >Home</a>
+  
+              <a  class="text-gray-50 hover:bg-white hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium no-underline" routerLink='../request' >Requests</a>
+  
+              <a  class="text-gray-50 hover:bg-white hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium no-underline" routerLink='../cours'>Courses</a>
+  
+              <a  class="text-gray-50 hover:bg-white hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium no-underline" routerLink='../calander'>Calendar</a>
+  
+            </div>
+          </div>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-4 flex items-center md:ml-6">
+  
+  
+            <!-- Profile dropdown -->
+            <div class="ml-3 relative">
+              <div>
+                <button type="button" class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                  <span class="sr-only">Open user menu</span>
+                  <img class="h-8 w-8 rounded-full" routerLink='../profil' src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                </button>
+              </div>
+  
+  
+            </div>
+          </div>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <!-- Mobile menu button -->
+          <button type="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <!--
+              Heroicon name: outline/menu
+  
+              Menu open: "hidden", Menu closed: "block"
+            -->
+            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <!--
+              Heroicon name: outline/x
+  
+              Menu open: "block", Menu closed: "hidden"
+            -->
+            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="md:hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+        <a  class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
+  
+        <a  class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
+  
+        <a  class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+  
+        <a  class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
+  
+        <a  class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Reports</a>
+      </div>
+      <div class="pt-4 pb-3 border-t border-gray-700">
+        <div class="flex items-center px-5">
+          <div class="flex-shrink-0">
+            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+          </div>
+          <div class="ml-3">
+            <div class="text-base font-medium leading-none text-white">Tom Cook</div>
+            <div class="text-sm font-medium leading-none text-gray-400">tom@example.com</div>
+          </div>
+          <button type="button" class="ml-auto bg-gray-800 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+            <span class="sr-only">View notifications</span>
+            <!-- Heroicon name: outline/bell -->
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+            </svg>
+          </button>
+        </div>
+        <div class="mt-3 px-2 space-y-1">
+          <a  class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Your Profile</a>
+  
+          <a  class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Settings</a>
+  
+          <a  class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Sign out</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div
+    class="
+      row-span-5
+      grid grid-cols-12
+      py-14
+      space-x-2.5
+      justify-around
+      ml-2
+      mr-2
+      -mt-44
+      height
+    "
+  >
+    <div class="col-span-12 rounded overflow-hidden shadow-lg max-h-full">
+      <div class="min-h-screen pt-2 font-mono my-16">
+        <div class="container mx-auto">
+          <div class="inputs w-full max-w-2xl p-6 mx-auto">
+            <h2 class="text-2xl text-indigo-700 text-center">
+              Account Setting
+            </h2>
+            <form class="mt-6 border-t border-indigo-700 pt-4">
+              <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full md:w-full px-3 mb-6">
+                  <label
+                    class="
+                      block
+                      uppercase
+                      tracking-wide
+                      text-gray-700 text-xs
+                      font-bold
+                      mb-2
+                    "
+                    for="grid-text-1"
+                    >email address</label
+                  >
+                  <input
+                    class="
+                      appearance-none
+                      block
+                      w-full
+                      bg-white
+                      text-gray-700
+                      border border-gray-400
+                      shadow-inner
+                      rounded-md
+                      py-3
+                      px-4
+                      leading-tight
+                      focus:outline-none focus:border-gray-500
+                    "
+                    id="grid-text-1"
+                    type="text"
+                    placeholder="Enter email"
+                    required
+                  />
+                </div>
+                <div class="w-full md:w-full px-3 mb-6">
+                  <label
+                    class="
+                      block
+                      uppercase
+                      tracking-wide
+                      text-gray-700 text-xs
+                      font-bold
+                      mb-2
+                    "
+                    for="grid-text-1"
+                    >change password</label
+                  >
+                  <input
+                    class="
+                      appearance-none
+                      block
+                      w-full
+                      bg-white
+                      text-gray-700
+                      border border-gray-400
+                      shadow-inner
+                      rounded-md
+                      py-3
+                      px-4
+                      leading-tight
+                      focus:outline-none focus:border-gray-500
+                    "
+                    id="grid-text-1"
+                    type="text"
+                    placeholder="Enter password"
+                    required
+                  />
+                </div>
+
+                <div class="w-full md:w-full px-3 mb-6">
+                  <label
+                    class="
+                      block
+                      uppercase
+                      tracking-wide
+                      text-gray-700 text-xs
+                      font-bold
+                      mb-2
+                    "
+                    for="grid-text-1"
+                    >confirm password</label
+                  >
+                  <input
+                    class="
+                      appearance-none
+                      block
+                      w-full
+                      bg-white
+                      text-gray-700
+                      border border-gray-400
+                      shadow-inner
+                      rounded-md
+                      py-3
+                      px-4
+                      leading-tight
+                      focus:outline-none focus:border-gray-500
+                    "
+                    id="grid-text-1"
+                    type="text"
+                    placeholder="Confirm password"
+                    required
+                  />
+                </div>
+
+                <div class="personal w-full border-t border-indigo-700 pt-4">
+                  <h2 class="text-2xl text-indigo-700 text-center">
+                    Personal info
+                  </h2>
+                  <div class="flex items-center justify-between mt-4">
+                    <div class="w-full md:w-1/2 px-3 mb-6">
+                      <label
+                        class="
+                          block
+                          uppercase
+                          tracking-wide
+                          text-gray-700 text-xs
+                          font-bold
+                          mb-2
+                        "
+                        >first name</label
+                      >
+                      <input
+                        class="
+                          appearance-none
+                          block
+                          w-full
+                          bg-white
+                          text-gray-700
+                          border border-gray-400
+                          shadow-inner
+                          rounded-md
+                          py-3
+                          px-4
+                          leading-tight
+                          focus:outline-none focus:border-gray-500
+                        "
+                        type="text"
+                        required
+                      />
+                    </div>
+                    <div class="w-full md:w-1/2 px-3 mb-6">
+                      <label
+                        class="
+                          block
+                          uppercase
+                          tracking-wide
+                          text-gray-700 text-xs
+                          font-bold
+                          mb-2
+                        "
+                        >last name</label
+                      >
+                      <input
+                        class="
+                          appearance-none
+                          block
+                          w-full
+                          bg-white
+                          text-gray-700
+                          border border-gray-400
+                          shadow-inner
+                          rounded-md
+                          py-3
+                          px-4
+                          leading-tight
+                          focus:outline-none focus:border-gray-500
+                        "
+                        type="text"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-between mt-4">
+                    <div class="w-full md:w-1/2 px-3 mb-6">
+                      <label
+                        class="
+                          block
+                          uppercase
+                          tracking-wide
+                          text-gray-700 text-xs
+                          font-bold
+                          mb-2
+                        "
+                        >age</label
+                      >
+                      <input
+                        class="
+                          appearance-none
+                          block
+                          w-full
+                          bg-white
+                          text-gray-700
+                          border border-gray-400
+                          shadow-inner
+                          rounded-md
+                          py-3
+                          px-4
+                          leading-tight
+                          focus:outline-none focus:border-gray-500
+                        "
+                        type="number"
+                        required
+                      />
+                    </div>
+                    <div class="w-full md:w-1/2 px-3 mb-6">
+                      <label
+                        class="
+                          block
+                          uppercase
+                          tracking-wide
+                          text-gray-700 text-xs
+                          font-bold
+                          mb-2
+                        "
+                        >phone</label
+                      >
+                      <input
+                        class="
+                          appearance-none
+                          block
+                          w-full
+                          bg-white
+                          text-gray-700
+                          border border-gray-400
+                          shadow-inner
+                          rounded-md
+                          py-3
+                          px-4
+                          leading-tight
+                          focus:outline-none focus:border-gray-500
+                        "
+                        type="number"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="w-full md:w-full px-3 mb-6">
+                    <label
+                      class="
+                        block
+                        uppercase
+                        tracking-wide
+                        text-gray-700 text-xs
+                        font-bold
+                        mb-2
+                      "
+                      >user name</label
+                    >
+                    <input
+                      class="
+                        appearance-none
+                        block
+                        w-full
+                        bg-white
+                        text-gray-700
+                        border border-gray-400
+                        shadow-inner
+                        rounded-md
+                        py-3
+                        px-4
+                        leading-tight
+                        focus:outline-none focus:border-gray-500
+                      "
+                      type="text"
+                      required
+                    />
+                  </div>
+                  <div class="w-full md:w-full px-3 mb-6">
+                    <label
+                      class="
+                        w-64
+                        flex flex-col
+                        items-center
+                        px-4
+                        py-6
+                        bg-white
+                        rounded-md
+                        shadow-md
+                        tracking-wide
+                        uppercase
+                        border border-blue
+                        cursor-pointer
+                        hover:bg-indigo-700 hover:text-white
+                        text-indigo-700
+                        ease-linear
+                        transition-all
+                        duration-150
+                      "
+                    >
+                      <i class="fas fa-cloud-upload-alt fa-3x"></i>
+                      <span class="mt-2 text-base leading-normal"
+                        >change photo</span
+                      >
+                      <input type="file" class="hidden" />
+                    </label>
+                  </div>
+
+                  <div class="flex justify-end">
+                    <button
+                      class="
+                        appearance-none
+                        px-2
+                        py-1
+                        hover:bg-indigo-700
+                        border-none
+                        text-indigo-700
+                        border-white-400
+                        rounded-md
+                        shadow-inner
+                        hover:text-white
+                        mr-3
+                      "
+                      type="submit"
+                    >
+                      save changes
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
