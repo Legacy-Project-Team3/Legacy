@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, NgModule } from '@angular/core';
+import { appRoutes} from '../../app.module.ts'
 @Component({
   selector: 'app-sidebare',
   templateUrl: './sidebare.component.html',
