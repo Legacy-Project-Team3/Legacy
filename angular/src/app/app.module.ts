@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { TeacherComponent } from './teacher/teacher.component';
-import { StudentComponent } from './student/student.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -25,6 +24,7 @@ import { StatsComponent } from './admin/stats/stats.component';
 import { SidebareComponent } from './admin/sidebare/sidebare.component';
 import { TeatchersComponent } from './admin/teatchers/teatchers.component';
 /*student*/
+import { StudentComponent } from './student/student.component';
 import { SignInComponentStudent } from './student/sign-in/sign-in.component';
 import { SignUpComponentStudent } from './student/sign-up/sign-up.component';
 import {NavbarComponent1} from "./student/navbar/navbar.component";
@@ -40,7 +40,7 @@ const appRoutes:Routes=[
   {path:'teacher',component:TeacherComponent},
   {path:'profil',component:ProfilComponent},
   {path:'request',component:RequestComponent},
-  //student
+  //student path 
   {path:"student",component:StudentComponent},
   {path:"signup-student",component:SignUpComponentStudent},
   {path:"student-Signin",component:SignInComponentStudent},
@@ -49,7 +49,7 @@ const appRoutes:Routes=[
   {path:"student-Checkpoint",component:CheckpointComponent},
   {path:"student-Messanger",component:MessangerComponent},
   {path:"student-Account",component:ManageAccountComponent},
-  //student
+  //student path 
   {path:'signin',component:SigninComponent},
   {path:'signup',component:SignupComponent},
   {path:'request',component:RequestComponent},
@@ -69,7 +69,6 @@ FullCalendarModule.registerPlugins([
     HomeComponent,
     TeatchersComponent,
     AdminComponent,
-
     ErrorsComponent,
      ProfilComponent,
      RequestComponent,
@@ -82,7 +81,6 @@ FullCalendarModule.registerPlugins([
      ExerciceComponent,
      SignInComponentStudent,
      SignUpComponentStudent,
-   
     SidebareComponent,
     StatsComponent,
     ErrorsComponent,
