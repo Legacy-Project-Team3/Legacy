@@ -1,1 +1,77 @@
-<p>calander works!</p>
+<div class="  grid grid-row-6  min-h-screen">
+
+
+  <div class="row-span-1  grid grid-row-2 ">
+
+      <div class="  row-span-1">
+        <app-navbar></app-navbar>
+      </div>
+      <div class=" row-span-1">
+        <h1 class="text-center text-xl text-indigo-500 font-semibold">
+          Welcome Our Teacher
+        </h1>
+      </div>
+
+  </div>
+  <div class="row-span-5 grid  ">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <full-calendar [options]="calendarOptions"></full-calendar>
+        </div>
+      </div>
+    </div>
+    <!--Modal PopUp with Add Event Form-->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h4 class="modal-title align-center"></h4>
+            <button type="button" class="close" (click)="hideForm()" data-dismiss="modal">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <form [formGroup]="addEventForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                 <div class="col-sm-12">
+                    <div class="form-group">
+                          <label>Event Title</label>
+                          <input placeholder="Add Event Title" type="text" formControlName="title" class="titleinp form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" />
+                          <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                                <div *ngIf="f.title.errors.required">Title is required</div>
+                          </div>
+                       </div>
+                 </div>
+                 <div class="col-sm-12">
+                  <div class="form-group">
+                        <label>Event Date:</label>
+                        <div class="form-control eventstarttitle"></div>
+                     </div>
+               </div>
+
+
+
+              </div>
+             <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <!-- Does this resource worth a follow? -->
+  <footer class="bg-indigo-700">
+    <div class=" text-white text-center pt-4">
+        Team FRDG - All Rights Reserved
+    </div>
+    <div class=" text-white text-center pb-4 ">
+        2021
+    </div>
+</footer></div>
