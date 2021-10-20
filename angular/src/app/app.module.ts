@@ -2,7 +2,6 @@ import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { AdminComponent } from './admin/admin.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorsComponent } from './errors/errors.component';
 import { ProfilComponent } from './profil/profil.component';
@@ -33,9 +32,6 @@ import { CardComponent } from './card/card.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CreatLectureComponent } from './creat-lecture/creat-lecture.component';
 import { CalanderComponent } from './calander/calander.component';
-import { StatsComponent } from './admin/stats/stats.component';
-import { SidebareComponent } from './admin/sidebare/sidebare.component';
-import { TeatchersComponent } from './admin/teatchers/teatchers.component';
 import { ChartModule } from '@syncfusion/ej2-angular-charts';
 import { GridModule } from '@syncfusion/ej2-angular-grids';
 import { PageService } from '@syncfusion/ej2-angular-grids';
@@ -43,10 +39,17 @@ import { AccumulationChartModule } from '@syncfusion/ej2-angular-charts';
 import { DialogModule } from '@syncfusion/ej2-angular-popups';
 import { PieSeriesService, AccumulationTooltipService, AccumulationDataLabelService } from '@syncfusion/ej2-angular-charts';
 import {
-    LineSeriesService, DateTimeService, DataLabelService, StackingColumnSeriesService, CategoryService,
-    StepAreaSeriesService, SplineSeriesService, ScrollBarService, ChartAnnotationService, LegendService, TooltipService, StripLineService,
-    SelectionService, ScatterSeriesService, ZoomService, ColumnSeriesService, AreaSeriesService, RangeAreaSeriesService
+  LineSeriesService, DateTimeService, DataLabelService, StackingColumnSeriesService, CategoryService,
+  StepAreaSeriesService, SplineSeriesService, ScrollBarService, ChartAnnotationService, LegendService, TooltipService, StripLineService,
+  SelectionService, ScatterSeriesService, ZoomService, ColumnSeriesService, AreaSeriesService, RangeAreaSeriesService
 } from '@syncfusion/ej2-angular-charts';
+//Admin//
+import { StudentsComponent } from './admin/students/students.component';
+import { HomevueComponent } from './admin/homevue/homevue.component';
+import { StatsComponent } from './admin/stats/stats.component';
+import { SidebareComponent } from './admin/sidebare/sidebare.component';
+import { TeatchersComponent } from './admin/teatchers/teatchers.component';
+import { AdminComponent } from './admin/admin.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
@@ -68,6 +71,9 @@ const appRoutes:Routes=[
   {path:'signup',component:SignupComponent},
   {path:'request',component:RequestComponent},
   {path:'admin',component:AdminComponent},
+  {path:'teatchers',component:TeatchersComponent},
+  {path:'stats',component:StatsComponent},
+  {path:'students',component:StudentsComponent},
   {path:'**',component:ErrorsComponent}
 ]
 FullCalendarModule.registerPlugins([
@@ -106,7 +112,9 @@ FullCalendarModule.registerPlugins([
      CardComponent,
      ManageAccountComponent,
      MessangerComponent,
-     CalendarComponent
+     CalendarComponent,
+     StudentsComponent,
+     HomevueComponent
   ],
   imports: [
   BrowserModule,
