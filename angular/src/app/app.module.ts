@@ -11,12 +11,16 @@ import { ErrorsComponent } from './errors/errors.component';
 import { ProfilComponent } from './profil/profil.component';
 import { SigninComponent } from './home/signin/signin.component';
 import { SignupComponent } from './home/signup/signup.component';
+import { RequestComponent } from './request/request.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CardComponent } from './card/card.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
   {path:'profil',component:ProfilComponent},
   {path:'signin',component:SigninComponent},
   {path:'signup',component:SignupComponent},
+  {path:'request',component:RequestComponent},
   {path:'**',component:ErrorsComponent}
 ]
 @NgModule({
@@ -31,6 +35,9 @@ const appRoutes:Routes=[
      ProfilComponent,
      SigninComponent,
      SignupComponent,
+     RequestComponent,
+     NavbarComponent,
+     CardComponent
   ],
   imports: [
     BrowserModule,
