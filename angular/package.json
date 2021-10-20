@@ -19,6 +19,8 @@
     "@angular/platform-browser": "~11.2.14",
     "@angular/platform-browser-dynamic": "~11.2.14",
     "@angular/router": "~11.2.14",
+    "@fullcalendar/angular": "^5.10.0",
+    "@fullcalendar/daygrid": "^5.10.0",
     "@ngneat/tailwind": "^7.0.3",
     "ngx-build-plus": "^11.0.0",
     "rxjs": "~6.6.0",

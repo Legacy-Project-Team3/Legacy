@@ -12,11 +12,16 @@ import { ProfilComponent } from './profil/profil.component';
 import { RequestComponent } from './request/request.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CardComponent } from './card/card.component';
+import { CreatLectureComponent } from './creat-lecture/creat-lecture.component';
+import { CalanderComponent } from './calander/calander.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
   {path:'profil',component:ProfilComponent},
   {path:'request',component:RequestComponent},
+  {path:'cours',component:CreatLectureComponent},
+  {path:'calander',component:CalanderComponent},
+
   {path:'**',component:ErrorsComponent}
 ]
 @NgModule({
@@ -31,7 +36,9 @@ const appRoutes:Routes=[
      ProfilComponent,
      RequestComponent,
      NavbarComponent,
-     CardComponent
+     CardComponent,
+     CreatLectureComponent,
+     CalanderComponent
   ],
   imports: [
     BrowserModule,
