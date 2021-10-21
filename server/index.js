@@ -25,7 +25,9 @@ app.use("/", Exercice)
 app.use("/", checkPoint)
 app.use("/", result)
 app.use("/", contactUs)
-
+app.get("/test",(req,res)=>{
+  res.send("adzazd")
+})
 var PORT = 3002;
 
 app.listen(PORT, function () {
