@@ -1,0 +1,7 @@
+.text-hover{
+    color: white!important;
+}
+.text-hover:hover{
+    color: rgb(65, 21, 226)!important;
+
+}
