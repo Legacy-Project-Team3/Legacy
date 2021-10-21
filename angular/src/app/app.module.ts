@@ -102,7 +102,8 @@ FullCalendarModule.registerPlugins([
      ManageAccountComponent,
      MessangerComponent,
      CalendarComponent,
-     ChatComponent
+     ChatComponent,
+     LectureComponent
   ],
   imports: [
     BrowserModule,
