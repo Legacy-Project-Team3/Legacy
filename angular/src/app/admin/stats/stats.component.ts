@@ -19,9 +19,9 @@ export class StatsComponent implements OnInit {
     this.marker = { visible: true };
   }
   Add() {
-   this.id = 'chart-container' + this.i;
+   this.id = 'chart-container' + this.id;
     var item = {
-      "id":this.id,
+      "id":this.i,
       }
     this.items.push(item);
      this.i++;

@@ -46,3 +46,40 @@ exports.CheckIfThePassRight = (req, res) => {
     })
 
 }
+
+// delete a teacher
+exports.deleteOneTeacher = (req,res) => {
+    if(!req.body){
+        return res.status(400).send('can not delet this Teacher');
+    }
+    const Email = req.params.Email;
+    School.createTeacherSchema.findOneAndRemove({email:Email})
+    .then(data=>{
+        if(!data){
+            res.status(404).send('Can not delet this check again');
+        } else {
+            res.send('data deleted suscefuly');
+        }
+    })
+    .catch(err => {
+        res.status.send(err)
+    });
+};
+//delete a student
+exports.deleteOneStudent = (req,res) => {
+   if(!req.body){
+       return res.status(400).send('can not delet this Teacher');
+   }
+   const Email = req.params.Email;
+   School.createStudentSchema.findOneAndRemove({email:Email})
+   .then(data=>{
+       if(!data){
+           res.status(404).send('Can not delet this check again');
+       } else {
+           res.send('data deleted suscefuly');
+       }
+   })
+   .catch(err => {
+       res.status.send(err)
+   });
+}; 
