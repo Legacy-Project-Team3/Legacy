@@ -1,7 +1,8 @@
-var mongoose = require('mongoose');
-var mongoUri = 'mongodb://localhost/pokemon';
 
-var db=mongoose.connect(mongoUri).then(()=>{
+var mongoose = require('mongoose');
+const { MONGO_URI } = process.env;
+
+var db=mongoose.connect(MONGO_URI).then(()=>{
     console.log("data connected ")
 })
 
