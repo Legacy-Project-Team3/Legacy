@@ -1,352 +1,97 @@
 <div class="grid grid-rows-6 min-h-screen">
   <app-navbar-student></app-navbar-student>
-
-  <div
-    class="
-      row-span-5
-      grid grid-cols-12
-      py-14
-      space-x-2.5
-      justify-around
-      ml-2
-      mr-2
-      -mt-44
-      height
-    "
-  >
-    <div class="col-span-12 rounded overflow-hidden shadow-lg max-h-full">
-      <div class="min-h-screen pt-2 font-mono my-16">
-        <div class="container mx-auto">
-          <div class="inputs w-full max-w-2xl p-6 mx-auto">
-            <h2 class="text-2xl text-indigo-700 text-center">
-              Account Setting
-            </h2>
-            <form class="mt-6 border-t border-indigo-700 pt-4">
-              <div class="flex flex-wrap -mx-3 mb-6">
-                <div class="w-full md:w-full px-3 mb-6">
-                  <label
-                    class="
-                      block
-                      uppercase
-                      tracking-wide
-                      text-gray-700 text-xs
-                      font-bold
-                      mb-2
-                    "
-                    for="grid-text-1"
-                    >email address</label
-                  >
-                  <input
-                    class="
-                      appearance-none
-                      block
-                      w-full
-                      bg-white
-                      text-gray-700
-                      border border-gray-400
-                      shadow-inner
-                      rounded-md
-                      py-3
-                      px-4
-                      leading-tight
-                      focus:outline-none focus:border-gray-500
-                    "
-                    id="grid-text-1"
-                    type="text"
-                    placeholder="Enter email"
-                    required
-                  />
-                </div>
-                <div class="w-full md:w-full px-3 mb-6">
-                  <label
-                    class="
-                      block
-                      uppercase
-                      tracking-wide
-                      text-gray-700 text-xs
-                      font-bold
-                      mb-2
-                    "
-                    for="grid-text-1"
-                    >change password</label
-                  >
-                  <input
-                    class="
-                      appearance-none
-                      block
-                      w-full
-                      bg-white
-                      text-gray-700
-                      border border-gray-400
-                      shadow-inner
-                      rounded-md
-                      py-3
-                      px-4
-                      leading-tight
-                      focus:outline-none focus:border-gray-500
-                    "
-                    id="grid-text-1"
-                    type="text"
-                    placeholder="Enter password"
-                    required
-                  />
-                </div>
-
-                <div class="w-full md:w-full px-3 mb-6">
-                  <label
-                    class="
-                      block
-                      uppercase
-                      tracking-wide
-                      text-gray-700 text-xs
-                      font-bold
-                      mb-2
-                    "
-                    for="grid-text-1"
-                    >confirm password</label
-                  >
-                  <input
-                    class="
-                      appearance-none
-                      block
-                      w-full
-                      bg-white
-                      text-gray-700
-                      border border-gray-400
-                      shadow-inner
-                      rounded-md
-                      py-3
-                      px-4
-                      leading-tight
-                      focus:outline-none focus:border-gray-500
-                    "
-                    id="grid-text-1"
-                    type="text"
-                    placeholder="Confirm password"
-                    required
-                  />
-                </div>
-
-                <div class="personal w-full border-t border-indigo-700 pt-4">
-                  <h2 class="text-2xl text-indigo-700 text-center">
-                    Personal info
-                  </h2>
-                  <div class="flex items-center justify-between mt-4">
-                    <div class="w-full md:w-1/2 px-3 mb-6">
-                      <label
-                        class="
-                          block
-                          uppercase
-                          tracking-wide
-                          text-gray-700 text-xs
-                          font-bold
-                          mb-2
-                        "
-                        >first name</label
-                      >
-                      <input
-                        class="
-                          appearance-none
-                          block
-                          w-full
-                          bg-white
-                          text-gray-700
-                          border border-gray-400
-                          shadow-inner
-                          rounded-md
-                          py-3
-                          px-4
-                          leading-tight
-                          focus:outline-none focus:border-gray-500
-                        "
-                        type="text"
-                        required
-                      />
-                    </div>
-                    <div class="w-full md:w-1/2 px-3 mb-6">
-                      <label
-                        class="
-                          block
-                          uppercase
-                          tracking-wide
-                          text-gray-700 text-xs
-                          font-bold
-                          mb-2
-                        "
-                        >last name</label
-                      >
-                      <input
-                        class="
-                          appearance-none
-                          block
-                          w-full
-                          bg-white
-                          text-gray-700
-                          border border-gray-400
-                          shadow-inner
-                          rounded-md
-                          py-3
-                          px-4
-                          leading-tight
-                          focus:outline-none focus:border-gray-500
-                        "
-                        type="text"
-                        required
-                      />
-                    </div>
+  <div class=" row-span-5 grid grid-cols-12 py-14 space-x-2.5 justify-around ml-2 mr-2 -mt-44 height">
+      <div class="col-span-12  rounded overflow-hidden  shadow-lg max-h-full ">
+          <div class=" min-h-screen pt-2 font-mono my-16">
+              <div class="container mx-auto">
+                  <div class="inputs w-full max-w-2xl p-6 mx-auto">
+                      <h2 class="text-2xl text-indigo-700 text-center">Account Setting</h2>
+                      <form class="mt-6 border-t border-indigo-700 pt-4">
+                          <div class='flex flex-wrap -mx-3 mb-6'>
+                              <div class='w-full md:w-full px-3 mb-6'>
+                                  <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
+                                      for='grid-text-1'>email address</label>
+                                  <input
+                                      class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                                      id='grid-text-1' type='text' placeholder='Enter email' required>
+                              </div>
+                              <div class='w-full md:w-full px-3 mb-6 '>
+                                  <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
+                                      for='grid-text-1'>change password</label>
+                                  <input
+                                      class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                                      id='grid-text-1' type='text' placeholder='Enter password' required>
+                              </div>
+                              <div class='w-full md:w-full px-3 mb-6 '>
+                                  <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
+                                      for='grid-text-1'>confirm password</label>
+                                  <input
+                                      class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                                      id='grid-text-1' type='text' placeholder='Confirm password' required>
+                              </div>
+                              <div class="personal w-full border-t border-indigo-700 pt-4">
+                                  <h2 class="text-2xl text-indigo-700 text-center">Personal info</h2>
+                                  <div class="flex items-center justify-between mt-4">
+                                      <div class='w-full md:w-1/2 px-3 mb-6'>
+                                          <label
+                                              class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>first
+                                              name</label>
+                                          <input
+                                              class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                                              type='text' required>
+                                      </div>
+                                      <div class='w-full md:w-1/2 px-3 mb-6'>
+                                          <label
+                                              class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>last
+                                              name</label>
+                                          <input
+                                              class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                                              type='text' required>
+                                      </div>
+                                  </div>
+                                  <div class="flex items-center justify-between mt-4">
+                                      <div class='w-full md:w-1/2 px-3 mb-6'>
+                                          <label
+                                              class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>age</label>
+                                          <input
+                                              class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                                              type='number' required>
+                                      </div>
+                                      <div class='w-full md:w-1/2 px-3 mb-6'>
+                                          <label
+                                              class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>phone</label>
+                                          <input
+                                              class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                                              type='number' required>
+                                      </div>
+                                  </div>
+                                  <div class='w-full md:w-full px-3 mb-6'>
+                                      <label
+                                          class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>user
+                                          name</label>
+                                      <input
+                                          class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                                          type='text' required>
+                                  </div>
+                                  <div class='w-full md:w-full px-3 mb-6'>
+                                      <label
+                                          class="w-64 flex flex-col items-center px-4 py-6 bg-white rounded-md change-color shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-indigo-700 hover:text-white text-indigo-700 ease-linear transition-all duration-150">
+                                          <i class="fas fa-cloud-upload-alt fa-3x"></i>
+                                          <span class="mt-2 text-base leading-normal">change photo</span>
+                                          <input type='file' class="hidden" />
+                                      </label>
+                                  </div>
+                                  <div class="flex justify-end">
+                                      <button
+                                          class="appearance-none   px-2 py-1   border-none bg-indigo-700 hover:bg-white change-text-color text-white border-white-400 rounded-md shadow-inner    mr-3 transition-all duration-150"
+                                          type="submit">Save changes</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </form>
                   </div>
-
-                  <div class="flex items-center justify-between mt-4">
-                    <div class="w-full md:w-1/2 px-3 mb-6">
-                      <label
-                        class="
-                          block
-                          uppercase
-                          tracking-wide
-                          text-gray-700 text-xs
-                          font-bold
-                          mb-2
-                        "
-                        >age</label
-                      >
-                      <input
-                        class="
-                          appearance-none
-                          block
-                          w-full
-                          bg-white
-                          text-gray-700
-                          border border-gray-400
-                          shadow-inner
-                          rounded-md
-                          py-3
-                          px-4
-                          leading-tight
-                          focus:outline-none focus:border-gray-500
-                        "
-                        type="number"
-                        required
-                      />
-                    </div>
-                    <div class="w-full md:w-1/2 px-3 mb-6">
-                      <label
-                        class="
-                          block
-                          uppercase
-                          tracking-wide
-                          text-gray-700 text-xs
-                          font-bold
-                          mb-2
-                        "
-                        >phone</label
-                      >
-                      <input
-                        class="
-                          appearance-none
-                          block
-                          w-full
-                          bg-white
-                          text-gray-700
-                          border border-gray-400
-                          shadow-inner
-                          rounded-md
-                          py-3
-                          px-4
-                          leading-tight
-                          focus:outline-none focus:border-gray-500
-                        "
-                        type="number"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div class="w-full md:w-full px-3 mb-6">
-                    <label
-                      class="
-                        block
-                        uppercase
-                        tracking-wide
-                        text-gray-700 text-xs
-                        font-bold
-                        mb-2
-                      "
-                      >user name</label
-                    >
-                    <input
-                      class="
-                        appearance-none
-                        block
-                        w-full
-                        bg-white
-                        text-gray-700
-                        border border-gray-400
-                        shadow-inner
-                        rounded-md
-                        py-3
-                        px-4
-                        leading-tight
-                        focus:outline-none focus:border-gray-500
-                      "
-                      type="text"
-                      required
-                    />
-                  </div>
-                  <div class="w-full md:w-full px-3 mb-6">
-                    <label
-                      class="
-                        w-64
-                        flex flex-col
-                        items-center
-                        px-4
-                        py-6
-                        bg-white
-                        rounded-md
-                        shadow-md
-                        tracking-wide
-                        uppercase
-                        border border-blue
-                        cursor-pointer
-                        hover:bg-indigo-700 hover:text-white
-                        text-indigo-700
-                        ease-linear
-                        transition-all
-                        duration-150
-                      "
-                    >
-                      <i class="fas fa-cloud-upload-alt fa-3x"></i>
-                      <span class="mt-2 text-base leading-normal"
-                        >change photo</span
-                      >
-                      <input type="file" class="hidden" />
-                    </label>
-                  </div>
-
-                  <div class="flex justify-end">
-                    <button
-                      class="
-                        appearance-none
-                        px-2
-                        py-1
-                        hover:bg-indigo-700
-                        border-none
-                        text-indigo-700
-                        border-white-400
-                        rounded-md
-                        shadow-inner
-                        hover:text-white
-                        mr-3
-                      "
-                      type="submit"
-                    >
-                      save changes
-                    </button>
-                  </div>
-                </div>
               </div>
-            </form>
           </div>
-        </div>
       </div>
-    </div>
   </div>
 </div>
