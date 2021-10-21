@@ -1,7 +1,7 @@
 // This is the model
 
 var mongoose = require('mongoose');
-const db = require('../db/index.js');
+//const db = require('../db/index.js');
 mongoose.Promise = global.Promise;
 
 
