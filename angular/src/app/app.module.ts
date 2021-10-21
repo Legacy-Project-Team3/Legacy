@@ -10,6 +10,7 @@ import { ProfilComponent } from './teacher/profil/profil.component';
 import { StudentComponent } from './student/student.component';
 import { SignInComponentStudent } from './student/sign-in/sign-in.component';
 import { SignUpComponentStudent } from './student/sign-up/sign-up.component';
+
 import {NavbarComponent1} from "./student/navbar/navbar.component";
 import { SidebarComponent } from './student/sidebar/sidebar.component';
 import { LectureComponent } from './teacher/lecture/lecture.component';
@@ -17,12 +18,16 @@ import { CheckpointComponent } from './student/checkpoint/checkpoint.component';
 import { ExerciceComponent } from './student/exercice/exercice.component';
 import { MessangerComponent } from './student/messanger/messanger.component';
 import { ManageAccountComponent } from './student/manage-account/manage-account.component';
-import { CalendarComponent } from './student/calendar/calendar.component';
+import {CalendarstudentComponent} from "./student/calendarstudent/calendarstudent.component"
 /*student*/
 import { ReactiveFormsModule } from '@angular/forms';
 // teacher
 import { TeacherComponent } from './teacher/teacher.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+
+import { ChckpointToDoComponent } from './student/checkpoint/chckpoint-to-do/chckpoint-to-do.component';
 import { SigninComponent } from './home/signin/signin.component';
 import { SignupComponent } from './home/signup/signup.component';
 import { ChartModule } from '@syncfusion/ej2-angular-charts';
@@ -61,7 +66,7 @@ const appRoutes:Routes=[
   {path:'chat',component:ChatComponent},
   //student path component
   {path:'cours',component:CreatLectureComponent},
-  {path:'calander',component:CalanderComponent},
+  {path:'calander/student',component:CalendarstudentComponent},
   {path:"student",component:StudentComponent},
   {path:"signup-student",component:SignUpComponentStudent},
   {path:"student-Signin",component:SignInComponentStudent},
@@ -70,6 +75,8 @@ const appRoutes:Routes=[
   {path:"student-Checkpoint",component:CheckpointComponent},
   {path:"student-Messanger",component:MessangerComponent},
   {path:"student-Account",component:ManageAccountComponent},
+  //student path 
+  {path:"calendar",component:CalanderComponent},
   {path:"lecture",component:LectureComponent},
   //student path
   {path:'signin',component:SigninComponent},
@@ -99,6 +106,7 @@ FullCalendarModule.registerPlugins([
      CardComponent,
      CreatLectureComponent,
      CalanderComponent,
+     CalendarstudentComponent,
      StatsComponent,
      SidebarComponent,
      LectureComponent,
@@ -118,7 +126,9 @@ FullCalendarModule.registerPlugins([
      CardComponent,
      ManageAccountComponent,
      MessangerComponent,
-     CalendarComponent,
+     CalanderComponent,
+     ChckpointToDoComponent,
+   
      StudentsComponent,
      HomevueComponent,
      ClassComponent,

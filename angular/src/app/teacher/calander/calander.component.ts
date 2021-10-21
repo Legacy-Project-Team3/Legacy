@@ -28,7 +28,7 @@ constructor(private formBuilder: FormBuilder){}
   ngOnInit() {
     this.calendarOptions = {
       initialView: 'dayGridMonth',
-      // dateClick: this.handleDateClick.bind(this),
+      dateClick: this.handleDateClick.bind(this),
     events: [
       { title: 'event 1', date: '2021-10-20' },
       { title: 'event 2', date: '2021-10-30' }
