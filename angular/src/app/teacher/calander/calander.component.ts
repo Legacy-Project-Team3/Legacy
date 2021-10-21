@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare let $: any;
 import { CalendarOptions } from '@fullcalendar/angular';
 import Swal from 'sweetalert2';
-
 @Component({
   selector: 'app-calander',
   templateUrl: './calander.component.html',
@@ -15,17 +14,11 @@ export class CalanderComponent {
   //Add user form actions
   get f() { return this.addEventForm.controls; }
  onSubmit() {
-
   this.submitted = true;
   // stop here if form is invalid and reset the validations
   this.addEventForm.get('title').setValidators([Validators.required]);
   this.addEventForm.get('title').updateValueAndValidity();
-
-
   if (this.addEventForm.invalid) {
-
-
-
       return Swal.fire('You must make title to your event');
   }
 }
@@ -52,7 +45,6 @@ handleDateClick(arg) {
   $(".modal-title, .eventstarttitle").text("");
   $(".modal-title").text("Add Event at : "+arg.dateStr);
   $(".eventstarttitle").text(arg.dateStr);
-
 }
 //Hide Modal PopUp and clear the form validations
 hideForm(){
