@@ -1,1 +1,29 @@
-GET http://localhost:3002/test
+
+
+//check the register 
+POST http://localhost:3000/student/register
+
+Content-Type: application/json
+
+{
+ "StudentName":"ghassen[o",
+  "StudentLastName":"bendza mchilia"
+  , "Email":"ghar@gmail.com",
+   "Password":"123123",
+    "ImageUrl":"haha.jpeg", 
+   "Age":14,
+    "Phone":"451356" 
+}
+///check the login if it's work 
+
+# POST http://localhost:3000/student/login
+# Content-Type: application/json
+# {
+
+# }
+
+
+# ///check the valid authorization 
+# POST http://localhost:3000/student/check
+# authorization: 1cb595c13ece89450eece36aeb24d05e851d03dfdd67e18a366719b677b6d3fded95d817bbb0621d8f4d5d1753d3d44155862aa3385f0edd15667e0943bc5f73
+
