@@ -39,6 +39,10 @@ import { NavbarComponent } from './teacher/navbar/navbar.component';
 import { CreatLectureComponent } from './teacher/creat-lecture/creat-lecture.component';
 import { CalanderComponent } from './teacher/calander/calander.component';
 import { RequestComponent } from './teacher/request/request.component';
+import { ChatComponent } from './teacher/chat/chat.component';
+import { FormsModule } from '@angular/forms';
+
+
 import { ClassComponent } from './admin/class/class.component';
 import { HomevueComponent } from './admin/homevue/homevue.component';
 import { CheckpointToDoComponent } from './student/checkpoint/checkpoint-to-do/checkpoint-to-do.component';
@@ -51,11 +55,15 @@ import { StudentNavBarComponent } from './admin/student-nav-bar/student-nav-bar.
 import { ReqwestOfDeliteComponent } from './admin/reqwest-of-delite/reqwest-of-delite.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
+  //teacherpath
   {path:'teacher',component:TeacherComponent},
   {path:'profil',component:ProfilComponent},
   {path:'request',component:RequestComponent},
+  {path:'chat',component:ChatComponent},
+
   {path: 'teacher/signup', component:SignupteacherComponent},
   {path: 'teacher/signin', component:SigninteacherComponent},
+
   //student path component
   {path:'cours',component:CreatLectureComponent},
   {path:'calander',component:CalanderComponent},
@@ -66,6 +74,9 @@ const appRoutes:Routes=[
   {path:"student-Checkpoint",component:CheckpointComponent},
   {path:"student-Messanger",component:MessangerComponent},
   {path:"student-Account",component:ManageAccountComponent},
+  {path:"lecture",component:LectureComponent},
+  //student path
+
   {path:'lecture',component:LectureComponent},
   {path:'chat',component:ChatComponent},
 
@@ -122,6 +133,9 @@ FullCalendarModule.registerPlugins([
      ManageAccountComponent,
      MessangerComponent,
      CalendarComponent,
+     ChatComponent,
+     LectureComponent
+
      LectureComponent,
      ClassComponent,
      HomevueComponent,
@@ -131,13 +145,16 @@ FullCalendarModule.registerPlugins([
      StudentsTabelComponent,
      StudentNavBarComponent,
      ReqwestOfDeliteComponent
+ 
   ],
   imports: [
     BrowserModule,
     FullCalendarModule,
     ReactiveFormsModule,
     FormsModule,
+
     HttpClientModule,
+
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
