@@ -7,19 +7,19 @@ exports.createStudent = async function (req, res) {
 
     const {User, StudentName, StudentLastName, Email, Password, ImageUrl, Age, Phone } = req.body
     try {
-        if (!(StudentName && StudentLastName && Email && Password && ImageUrl && Age && Phone&&User)) {
-            res.status(400).send("all input is required")
-        }
+     
         //  if(Password){
         // check the pass with regx
         //  }   
+     if ((StudentName && StudentLastName && Email && Password && ImageUrl && Age && Phone&&User)) {
         const existingUser = await School.StudentModel.findOne({ Email })
-        if (existingUser) {
+        if  (existingUser) {
             return res.status(409).send("Student is already exist ")
-        }
+            }
+            } 
 
         // let passwordHased = await authStudent.HashPass(Password,10)
-        // console.log("here the hashed password " + passwordHased)
+      else{  // console.log("here the hashed password " + passwordHased)
         const student = await School.StudentModel.create({ StudentName, StudentLastName, Email: Email, Password, ImageUrl, Age, Phone })
         const token = jwt.sign(
             { student_id: student._id, Email },
@@ -28,10 +28,11 @@ exports.createStudent = async function (req, res) {
                 expiresIn: "1h"
             }
         )
-     
+        console.log("here is the token " + token)
         student.token = token
         res.status(201).json(student)
-       
+        console.log("check" + student)
+    }
     } catch (err) {
         console.log(err)
     }
