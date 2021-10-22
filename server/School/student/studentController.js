@@ -74,8 +74,17 @@ res.status(200).send("valid token")
 //delete student
 exports.manageAccount =async  (req, res) => {
     try{
-        const ID = req.params.id
-        const data = req.body
+        const data
+        const ID =req.headers ;
+        if(req.body.Password!==null){
+       const   {User, StudentName, StudentLastName, Email, Password, ImageUrl, Age, Phone } =req.body
+       hashPass = await authStudent.HashPass(Password)
+
+        data = {User, StudentName, StudentLastName, Email, Password:hashPass, ImageUrl, Age, Phone }
+        }else{
+            data=req.body
+        }
+       
         await School.StudentModel.findOneAndUpdate(ID,data)
         res.status(201).send(data)
     }catch(err){
@@ -87,6 +96,7 @@ exports.manageAccount =async  (req, res) => {
 exports.getStudent = async (req,res)=>{
     try {
       const data  = await   School.StudentModel.find({})
+    
       res.status(200).json(data)
     }catch(err){
         console.log(err)
