@@ -1,0 +1,9 @@
+<div><button ej-button id='print' (click)='Add()'>Show stats</button>
+  <div *ngFor="let item of items">
+    <ejs-chart [id]="id" [title]='title'>
+      <e-series-collection>
+        <e-series [dataSource]='chartData' type='Line' xName='x' yName='y' name='Germany' [marker]='marker'></e-series>
+      </e-series-collection>
+    </ejs-chart>
+  </div>
+</div>

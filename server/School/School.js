@@ -1,5 +1,6 @@
 // This is the model
 
+const { string } = require('joi');
 var mongoose = require('mongoose');
 const db = require('../db/index.js');
 mongoose.Promise = global.Promise;
@@ -78,14 +79,16 @@ var TeacherModel = mongoose.model("teacher", createTeacherSchema)
 
 // this schema has relation to the teacher ***one teacher has many student***
 var createStudentSchema = mongoose.Schema({
-  ImageUrl: { type: String, required: true },
+  User: { type: String},
   StudentName: { type: String, required: true },
   StudentLastName: { type: String, required: true },
-  Age: { type: Number, required: true },
-  Phone: { type: Number, required: true },
   Email: { type: String, unique: true, required: true },
   Password: { type: String, required: true },
-  teacherId: String,
+  ImageUrl: { type: String, required: true },
+  Age: { type: Number, required: true },
+  Phone: { type: Number, required: true },
+  token:String,
+  
   Teacher: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "teacher"
