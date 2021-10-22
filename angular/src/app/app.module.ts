@@ -58,6 +58,8 @@ const appRoutes:Routes=[
   {path:"student-Messanger",component:MessangerComponent},
   {path:"student-Account",component:ManageAccountComponent},
   {path:'lecture',component:LectureComponent},
+
+  
   //home path
   {path:'signin',component:SigninComponent},
   {path:'signup',component:SignupComponent},

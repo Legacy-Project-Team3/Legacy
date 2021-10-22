@@ -1,15 +1,14 @@
 var studentRouter = require("express").Router();
-const { get } = require("mongoose");
 var studentController = require("../student/studentController");
+var mid = require('./middlwareAuth')
+studentRouter.route("/student/login")
+  .post(studentController.login)
 
-studentRouter
-  .route("/student/:id")
-  //all will take the id of the teacher
-  .get(studentController.getStudent)
-  .post(studentController.createStudent)
-  .put(studentController.updateStudent)
-  .delete(studentController.deleteStudent);
+studentRouter.route("/student/update")
+.put(studentController.manageAccount)
 
-studentRouter.route("/findstudent").post(studentController.findStudent);
-
+studentRouter.route("/student/register")
+  .post(studentController.createStudent);
+studentRouter.route("/student/check")
+  .post(mid,studentController.checkTheToken)
 module.exports = studentRouter;
