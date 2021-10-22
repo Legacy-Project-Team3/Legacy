@@ -27,6 +27,7 @@ export class SignUpComponentStudent implements OnInit {
     console.log(form.value)
     this.userservice.registerAndGetRegisterData(form.value).subscribe(res=>{
       // console.log(helper.isTokenExpired(JSON.stringify(res) ))
+      
       localStorage.setItem("acces_token",JSON.stringify(res ))
     })
  }
