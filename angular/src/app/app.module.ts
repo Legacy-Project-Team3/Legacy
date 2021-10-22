@@ -1,9 +1,11 @@
 
 
 import { HttpClientModule } from '@angular/common/http';
-import { Component, NgModule } from '@angular/core';
+import { Component, Directive, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';  
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
@@ -27,8 +29,6 @@ import { ExerciceComponent } from './student/exercice/exercice.component';
 import { MessangerComponent } from './student/messanger/messanger.component';
 import { ManageAccountComponent } from './student/manage-account/manage-account.component';
 import { CalendarComponent } from './student/calendar/calendar.component';
-/*student*/
-import { ReactiveFormsModule } from '@angular/forms';
 // teacher
 import { TeacherComponent } from './teacher/teacher.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
