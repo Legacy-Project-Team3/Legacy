@@ -1,11 +1,12 @@
 import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorsComponent } from './errors/errors.component';
-import { ProfilComponent } from './profil/profil.component';
+import { ProfilComponent } from './teacher/profil/profil.component';
 import { SigninComponent } from './home/signin/signin.component';
 import { SignupComponent } from './home/signup/signup.component';
 import { StatsComponent } from './admin/stats/stats.component';
@@ -17,7 +18,7 @@ import { SignInComponentStudent } from './student/sign-in/sign-in.component';
 import { SignUpComponentStudent } from './student/sign-up/sign-up.component';
 import {NavbarComponent1} from "./student/navbar/navbar.component";
 import { SidebarComponent } from './student/sidebar/sidebar.component';
-import { LectureComponent } from './lecture/lecture.component';
+import { LectureComponent } from './teacher/lecture/lecture.component';
 import { CheckpointComponent } from './student/checkpoint/checkpoint.component';
 import { ExerciceComponent } from './student/exercice/exercice.component';
 import { MessangerComponent } from './student/messanger/messanger.component';
@@ -30,11 +31,14 @@ import { TeacherComponent } from './teacher/teacher.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { CardComponent } from './card/card.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { CreatLectureComponent } from './creat-lecture/creat-lecture.component';
-import { CalanderComponent } from './calander/calander.component';
-import { RequestComponent } from './request/request.component';
+import { CardComponent } from './teacher/card/card.component';
+import { NavbarComponent } from './teacher/navbar/navbar.component';
+import { CreatLectureComponent } from './teacher/creat-lecture/creat-lecture.component';
+import { CalanderComponent } from './teacher/calander/calander.component';
+import { RequestComponent } from './teacher/request/request.component';
+import { ClassComponent } from './admin/class/class.component';
+import { HomevueComponent } from './admin/homevue/homevue.component';
+import { CheckpointToDoComponent } from './student/checkpoint/checkpoint-to-do/checkpoint-to-do.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
@@ -46,18 +50,25 @@ const appRoutes:Routes=[
   {path:"student",component:StudentComponent},
   {path:"signup-student",component:SignUpComponentStudent},
   {path:"student-Signin",component:SignInComponentStudent},
-  {path:"student-Lecture",component:LectureComponent},
   {path:"student-Exercice",component:ExerciceComponent},
   {path:"student-Checkpoint",component:CheckpointComponent},
   {path:"student-Messanger",component:MessangerComponent},
   {path:"student-Account",component:ManageAccountComponent},
   {path:'lecture',component:LectureComponent},
 
-  //student path
+  
+  //home path
   {path:'signin',component:SigninComponent},
   {path:'signup',component:SignupComponent},
-  {path:'request',component:RequestComponent},
+
+  // admin path
   {path:'admin',component:AdminComponent},
+  {path:'class',component:ClassComponent},
+  {path:'homeVue',component:HomevueComponent},
+  {path:'teatchers',component:TeatchersComponent},
+
+  {path:'stats',component:StatsComponent},
+
   {path:'**',component:ErrorsComponent}
 ]
 FullCalendarModule.registerPlugins([
@@ -98,12 +109,16 @@ FullCalendarModule.registerPlugins([
      ManageAccountComponent,
      MessangerComponent,
      CalendarComponent,
-     LectureComponent
+     LectureComponent,
+     ClassComponent,
+     HomevueComponent,
+     CheckpointToDoComponent
   ],
   imports: [
     BrowserModule,
     FullCalendarModule,
     ReactiveFormsModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
