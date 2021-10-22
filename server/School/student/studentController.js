@@ -18,7 +18,7 @@ exports.createStudent = async function (req, res) {
             return res.status(409).send("Student is already exist ")
         }
 
-        let passwordHased = await authStudent.HashPass(Password)
+        let passwordHased = await authStudent.HashPass(Password,10)
         console.log("here the hashed password " + passwordHased)
         const student = await School.StudentModel.create({ StudentName, StudentLastName, Email: Email.toLowerCase(), Password: passwordHased, ImageUrl, Age, Phone })
         const token = jwt.sign(
@@ -72,24 +72,20 @@ res.status(200).send("valid token")
 }
 
 //delete student
-exports.manageAccount =async  (req, res) => {
-    try{
-        const data
-        const ID =req.headers ;
-        if(req.body.Password!==null){
-       const   {User, StudentName, StudentLastName, Email, Password, ImageUrl, Age, Phone } =req.body
-       hashPass = await authStudent.HashPass(Password)
+exports.manageAccount = (req, res) => {
 
-        data = {User, StudentName, StudentLastName, Email, Password:hashPass, ImageUrl, Age, Phone }
-        }else{
-            data=req.body
-        }
        
-        await School.StudentModel.findOneAndUpdate(ID,data)
-        res.status(201).send(data)
-    }catch(err){
-        console.log(err)
-    }
+        const  ID =req.params.id ;
+        console.log(ID)
+         const data=req.body
+        
+       
+       School.StudentModel.findOneAndUpdate({ID},data ,(err,result)=>{
+            if(err)res.status(404).send(err)
+           res.status(201).send(result)
+       })
+  
+       
 
 
 }

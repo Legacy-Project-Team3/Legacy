@@ -6,12 +6,13 @@
               <div class="container mx-auto">
                   <div class="inputs w-full max-w-2xl p-6 mx-auto">
                       <h2 class="text-2xl text-indigo-700 text-center">Account Setting</h2>
-                      <form class="mt-6 border-t border-indigo-700 pt-4">
+                      <form class="mt-6 border-t border-indigo-700 pt-4 "  #authForm = "ngForm" (ngSubmit) = "onSubmit(authForm)">
                           <div class='flex flex-wrap -mx-3 mb-6'>
                               <div class='w-full md:w-full px-3 mb-6'>
                                   <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
-                                      for='grid-text-1'>email address</label>
+                                      for='grid-text-1' >email address</label>
                                   <input
+                                  [(ngModel)]="Email" name="Email"
                                       class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
                                       id='grid-text-1' type='text' placeholder='Enter email' required>
                               </div>
@@ -19,6 +20,7 @@
                                   <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
                                       for='grid-text-1'>change password</label>
                                   <input
+                                  [(ngModel)]="Password" name="Password"
                                       class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
                                       id='grid-text-1' type='text' placeholder='Enter password' required>
                               </div>
@@ -37,6 +39,8 @@
                                               class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>first
                                               name</label>
                                           <input
+                                          name="StudentName"
+                                          [(ngModel)]="StudentName"
                                               class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
                                               type='text' required>
                                       </div>
@@ -45,6 +49,8 @@
                                               class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>last
                                               name</label>
                                           <input
+                                          name="StudentLastName"
+                                          [(ngModel)]="StudentLastName"
                                               class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
                                               type='text' required>
                                       </div>
@@ -54,6 +60,8 @@
                                           <label
                                               class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>age</label>
                                           <input
+                                          name="Age"
+                                          [(ngModel)]="Age"
                                               class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
                                               type='number' required>
                                       </div>
@@ -61,6 +69,8 @@
                                           <label
                                               class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>phone</label>
                                           <input
+                                          name="Phone"
+                                          [(ngModel)]="Phone"
                                               class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
                                               type='number' required>
                                       </div>
@@ -70,6 +80,8 @@
                                           class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>user
                                           name</label>
                                       <input
+                                      name="User"
+                                      [(ngModel)]="User"
                                           class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
                                           type='text' required>
                                   </div>
@@ -78,7 +90,7 @@
                                           class="w-64 flex flex-col items-center px-4 py-6 bg-white rounded-md change-color shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-indigo-700 hover:text-white text-indigo-700 ease-linear transition-all duration-150">
                                           <i class="fas fa-cloud-upload-alt fa-3x"></i>
                                           <span class="mt-2 text-base leading-normal">change photo</span>
-                                          <input type='file' class="hidden" />
+                                          <input type='file' class="hidden" [(ngModel)]="ImageUrl" />
                                       </label>
                                   </div>
                                   <div class="flex justify-end">
