@@ -42,6 +42,7 @@ import { CheckpointToDoComponent } from './student/checkpoint/checkpoint-to-do/c
 import { StudentsTabelComponent } from './admin/students-tabel/students-tabel.component';
 import { StudentNavBarComponent } from './admin/student-nav-bar/student-nav-bar.component';
 import { ReqwestOfDeliteComponent } from './admin/reqwest-of-delite/reqwest-of-delite.component';
+import { AuthGuardService as AuthGard } from './auth-guard.service';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
@@ -63,10 +64,10 @@ const appRoutes:Routes=[
   //home path
   {path:'signin',component:SigninComponent},
   {path:'signup',component:SignupComponent},
+  { path: 'home', component: AppComponent ,canActivate : [AuthGard] },
   // admin path
   {path:'admin',component:AdminComponent},
   {path:'class',component:ClassComponent},
-  {path:'homeVue',component:HomevueComponent},
   {path:'teatchers',component:TeatchersComponent},
   {path:'stats',component:StatsComponent},
   {path:'studentTabel',component:StudentsTabelComponent},
