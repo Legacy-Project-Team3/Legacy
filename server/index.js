@@ -11,7 +11,11 @@ var Lecture = require("./School/Lecture/lectureRouter")
 var Exercice = require("./School/exercice/exerciceRouter")
 var app = express();
 var cors = require("cors")
-
+//This will be used in authentication the route 
+const session = require('express-session');
+const passport = require('passport');
+const bodyParser = require('body-parser');
+const LocalStrategy = require('passport-local').Strategy;
 app.use(cors())
 app.use(morgan('dev'));
 app.use(express.json())
@@ -27,8 +31,59 @@ app.use("/", contactUs)
 app.get("/test",(req,res)=>{
   res.send("adzazd")
 })
-const { API_PORT } = process.env;
+//use passport a,d the localStrategy for checking
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+      if(username === "admin" && password === "admin"){
+          return done(null, username);
+      } else {
+          return done("unauthorized access", false);
+      }
+  }
+));
+//Definig the serialize and deserialize methodes to facilitate user data storage
+passport.serializeUser(function(user, done) {
+  if(user) done(null, user);
+});
 
+passport.deserializeUser(function(id, done) {
+  done(null, id);
+});
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(session({ secret: 'anything', resave: true, saveUninitialized: true }));
+app.use(bodyParser.json());0
+
+const auth = () => {
+    return (req, res, next) => {
+        passport.authenticate('local', (error, user, info) => {
+            if(error) res.status(400).json({"statusCode" : 200 ,"message" : error});
+            req.login(user, function(error) {
+                if (error) return next(error);
+                next();
+            });
+        })(req, res, next);
+    }
+}
+
+const isLoggedIn = (req, res, next) => {
+  if(req.isAuthenticated()){
+      return next()
+  }
+  return res.status(400).json({"statusCode" : 400, "message" : "not authenticated"})
+}
+
+app.get('/getData', isLoggedIn, (req, res) => {
+  res.json("data")
+});
+
+app.post('/authenticate', auth() , (req, res) => {
+  res.status(200).json({"statusCode" : 200 ,"user" : req.user});
+});
+
+const { API_PORT } = process.env;
 app.listen(API_PORT, function () {
   console.log('School-MongoDB RESTful API listening on http://localhost:' + API_PORT);
 });
