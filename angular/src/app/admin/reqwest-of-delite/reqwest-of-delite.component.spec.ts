@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StatsComponent } from './stats.component';
+import { ReqwestOfDeliteComponent } from './reqwest-of-delite.component';
 
-describe('StatsComponent', () => {
-  let component: StatsComponent;
-  let fixture: ComponentFixture<StatsComponent>;
+describe('ReqwestOfDeliteComponent', () => {
+  let component: ReqwestOfDeliteComponent;
+  let fixture: ComponentFixture<ReqwestOfDeliteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StatsComponent ]
+      declarations: [ ReqwestOfDeliteComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StatsComponent);
+    fixture = TestBed.createComponent(ReqwestOfDeliteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

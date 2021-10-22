@@ -39,6 +39,9 @@ import { RequestComponent } from './teacher/request/request.component';
 import { ClassComponent } from './admin/class/class.component';
 import { HomevueComponent } from './admin/homevue/homevue.component';
 import { CheckpointToDoComponent } from './student/checkpoint/checkpoint-to-do/checkpoint-to-do.component';
+import { StudentsTabelComponent } from './admin/students-tabel/students-tabel.component';
+import { StudentNavBarComponent } from './admin/student-nav-bar/student-nav-bar.component';
+import { ReqwestOfDeliteComponent } from './admin/reqwest-of-delite/reqwest-of-delite.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
@@ -60,15 +63,14 @@ const appRoutes:Routes=[
   //home path
   {path:'signin',component:SigninComponent},
   {path:'signup',component:SignupComponent},
-
   // admin path
   {path:'admin',component:AdminComponent},
   {path:'class',component:ClassComponent},
   {path:'homeVue',component:HomevueComponent},
   {path:'teatchers',component:TeatchersComponent},
-
   {path:'stats',component:StatsComponent},
-
+  {path:'studentTabel',component:StudentsTabelComponent},
+  {path:'homeVue',component:HomevueComponent},
   {path:'**',component:ErrorsComponent}
 ]
 FullCalendarModule.registerPlugins([
@@ -112,7 +114,10 @@ FullCalendarModule.registerPlugins([
      LectureComponent,
      ClassComponent,
      HomevueComponent,
-     CheckpointToDoComponent
+     CheckpointToDoComponent,
+     StudentsTabelComponent,
+     StudentNavBarComponent,
+     ReqwestOfDeliteComponent
   ],
   imports: [
     BrowserModule,
