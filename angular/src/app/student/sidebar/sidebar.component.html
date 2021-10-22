@@ -1,9 +1,9 @@
-<div class="bg-white py-20 rounded overflow-hidden shadow-lg ">
+<div class="bg-white py-20 rounded overflow-hidden shadow-lg " dataStudent>
   <div class="text-center p-6  border-b">
-    <img class="h-24 w-24 rounded-full mx-auto" src="https://randomuser.me/api/portraits/men/24.jpg"
+    <img class="h-24 w-24 rounded-full mx-auto" src={{ `dataStudent.ImageUrl`}}
       alt="Randy Robertson" />
-    <p class="pt-2 text-lg font-semibold">Randy Robertson</p>
-    <p class="text-sm text-gray-600">randy.robertson@example.com</p>
+    <p class="pt-2 text-lg font-semibold">{{dataStudent.User}}</p>
+    <p class="text-sm text-gray-600" >{{dataStudent.Email}}</p>
   </div>
   <div class="border-b">
     <a routerLink="../student-Lecture" class=" px-4 py-2 hover:bg-gray-100 flex no-underline">
