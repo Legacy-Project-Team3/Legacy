@@ -5,9 +5,9 @@ var jwt = require("jsonwebtoken")
 //
 exports.createStudent = async function (req, res) {
 
-    const { StudentName, StudentLastName, Email, Password, ImageUrl, Age, Phone } = req.body
+    const {User, StudentName, StudentLastName, Email, Password, ImageUrl, Age, Phone } = req.body
     try {
-        if (!(StudentName && StudentLastName && Email && Password && ImageUrl && Age && Phone)) {
+        if (!(StudentName && StudentLastName && Email && Password && ImageUrl && Age && Phone&&User)) {
             res.status(400).send("all input is required")
         }
         //  if(Password){
@@ -35,8 +35,6 @@ exports.createStudent = async function (req, res) {
     } catch (err) {
         console.log(err)
     }
-
-
 };
 
 
@@ -74,8 +72,24 @@ res.status(200).send("valid token")
 }
 
 //delete student
-exports.manageAccount = (req, res) => {
+exports.manageAccount =async  (req, res) => {
+    try{
+        const ID = req.params.id
+        const data = req.body
+        await School.StudentModel.findOneAndUpdate(ID,data)
+        res.status(201).send(data)
+    }catch(err){
+        console.log(err)
+    }
 
 
+}
+exports.getStudent = async (req,res)=>{
+    try {
+      const data  = await   School.StudentModel.find({})
+      res.status(200).json(data)
+    }catch(err){
+        console.log(err)
+    }
 
 }

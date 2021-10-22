@@ -4,9 +4,10 @@ var mid = require('./middlwareAuth')
 studentRouter.route("/student/login")
   .post(studentController.login)
 
-studentRouter.route("/student/update")
+studentRouter.route("/student/update/:id")
 .put(studentController.manageAccount)
-
+studentRouter.route('/student')
+.get(studentController.getStudent)
 studentRouter.route("/student/register")
   .post(studentController.createStudent);
 studentRouter.route("/student/check")
