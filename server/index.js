@@ -1,5 +1,5 @@
+require("dotenv").config();
 var express = require('express');
-var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var teacher = require("./School/teacher/teacherRoute")
 var student = require("./School/student/studentRouter")
@@ -21,10 +21,8 @@ const io = require("socket.io")(server, {
     }
   });
 app.use(morgan('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json())
 app.use(express.static(__dirname + '/../client/dist'));
-
 app.use("/", teacher)
 app.use("/", student)
 app.use("/", admin)
@@ -36,7 +34,7 @@ app.use("/", contactUs)
 app.get("/test",(req,res)=>{
   res.send("adzazd")
 })
-var PORT = 3002;
+const { API_PORT } = process.env;
 
 io.on('connection', (socket) => {
   console.log('user connected');
@@ -44,8 +42,8 @@ io.on('connection', (socket) => {
       console.log(msg);
       socket.broadcast.emit('message-broadcast', msg);
      });
-});
+    })
+server.listen(API_PORT,  ()=> {
+  console.log('School-MongoDB RESTful API listening on http://localhost:' + API_PORT)
+})
 
-server.listen(PORT, () => {
-  console.log(`started on port: ${PORT}`);
-});

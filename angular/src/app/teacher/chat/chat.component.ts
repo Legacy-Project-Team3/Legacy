@@ -34,7 +34,7 @@ export class ChatComponent implements OnInit {
    this.socket.emit('message', this.message);
    const element = document.createElement('li');
    element.innerHTML =  this.message;
-   element.style.background = 'white';
+   element.style.background = 'red';
    element.style.padding =  '15px 30px';
    element.style.margin = '10px';
    element.style.textAlign = 'right';
