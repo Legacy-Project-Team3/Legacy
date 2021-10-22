@@ -68,15 +68,13 @@ exports.login = async (req, res) => {
 
 }
 
-// update student
+
 exports.checkTheToken = (req, res) => {
-
 res.status(200).send("valid token")
-
 }
 
 //delete student
-exports.deleteStudent = (req, res) => {
+exports.manageAccount = (req, res) => {
 
 
 
