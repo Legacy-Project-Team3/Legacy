@@ -42,6 +42,9 @@ import { RequestComponent } from './teacher/request/request.component';
 import { ClassComponent } from './admin/class/class.component';
 import { HomevueComponent } from './admin/homevue/homevue.component';
 import { CheckpointToDoComponent } from './student/checkpoint/checkpoint-to-do/checkpoint-to-do.component';
+import { SigninteacherComponent } from './teacher/signinteacher/signinteacher.component';
+import { SignupteacherComponent } from './teacher/signupteacher/signupteacher.component';
+
 import { StudentsTabelComponent } from './admin/students-tabel/students-tabel.component';
 import { StudentNavBarComponent } from './admin/student-nav-bar/student-nav-bar.component';
 import { ReqwestOfDeliteComponent } from './admin/reqwest-of-delite/reqwest-of-delite.component';
@@ -50,6 +53,8 @@ const appRoutes:Routes=[
   {path:'teacher',component:TeacherComponent},
   {path:'profil',component:ProfilComponent},
   {path:'request',component:RequestComponent},
+  {path: 'teacher/signup', component:SignupteacherComponent},
+  {path: 'teacher/signin', component:SigninteacherComponent},
   //student path component
   {path:'cours',component:CreatLectureComponent},
   {path:'calander',component:CalanderComponent},
@@ -118,6 +123,8 @@ FullCalendarModule.registerPlugins([
      ClassComponent,
      HomevueComponent,
      CheckpointToDoComponent,
+     SigninteacherComponent,
+     SignupteacherComponent,
      StudentsTabelComponent,
      StudentNavBarComponent,
      ReqwestOfDeliteComponent
