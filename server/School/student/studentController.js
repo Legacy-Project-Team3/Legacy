@@ -74,7 +74,6 @@ res.status(200).send("valid token")
 //delete student
 exports.manageAccount =async  (req, res) => {
     try{
-        const data
         const ID =req.headers ;
         if(req.body.Password!==null){
        const   {User, StudentName, StudentLastName, Email, Password, ImageUrl, Age, Phone } =req.body
