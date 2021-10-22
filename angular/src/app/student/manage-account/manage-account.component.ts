@@ -12,7 +12,7 @@ export class ManageAccountComponent implements OnInit {
   StudentLastName:String;
   Email:String;
   Password:String;
-  ImageUrl:String; 
+  ImageUrl:File; 
   Age:Number;
   Phone:Number; 
   constructor(private userservice:UserserviceService) { }

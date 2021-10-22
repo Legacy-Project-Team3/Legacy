@@ -42,6 +42,7 @@ import { RequestComponent } from './teacher/request/request.component';
 import { ClassComponent } from './admin/class/class.component';
 import { HomevueComponent } from './admin/homevue/homevue.component';
 import { CheckpointToDoComponent } from './student/checkpoint/checkpoint-to-do/checkpoint-to-do.component';
+import { NextComponent } from './student/sign-up/next/next.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
@@ -58,7 +59,7 @@ const appRoutes:Routes=[
   {path:"student-Messanger",component:MessangerComponent},
   {path:"student-Account",component:ManageAccountComponent},
   {path:'lecture',component:LectureComponent},
-
+  {path:'next',component:NextComponent},
   
   //home path
   {path:'signin',component:SigninComponent},
@@ -115,7 +116,8 @@ FullCalendarModule.registerPlugins([
      LectureComponent,
      ClassComponent,
      HomevueComponent,
-     CheckpointToDoComponent
+     CheckpointToDoComponent,
+     NextComponent
   ],
   imports: [
     BrowserModule,

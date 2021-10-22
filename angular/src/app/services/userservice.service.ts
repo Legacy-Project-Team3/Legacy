@@ -15,10 +15,9 @@ export class UserserviceService {
   }
 
   managaAccount(body){
+  
     const headers={'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiNjE3MmRmNDdlYzM1Y2U0ZGVjODRmNTFmIiwiRW1haWwiOiJhYUBnbWFpbC5jb20iLCJpYXQiOjE2MzQ5MTgyMTUsImV4cCI6MTYzNDkyMTgxNX0.b0SNKAuKtehXxPq5OqS77ZD7PwjS8ecqG_oTJKrLr0Y'}
-    
-    
-    return this.http.put(`http://localhost:3000/student/update/${"6172df47ec35ce4dec84f51f"}`,body ,{headers})
+    return this.http.put(`http://localhost:3000/student/update/id`,body ,{headers})
    }
   }
 
