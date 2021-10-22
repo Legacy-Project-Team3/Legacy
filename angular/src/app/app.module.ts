@@ -1,3 +1,6 @@
+
+
+import { HttpClientModule } from '@angular/common/http';
 import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -42,6 +45,9 @@ import { CheckpointToDoComponent } from './student/checkpoint/checkpoint-to-do/c
 import { SigninteacherComponent } from './teacher/signinteacher/signinteacher.component';
 import { SignupteacherComponent } from './teacher/signupteacher/signupteacher.component';
 
+import { StudentsTabelComponent } from './admin/students-tabel/students-tabel.component';
+import { StudentNavBarComponent } from './admin/student-nav-bar/student-nav-bar.component';
+import { ReqwestOfDeliteComponent } from './admin/reqwest-of-delite/reqwest-of-delite.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
@@ -65,15 +71,14 @@ const appRoutes:Routes=[
   //home path
   {path:'signin',component:SigninComponent},
   {path:'signup',component:SignupComponent},
-
   // admin path
   {path:'admin',component:AdminComponent},
   {path:'class',component:ClassComponent},
   {path:'homeVue',component:HomevueComponent},
   {path:'teatchers',component:TeatchersComponent},
-
   {path:'stats',component:StatsComponent},
-
+  {path:'studentTabel',component:StudentsTabelComponent},
+  {path:'homeVue',component:HomevueComponent},
   {path:'**',component:ErrorsComponent}
 ]
 FullCalendarModule.registerPlugins([
@@ -119,13 +124,17 @@ FullCalendarModule.registerPlugins([
      HomevueComponent,
      CheckpointToDoComponent,
      SigninteacherComponent,
-     SignupteacherComponent
+     SignupteacherComponent,
+     StudentsTabelComponent,
+     StudentNavBarComponent,
+     ReqwestOfDeliteComponent
   ],
   imports: [
     BrowserModule,
     FullCalendarModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
