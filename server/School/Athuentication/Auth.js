@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt')
 //the cost factor controls how mush time needed to calculate a single bcry
 exports.HashPass= (passwordFromClient,saltRound=10 )=>{
    //return the password hashed 
-return bcrypt.hash(passwordFromClient,saltRound)
+return bcrypt.hash(passwordFromClient,saltRound=10)
 }
 
 // this for compare the password if the password that come from client match the password stored in the data base 

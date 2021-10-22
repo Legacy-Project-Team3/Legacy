@@ -40,13 +40,13 @@ import { CreatLectureComponent } from './teacher/creat-lecture/creat-lecture.com
 import { CalanderComponent } from './teacher/calander/calander.component';
 import { RequestComponent } from './teacher/request/request.component';
 import { ChatComponent } from './teacher/chat/chat.component';
-import { FormsModule } from '@angular/forms';
+
 
 
 import { ClassComponent } from './admin/class/class.component';
 import { HomevueComponent } from './admin/homevue/homevue.component';
 import { CheckpointToDoComponent } from './student/checkpoint/checkpoint-to-do/checkpoint-to-do.component';
-import { ChatComponent } from './teacher/chat/chat.component';
+
 import { SigninteacherComponent } from './teacher/signinteacher/signinteacher.component';
 import { SignupteacherComponent } from './teacher/signupteacher/signupteacher.component';
 
@@ -134,12 +134,13 @@ FullCalendarModule.registerPlugins([
      MessangerComponent,
      CalendarComponent,
      ChatComponent,
-     LectureComponent
+ 
 
      LectureComponent,
      ClassComponent,
      HomevueComponent,
      CheckpointToDoComponent,
+    
      ChatComponent,
      SignupteacherComponent,
      StudentsTabelComponent,
