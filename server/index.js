@@ -1,6 +1,7 @@
 require("dotenv").config();
 var express = require('express');
 var morgan = require('morgan');
+const cors = require("cors")
 var teacher = require("./School/teacher/teacherRoute")
 var student = require("./School/student/studentRouter")
 var admin = require("./School/Admin/AdminRouter")
@@ -10,7 +11,7 @@ var contactUs = require("./School/ContactUs/ContactUsRouter")
 var Lecture = require("./School/Lecture/lectureRouter")
 var Exercice = require("./School/exercice/exerciceRouter")
 let app = express();
-
+app.use(cors())
 let http = require('http');
 let server = http.Server(app);
 

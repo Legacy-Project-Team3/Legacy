@@ -18,9 +18,9 @@ exports.createStudent = async function (req, res) {
             return res.status(409).send("Student is already exist ")
         }
 
-        let passwordHased = await authStudent.HashPass(Password,10)
-        console.log("here the hashed password " + passwordHased)
-        const student = await School.StudentModel.create({ StudentName, StudentLastName, Email: Email.toLowerCase(), Password: passwordHased, ImageUrl, Age, Phone })
+        // let passwordHased = await authStudent.HashPass(Password,10)
+        // console.log("here the hashed password " + passwordHased)
+        const student = await School.StudentModel.create({ StudentName, StudentLastName, Email: Email, Password, ImageUrl, Age, Phone })
         const token = jwt.sign(
             { student_id: student._id, Email },
             process.env.TOKEN_KEY,
@@ -28,10 +28,10 @@ exports.createStudent = async function (req, res) {
                 expiresIn: "1h"
             }
         )
-        console.log("here is the token " + token)
+     
         student.token = token
         res.status(201).json(student)
-        console.log("check" + student)
+       
     } catch (err) {
         console.log(err)
     }
