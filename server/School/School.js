@@ -39,6 +39,7 @@ var contactUsModel = mongoose.model("contactUs", contactUsSchema)
 
 // this for the admin after he create his account know he can add a teacher 
 var createTeacherSchema = mongoose.Schema({
+  Role: { type: String, required: true },
   TeacherName: { type: String, required: true },
   TeacherLastName: { type: String, required: true },
   Password: { type: String, required: true },
