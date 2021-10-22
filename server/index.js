@@ -9,9 +9,17 @@ var result = require("./School/Result/ResultRouter")
 var contactUs = require("./School/ContactUs/ContactUsRouter")
 var Lecture = require("./School/Lecture/lectureRouter")
 var Exercice = require("./School/exercice/exerciceRouter")
-var app = express();
-var cors = require("cors")
-app.use(cors())
+let app = express();
+
+let http = require('http');
+let server = http.Server(app);
+
+const io = require("socket.io")(server, {
+    cors: {
+      origin: "http://localhost:4200",
+      methods: ["GET", "POST"]
+    }
+  });
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,6 +38,14 @@ app.get("/test",(req,res)=>{
 })
 var PORT = 3002;
 
-app.listen(PORT, function () {
-  console.log('School-MongoDB RESTful API listening on http://localhost:' + PORT);
+io.on('connection', (socket) => {
+  console.log('user connected');
+  socket.on('message', (msg) => {
+      console.log(msg);
+      socket.broadcast.emit('message-broadcast', msg);
+     });
+});
+
+server.listen(PORT, () => {
+  console.log(`started on port: ${PORT}`);
 });
