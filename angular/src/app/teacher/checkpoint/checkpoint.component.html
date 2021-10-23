@@ -1,0 +1,256 @@
+<app-navbar></app-navbar>
+
+
+<div
+class="
+  row-span-5
+  grid grid-cols-12
+  py-14
+  space-x-2.5
+  justify-around
+  ml-2
+  mr-2
+  height
+"
+>
+<div class="col-span-12 rounded overflow-hidden shadow-lg max-h-full">
+  <div class="min-h-screen pt-2 font-mono my-16">
+    <div class="container mx-auto">
+      <div class="inputs w-full max-w-2xl p-6 mx-auto">
+        <h2 class="text-2xl text-indigo-700 text-center">
+          Post Checkpoint
+        </h2>
+        <form class="mt-8 space-y-6 border-t border-indigo-700 " action="#" method="POST" #authForm = "ngForm" (ngSubmit) = "add(authForm)">
+            <div class="flex flex-wrap -mx-3 mb-6">
+            
+            
+
+            <div class="w-full md:w-full px-3 mb-6">
+              <label
+                class="
+                  block
+                  uppercase
+                  tracking-wide
+                  text-gray-700 text-base
+                  font-bold
+                  mb-2
+                "
+                for="grid-text-1"
+                >Question</label
+              >
+              <input
+                class="
+                  appearance-none
+                  block
+                  w-full
+                  bg-white
+                  text-gray-700
+                  border border-gray-400
+                  shadow-inner
+                  rounded-md
+                  py-3
+                  px-4
+                  leading-tight
+                  focus:outline-none focus:border-gray-500
+                "
+                id="grid-text-1"
+                type="text"
+                placeholder="Question"
+                required                
+                name="Question"
+                [(ngModel)]="Question"
+              />
+            </div>
+
+            <div class="w-full md:w-full px-3 mb-6">
+              <label
+                class="
+                  block
+                  uppercase
+                  tracking-wide
+                  text-gray-700 text-base
+                  font-bold
+                  mb-2
+                "
+                for="grid-text-1"
+                >Answer 1</label
+              >
+              <input
+                class="
+                  appearance-none
+                  block
+                  w-full
+                  bg-white
+                  text-gray-700
+                  border border-gray-400
+                  shadow-inner
+                  rounded-md
+                  py-3
+                  px-4
+                  leading-tight
+                  focus:outline-none focus:border-gray-500
+                "
+                id="grid-text-1"
+                type="text"
+                placeholder="Answer"
+                required
+                name="Answer1"
+                [(ngModel)]="Answer1"
+              />
+            </div>
+           
+            <div class="w-full md:w-full px-3 mb-6">
+                <label
+                  class="
+                    block
+                    uppercase
+                    tracking-wide
+                    text-gray-700 text-base
+                    font-bold
+                    mb-2
+                  "
+                  for="grid-text-1"
+                  >Answer 2</label
+                >
+                <input
+                  class="
+                    appearance-none
+                    block
+                    w-full
+                    bg-white
+                    text-gray-700
+                    border border-gray-400
+                    shadow-inner
+                    rounded-md
+                    py-3
+                    px-4
+                    leading-tight
+                    focus:outline-none focus:border-gray-500
+                  "
+                  id="grid-text-1"
+                  type="text"
+                  placeholder="Answer"
+                  required
+                  name="Answer2"
+                  [(ngModel)]="Answer2"
+                />
+              </div>          
+              <div class="w-full md:w-full px-3 mb-6">
+                <label
+                  class="
+                    block
+                    uppercase
+                    tracking-wide
+                    text-gray-700 text-base
+                    font-bold
+                    mb-2
+                  "
+                  for="grid-text-1"
+                  >Answer 3</label
+                >
+                <input
+                  class="
+                    appearance-none
+                    block
+                    w-full
+                    bg-white
+                    text-gray-700
+                    border border-gray-400
+                    shadow-inner
+                    rounded-md
+                    py-3
+                    px-4
+                    leading-tight
+                    focus:outline-none focus:border-gray-500
+                  "
+                  id="grid-text-1"
+                  type="text"
+                  placeholder="Answer"
+                  required
+                  name="Answer3"
+                  [(ngModel)]="Answer3"
+                />
+              </div>
+              <div class="w-full md:w-full px-3 mb-6">
+                <label
+                  class="
+                    block
+                    uppercase
+                    tracking-wide
+                    text-gray-700 text-base
+                    font-bold
+                    mb-2
+                  "
+                  for="grid-text-1"
+                  >Right Answer</label
+                >
+                <input
+                  class="
+                    appearance-none
+                    block
+                    w-full
+                    bg-white
+                    text-gray-700
+                    border border-gray-400
+                    shadow-inner
+                    rounded-md
+                    py-3
+                    px-4
+                    leading-tight
+                    focus:outline-none focus:border-gray-500
+                  "
+                  id="grid-text-1"
+                  type="text"
+                  placeholder="Right Answer"
+                  required
+                  name="RightAnswer"
+                  [(ngModel)]="RightAnswer"
+                />
+              </div>
+              <div class="flex justify-end">
+                <button
+                  class="
+                    appearance-none
+                    px-2
+                    py-1
+                    hover:bg-indigo-700
+                    border-none
+                    text-indigo-700
+                    border-white-400
+                    rounded-md
+                    shadow-inner
+                    hover:text-white
+                    mr-3
+                  "
+                  type="submit"
+                >
+                  Upload Checkpoint
+                </button>
+                <div class="flex justify-end">
+                    <button
+                      class="
+                        appearance-none
+                        px-2
+                        py-1
+                        hover:bg-indigo-700
+                        border-none
+                        text-indigo-700
+                        border-white-400
+                        rounded-md
+                        shadow-inner
+                        hover:text-white
+                        mr-3
+                      "
+                      type="submit"
+                    >
+                        Add
+                    </button>
+                  </div>
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

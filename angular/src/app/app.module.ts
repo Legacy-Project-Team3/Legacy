@@ -36,6 +36,7 @@ import { NavbarComponent } from './teacher/navbar/navbar.component';
 import { CreatLectureComponent } from './teacher/creat-lecture/creat-lecture.component';
 import { CalanderComponent } from './teacher/calander/calander.component';
 import { RequestComponent } from './teacher/request/request.component';
+import { TeacherCheckpointComponent } from './teacher/checkpoint/checkpoint.component';
 
 import { CheckpointToDoComponent } from './student/checkpoint/checkpoint-to-do/checkpoint-to-do.component';
 import { AuthGuardService as AuthGard } from './auth-guard.service';
@@ -62,7 +63,7 @@ const appRoutes:Routes=[
   {path:'profil',component:ProfilComponent},
   {path:'request',component:RequestComponent},
   {path:'chat',component:ChatComponent},
-
+  {path: 'create-checkpoint', component:TeacherCheckpointComponent},
   {path: 'teacher/signup', component:SignupteacherComponent},
   {path: 'teacher/signin', component:SigninteacherComponent},
 
@@ -76,12 +77,13 @@ const appRoutes:Routes=[
   {path:"student-Checkpoint",component:CheckpointComponent},
   {path:"student-Messanger",component:MessangerComponent},
   {path:"student-Account",component:ManageAccountComponent},
+  {path:"lecture",component:LectureComponent},
+  {path:"chekpoint-to-do", component:CheckpointToDoComponent},
   {path:"student-Lecutre",component:LecturestudentComponent},
   
   //student path
 
   {path:'lecture',component:LectureComponent},
-  {path:'chat',component:ChatComponent},
 
 
 
@@ -137,8 +139,8 @@ FullCalendarModule.registerPlugins([
      ManageAccountComponent,
      MessangerComponent,
      CalendarComponent,
-     ChatComponent,
      LectureComponent,
+     TeacherCheckpointComponent,
      ClassComponent,
      HomevueComponent,
      CheckpointToDoComponent,
