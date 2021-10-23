@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular'
-import { UserserviceService } from '../services/userservice.service';
+// import { UserserviceService } from '../services/userservice.service';
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
@@ -18,10 +18,10 @@ export class StudentComponent implements OnInit {
   handleDateClick(arg) {
     alert('date click! ' + arg.dateStr)
   }
-  constructor(private userservice:UserserviceService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.userservice.getRegisterData().subscribe((res)=>console.log(res))
+   
   }
 
 }

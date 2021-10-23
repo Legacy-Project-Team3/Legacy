@@ -10,7 +10,7 @@ export class teacherService{
     }  
 
     CreateTeacher(Role: string, TeacherName: string, TeacherLastName: string, Password: string, ImageUrl: string, Email: string, Field: string, Phone: string, Experience: string){  
-        const teacherData: TeacherData = { Role: Role,TeacherName: TeacherName, TeacherLastName: TeacherLastName, Password: Password, ImageUrl: ImageUrl, Email: Email, Field: Field, Phone: Phone, Experience: Experience}
+        const teacherData: TeacherData = { Role: Role, TeacherName: TeacherName, TeacherLastName: TeacherLastName, Password: Password, ImageUrl: ImageUrl, Email: Email, Field: Field, Phone: Phone, Experience: Experience}
         this.http.post("http://localhost:3000/teacher/signup", teacherData)
         .subscribe(response =>{  
             console.log(response);  
