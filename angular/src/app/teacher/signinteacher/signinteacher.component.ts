@@ -13,7 +13,7 @@ Email:String;
 
   ngOnInit(): void {
   }
-  onSubmit(form:NgForm){
-
+  onSubmit1(form:NgForm){
+  console.log(form.value)
 }
 }
