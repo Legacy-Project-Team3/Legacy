@@ -53,6 +53,7 @@ import { SignupteacherComponent } from './teacher/signupteacher/signupteacher.co
 import { StudentsTabelComponent } from './admin/students-tabel/students-tabel.component';
 import { StudentNavBarComponent } from './admin/student-nav-bar/student-nav-bar.component';
 import { ReqwestOfDeliteComponent } from './admin/reqwest-of-delite/reqwest-of-delite.component';
+import { LecturestudentComponent } from './student/lecturestudent/lecturestudent.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   //teacherpath
@@ -74,7 +75,8 @@ const appRoutes:Routes=[
   {path:"student-Checkpoint",component:CheckpointComponent},
   {path:"student-Messanger",component:MessangerComponent},
   {path:"student-Account",component:ManageAccountComponent},
-  {path:"lecture",component:LectureComponent},
+  {path:"student-Lecutre",component:LecturestudentComponent},
+  
   //student path
 
   {path:'lecture',component:LectureComponent},
@@ -145,7 +147,8 @@ FullCalendarModule.registerPlugins([
      SignupteacherComponent,
      StudentsTabelComponent,
      StudentNavBarComponent,
-     ReqwestOfDeliteComponent
+     ReqwestOfDeliteComponent,
+     LecturestudentComponent
  
   ],
   imports: [

@@ -38,9 +38,9 @@ app.get("/test",(req,res)=>{
 const { API_PORT } = process.env;
 
 io.on('connection', (socket) => {
-  console.log('user connected');
+  
   socket.on('message', (msg) => {
-      console.log(msg);
+   
       socket.broadcast.emit('message-broadcast', msg);
      });
     })
