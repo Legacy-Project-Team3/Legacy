@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {UserserviceService} from "../../services/userservice.service"
-// import { JwtHelperService } from "@auth0/angular-jwt";
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -17,7 +17,7 @@ export class SignUpComponentStudent implements OnInit {
   Phone:Number;
   User:String;
   
-  constructor(private userservice:UserserviceService) {
+  constructor(private userservice:UserserviceService,private router:Router,private route:ActivatedRoute) {
   }
   
   ngOnInit(): void {
@@ -29,6 +29,7 @@ export class SignUpComponentStudent implements OnInit {
       // console.log(helper.isTokenExpired(JSON.stringify(res) ))
       
       localStorage.setItem("acces_token",JSON.stringify(res ))
+      this.router.navigate(["../student"])
     })
  }
 }

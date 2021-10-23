@@ -15,7 +15,7 @@ console.log(req.body)
             })
             //if there is an error 
             .catch((err) => {
-               res.sendStatus(404)
+               res.sendStatus(404).send(err)
             })
     })
 
@@ -50,36 +50,33 @@ exports.CheckIfThePassRight = (req, res) => {
 // delete a teacher
 exports.deleteOneTeacher = (req,res) => {
     if(!req.body){
-        return res.status(400).send('can not delet this Teacher');
+        return res.status(400).send('can not delete this Teacher');
     }
-    const Email = req.params.Email;
-    School.createTeacherSchema.findOneAndRemove({email:Email})
-    .then(data=>{
-        if(!data){
-            res.status(404).send('Can not delet this check again');
-        } else {
-            res.send('data deleted suscefuly');
+    const id = req.params.id;
+    console.log(id)
+    School.TeacherModel.findByIdAndDelete(id,(err,data) =>{
+        if(err) {
+            res.status(404).send(err)
+        }
+        if(data){
+            res.send('data deleted suscefuly')
         }
     })
-    .catch(err => {
-        res.status.send(err)
-    });
 };
+
 //delete a student
 exports.deleteOneStudent = (req,res) => {
    if(!req.body){
-       return res.status(400).send('can not delet this Teacher');
+       return res.status(400).send('can not delete this Student');
    }
-   const Email = req.params.Email;
-   School.createStudentSchema.findOneAndRemove({email:Email})
-   .then(data=>{
-       if(!data){
-           res.status(404).send('Can not delet this check again');
-       } else {
-           res.send('data deleted suscefuly');
-       }
+   const id = req.params.id;
+   console.log(id)
+   School.StudentModel.findByIdAndDelete(id,(err,data) =>{
+    if(err) {
+        res.status(404).send(err)
+    }
+    if(data){
+        res.send('data deleted suscefuly')
+    }
    })
-   .catch(err => {
-       res.status.send(err)
-   });
 }; 

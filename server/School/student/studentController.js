@@ -54,7 +54,7 @@ exports.login = async (req, res) => {
         const cmp =await authStudent.comparePass(Password, student.Password)
       if (student && cmp) {
             const token = jwt.sign(
-                { student_id: student._id },
+                { student_id: student._id ,Email:student.Email,User:student.User,StudentName:student.StudentName,StudentLastName:student.StudentLastName ,ImageUrl:student.ImageUrl,Phone:student.Phone},
                 process.env.TOKEN_KEY,
                 {
                     expiresIn: "1h",
