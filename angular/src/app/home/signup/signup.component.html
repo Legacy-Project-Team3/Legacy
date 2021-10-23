@@ -33,16 +33,16 @@
         <input type="hidden" name="remember" value="true">
         <div class="rounded-md shadow-sm -space-y-px">
             <div>
-                <label for="name" class="sr-only">Name</label>
+                <label for="name" class="font-bold">Name</label>
                 <input id="name" name="name" type="text" required [(ngModel)]="name" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Name">
         
               </div>
           <div>
-            <label for="email-address" class="sr-only">Email address</label>
+            <label for="email-address" class="font-bold">Email address</label>
             <input id="email-address" name="email" type="email" autocomplete="email" [(ngModel)]="email" required email class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address">
           </div>
           <div>
-            <label for="password" class="sr-only">Password</label>
+            <label for="password" class="font-bold">Password</label>
             <input id="password" name="password" type="password" autocomplete="current-password" required minlength="8" [(ngModel)]="password" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password">
           </div>
         </div>

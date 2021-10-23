@@ -11,10 +11,10 @@ var Lecture = require("./School/Lecture/lectureRouter")
 var Exercice = require("./School/exercice/exerciceRouter")
 let Event=require('./School/Event/eventrouter')
 var cors = require('cors')
-var app = express()
 
+
+let app = express();
 app.use(cors())
-
 let http = require('http');
 let server = http.Server(app);
 

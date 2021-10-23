@@ -30,7 +30,8 @@ constructor(private formBuilder: FormBuilder , private route: ActivatedRoute, pr
   //Add User form validations
   this.addEventForm = this.formBuilder.group({
     title: ['', [Validators.required]],
-    namestudent:['', [Validators.required]]
+    namestudent:['', [Validators.required]],
+    date:this.calendarOptions.dateClick
     });
 }
  //Add user form actions
@@ -38,14 +39,13 @@ constructor(private formBuilder: FormBuilder , private route: ActivatedRoute, pr
  onSubmit() {
 
 
-  const formdata = new FormData();
 
 
   this.submitted = true;
 
- console.log(formdata);
+ console.log(this.addEventForm.value);
 
-this.eventservice.postevent(formdata).subscribe((res)=>{console.log(res)})
+this.eventservice.postevent(this.addEventForm.value).subscribe((res)=>{console.log(res)})
 
   if (this.addEventForm.invalid) {
 
@@ -65,7 +65,11 @@ handleDateClick(arg) {
 //Hide Modal PopUp and clear the form validations
 hideForm(){
   this.addEventForm.patchValue({ title : ""});
+  this.addEventForm.patchValue({ namestudent : ""});
+
   this.addEventForm.get('title').clearValidators();
   this.addEventForm.get('title').updateValueAndValidity();
+  this.addEventForm.get('namestudent').clearValidators();
+  this.addEventForm.get('namestudent').updateValueAndValidity();
   }
 }

@@ -7,8 +7,11 @@ mongoose.Promise = global.Promise;
 
 //event Schema
 var eventSchema = mongoose.Schema({
-  title: { type: String, unique: true, required: true },
-  namestudent :{type :String,required:true}
+  title: { type: String, required: true },
+  namestudent :{type :String,required:true},
+  teacher:{type:mongoose.Schema.Types.ObjectId,ref:'teacher'},
+  date:{  type: Date,
+    default: Date.now()}
  
 }, {
   timestamps: true
@@ -55,6 +58,7 @@ var contactUsModel = mongoose.model("contactUs", contactUsSchema)
 
 // this for the admin after he create his account know he can add a teacher 
 var createTeacherSchema = mongoose.Schema({
+  Role: { type: String, required: true },
   TeacherName: { type: String, required: true },
   TeacherLastName: { type: String, required: true },
   Password: { type: String, required: true },
@@ -83,7 +87,7 @@ var createTeacherSchema = mongoose.Schema({
   Exercice: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Exercice"
-  }]
+  }],
 }, {
   timestamps: true
 });
@@ -95,14 +99,14 @@ var TeacherModel = mongoose.model("teacher", createTeacherSchema)
 
 // this schema has relation to the teacher ***one teacher has many student***
 var createStudentSchema = mongoose.Schema({
-  User: { type: String},
-  StudentName: { type: String, required: true },
-  StudentLastName: { type: String, required: true },
-  Email: { type: String, unique: true, required: true },
-  Password: { type: String, required: true },
-  ImageUrl: { type: String, required: true },
-  Age: { type: Number, required: true },
-  Phone: { type: Number, required: true },
+  User: { type: String,required:true},
+  StudentName: { type: String ,required:true},
+  StudentLastName: { type: String ,required:true},
+  Email: { type: String, unique: true,required:true},
+  Password: { type: String,required:true},
+  ImageUrl: { type: String ,required:true},
+  Age: { type: Number ,required:true},
+  Phone: { type: Number ,required:true},
   token:String,
   
   Teacher: {
