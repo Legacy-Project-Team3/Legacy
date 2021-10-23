@@ -14,7 +14,7 @@ var app = express();
 //This will be used in authentication the route 
 const session = require('express-session');
 const passport = require('passport');
-const bodyParser = require('body-parser');
+
 const LocalStrategy = require('passport-local').Strategy;
 app.use(cors())
 let http = require('http');
@@ -50,7 +50,6 @@ passport.use(new LocalStrategy(
       }
   }
 ));
-//Definig the serialize and deserialize methodes to facilitate user data storage
 passport.serializeUser(function(user, done) {
   if(user) done(null, user);
 });
@@ -63,7 +62,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(session({ secret: 'anything', resave: true, saveUninitialized: true }));
-app.use(bodyParser.json());0
+
 
 const auth = () => {
     return (req, res, next) => {
@@ -93,13 +92,11 @@ app.post('/authenticate', auth() , (req, res) => {
 });
 
 const { API_PORT } = process.env;
-app.listen(API_PORT, function () {
-  console.log('School-MongoDB RESTful API listening on http://localhost:' + API_PORT);
-});
+
 io.on('connection', (socket) => {
-  console.log('user connected');
+  
   socket.on('message', (msg) => {
-      console.log(msg);
+   
       socket.broadcast.emit('message-broadcast', msg);
      });
     })

@@ -47,6 +47,8 @@ import { SignupteacherComponent } from './teacher/signupteacher/signupteacher.co
 
 import { StudentsTabelComponent } from './admin/students-tabel/students-tabel.component';
 import { StudentNavBarComponent } from './admin/student-nav-bar/student-nav-bar.component';
+
+import { LecturestudentComponent } from './student/lecturestudent/lecturestudent.component';
 import { ComingRequestComponent } from './admin/coming-request/coming-request.component';
 import { ClassComponent } from './admin/class/class.component';
 import { HomevueComponent } from './admin/homevue/homevue.component';
@@ -77,6 +79,8 @@ const appRoutes:Routes=[
   {path:"student-Account",component:ManageAccountComponent},
   {path:"lecture",component:LectureComponent},
   {path:"chekpoint-to-do", component:CheckpointToDoComponent},
+  {path:"student-Lecutre",component:LecturestudentComponent},
+  
   //student path
 
   {path:'lecture',component:LectureComponent},
@@ -144,6 +148,9 @@ FullCalendarModule.registerPlugins([
      SignupteacherComponent,
      StudentsTabelComponent,
      StudentNavBarComponent,
+  
+     LecturestudentComponent,
+ 
      ComingRequestComponent,
   ],
   imports: [
