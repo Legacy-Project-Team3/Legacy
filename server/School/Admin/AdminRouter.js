@@ -8,10 +8,10 @@ AdminRoute.route('/admin')
 AdminRoute.route('/admin/check')
     .post(AdminController.CheckIfThePassRight)
 
-    AdminRoute.route('/admin/teacher/id')
-    .post(AdminController.deleteOneTeacher)
+    AdminRoute.route('/admin/teacher/:id')
+    .delete(AdminController.deleteOneTeacher)
  
-    AdminRoute.route('admin/student/id')
-    .post(AdminController.deleteOneStudent)
+    AdminRoute.route('admin/student/:id')
+    .delete(AdminController.deleteOneStudent)
 
 module.exports = AdminRoute;
