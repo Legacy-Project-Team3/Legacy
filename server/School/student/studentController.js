@@ -5,11 +5,9 @@ var jwt = require("jsonwebtoken")
 //
 exports.createStudent = async function (req, res) {
 
-    const {User, StudentName, StudentLastName, Email, Password, ImageUrl, Age, Phone } = req.body
+    const { User, StudentName, StudentLastName, Email, Password, ImageUrl, Age, Phone } = req.body
     try {
-        if (!(StudentName && StudentLastName && Email && Password && ImageUrl && Age && Phone&&User)) {
-            res.status(400).send("all input is required")
-        }
+
         //  if(Password){
         // check the pass with regx
         //  }   
@@ -18,20 +16,24 @@ exports.createStudent = async function (req, res) {
             return res.status(409).send("Student is already exist ")
         }
 
-        let passwordHased = await authStudent.HashPass(Password,10)
-        console.log("here the hashed password " + passwordHased)
-        const student = await School.StudentModel.create({ StudentName, StudentLastName, Email: Email.toLowerCase(), Password: passwordHased, ImageUrl, Age, Phone })
-        const token = jwt.sign(
-            { student_id: student._id, Email },
-            process.env.TOKEN_KEY,
-            {
-                expiresIn: "1h"
-            }
-        )
-        console.log("here is the token " + token)
-        student.token = token
-        res.status(201).json(student)
-        console.log("check" + student)
+
+        else {
+            // console.log("here the hashed password " + passwordHased)
+            // let passwordHased = await authStudent.HashPass(Password,salt=10)
+
+            const student = await School.StudentModel.create({ User, StudentName, StudentLastName, Email: Email, Password, ImageUrl, Age, Phone })
+            const token = jwt.sign(
+                { student_id: student._id, Email,User,StudentName,StudentLastName ,ImageUrl,Phone},
+                process.env.TOKEN_KEY,
+                {
+                    expiresIn: "1h"
+                }
+            )
+            console.log("here is the token " + token)
+            student.token = token
+            res.status(201).json(student.token)
+            console.log("check" + student)
+        }
     } catch (err) {
         console.log(err)
     }
@@ -68,33 +70,33 @@ exports.login = async (req, res) => {
 
 
 exports.checkTheToken = (req, res) => {
-res.status(200).send("valid token")
+    res.status(200).send("valid token")
 }
 
 //delete student
 exports.manageAccount = (req, res) => {
 
-       
-        const  ID =req.params.id ;
-        console.log(ID)
-         const data=req.body
-        
-       
-       School.StudentModel.findOneAndUpdate({ID},data ,(err,result)=>{
-            if(err)res.status(404).send(err)
-           res.status(201).send(result)
-       })
-  
-       
+
+    const ID = req.params.id;
+    console.log(ID)
+    const data = req.body
+
+
+    School.StudentModel.findOneAndUpdate({ ID }, data, (err, result) => {
+        if (err) res.status(404).send(err)
+        res.status(201).send(result)
+    })
+
+
 
 
 }
-exports.getStudent = async (req,res)=>{
+exports.getStudent = async (req, res) => {
     try {
-      const data  = await   School.StudentModel.find({})
-    
-      res.status(200).json(data)
-    }catch(err){
+        const data = await School.StudentModel.find({})
+
+        res.status(200).json(data)
+    } catch (err) {
         console.log(err)
     }
 
