@@ -19,6 +19,9 @@ export class UserserviceService {
     const headers={'Authorization':`${Authorization}`}
     return this.http.put(`http://localhost:3000/student/update/${id}`,body ,{headers})
    }
+   signIn(body){
+     return this.http.post(`http://localhost:3000/student/login`,body)
+   }
 
   }
 
