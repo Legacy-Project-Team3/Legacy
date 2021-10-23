@@ -8,15 +8,12 @@ import {ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { AdminComponent } from './admin/admin.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorsComponent } from './errors/errors.component';
 import { ProfilComponent } from './teacher/profil/profil.component';
 import { SigninComponent } from './home/signin/signin.component';
 import { SignupComponent } from './home/signup/signup.component';
-import { StatsComponent } from './admin/stats/stats.component';
-import { SidebareComponent } from './admin/sidebare/sidebare.component';
-import { TeatchersComponent } from './admin/teatchers/teatchers.component';
+
 /*student*/
 import { StudentComponent } from './student/student.component';
 import { SignInComponentStudent } from './student/sign-in/sign-in.component';
@@ -39,21 +36,25 @@ import { NavbarComponent } from './teacher/navbar/navbar.component';
 import { CreatLectureComponent } from './teacher/creat-lecture/creat-lecture.component';
 import { CalanderComponent } from './teacher/calander/calander.component';
 import { RequestComponent } from './teacher/request/request.component';
-import { ChatComponent } from './teacher/chat/chat.component';
 
-
-
-import { ClassComponent } from './admin/class/class.component';
-import { HomevueComponent } from './admin/homevue/homevue.component';
 import { CheckpointToDoComponent } from './student/checkpoint/checkpoint-to-do/checkpoint-to-do.component';
-
+import { AuthGuardService as AuthGard } from './auth-guard.service';
+//admin//
+import { ChatComponent } from './teacher/chat/chat.component';
 import { SigninteacherComponent } from './teacher/signinteacher/signinteacher.component';
 import { SignupteacherComponent } from './teacher/signupteacher/signupteacher.component';
 
 import { StudentsTabelComponent } from './admin/students-tabel/students-tabel.component';
 import { StudentNavBarComponent } from './admin/student-nav-bar/student-nav-bar.component';
-import { ReqwestOfDeliteComponent } from './admin/reqwest-of-delite/reqwest-of-delite.component';
+
 import { LecturestudentComponent } from './student/lecturestudent/lecturestudent.component';
+import { ComingRequestComponent } from './admin/coming-request/coming-request.component';
+import { ClassComponent } from './admin/class/class.component';
+import { HomevueComponent } from './admin/homevue/homevue.component';
+import { StatsComponent } from './admin/stats/stats.component';
+import { SidebareComponent } from './admin/sidebare/sidebare.component';
+import { TeatchersComponent } from './admin/teatchers/teatchers.component';
+import { AdminComponent } from './admin/admin.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   //teacherpath
@@ -87,14 +88,15 @@ const appRoutes:Routes=[
   //home path
   {path:'signin',component:SigninComponent},
   {path:'signup',component:SignupComponent},
+  { path: 'home', component: AppComponent ,canActivate : [AuthGard] },
   // admin path
   {path:'admin',component:AdminComponent},
   {path:'class',component:ClassComponent},
-  {path:'homeVue',component:HomevueComponent},
   {path:'teatchers',component:TeatchersComponent},
   {path:'stats',component:StatsComponent},
   {path:'studentTabel',component:StudentsTabelComponent},
   {path:'homeVue',component:HomevueComponent},
+  {path:'comingreq',component:ComingRequestComponent},
   {path:'**',component:ErrorsComponent}
 ]
 FullCalendarModule.registerPlugins([
@@ -136,20 +138,18 @@ FullCalendarModule.registerPlugins([
      MessangerComponent,
      CalendarComponent,
      ChatComponent,
- 
-
      LectureComponent,
      ClassComponent,
      HomevueComponent,
      CheckpointToDoComponent,
-    
      ChatComponent,
      SignupteacherComponent,
      StudentsTabelComponent,
      StudentNavBarComponent,
-     ReqwestOfDeliteComponent,
-     LecturestudentComponent
+  
+     LecturestudentComponent,
  
+     ComingRequestComponent,
   ],
   imports: [
     BrowserModule,
