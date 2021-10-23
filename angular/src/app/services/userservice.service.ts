@@ -10,6 +10,9 @@ export class UserserviceService {
 
 
   }
+  registerAndGetRegisterDataTeacher(body){
+     return this.http.post("http://localhost:3000/teacher/signup",body) 
+  }
   registerAndGetRegisterData(body){
 
     return this.http.post('http://localhost:3000/student/register',body)

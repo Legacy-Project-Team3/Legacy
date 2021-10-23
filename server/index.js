@@ -14,12 +14,12 @@ var cors = require('cors')
 
 
 
+var app = express();
 //This will be used in authentication the route 
 const session = require('express-session');
 const passport = require('passport');
 
 const LocalStrategy = require('passport-local').Strategy;
-let app = express();
 app.use(cors())
 let http = require('http');
 let server = http.Server(app);

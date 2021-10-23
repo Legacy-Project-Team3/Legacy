@@ -36,11 +36,21 @@
       <input type="hidden" name="remember" value="true">
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
+          <label for="Role" class="font-bold">Role</label>
+          <select  (change)=" onSelect($event)" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+            <option  name="Teacher" value="Teacher" >Teacher</option>
+            <option  name="Student" value="Student" selected>Student</option>
+            
+          </select>
+        </div>
+        <div>
           <label for="name" class="sr-only">First Name</label>
           <input id="name" name="StudentName" type="text" required [(ngModel)]="StudentName"
             class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
             placeholder="First  Name">
         </div>
+        
+        
         <div>
 
           <label for="email-address" class="sr-only">Last Name</label>
