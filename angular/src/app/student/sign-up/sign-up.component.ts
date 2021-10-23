@@ -16,11 +16,17 @@ export class SignUpComponentStudent implements OnInit {
   Age:Number;
   Phone:Number;
   User:String;
-  
+  Role:String="Student";
   constructor(private userservice:UserserviceService,private router:Router,private route:ActivatedRoute) {
   }
   
   ngOnInit(): void {
+  }
+  onSelect(e:any){
+      this.Role = e.target.value
+      if(this.Role==="Teacher"){
+        this.router.navigate(["../teacher/signup"])
+      }
   }
   onSubmit(form: NgForm){
   
