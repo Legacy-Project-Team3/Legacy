@@ -6,6 +6,7 @@ var jwt = require("jsonwebtoken")
 exports.createStudent = async function (req, res) {
 
     const { User, StudentName, StudentLastName, Email, Password, ImageUrl, Age, Phone } = req.body
+
     try {
 
         //  if(Password){
@@ -18,10 +19,10 @@ exports.createStudent = async function (req, res) {
 
 
         else {
-            // console.log("here the hashed password " + passwordHased)
-            // let passwordHased = await authStudent.HashPass(Password,salt=10)
+            
+            let passwordHased = await authStudent.HashPass(Password)
 
-            const student = await School.StudentModel.create({ User, StudentName, StudentLastName, Email: Email, Password, ImageUrl, Age, Phone })
+            const student = await School.StudentModel.create({ User, StudentName, StudentLastName, Email: Email, Password:passwordHased, ImageUrl, Age, Phone })
             const token = jwt.sign(
                 { student_id: student._id, Email,User,StudentName,StudentLastName ,ImageUrl,Phone},
                 process.env.TOKEN_KEY,
@@ -29,10 +30,10 @@ exports.createStudent = async function (req, res) {
                     expiresIn: "1h"
                 }
             )
-            console.log("here is the token " + token)
+        
             student.token = token
             res.status(201).json(student.token)
-            console.log("check" + student)
+        
         }
     } catch (err) {
         console.log(err)
@@ -43,13 +44,15 @@ exports.createStudent = async function (req, res) {
 
 
 exports.login = async (req, res) => {
+    const { Email, Password } = req.body
     try {
-        const { Email, Password } = req.body
+  
         if (!(Email && Password)) {
-            res.status(400).send("All input is required")
-        }
+           return  res.status(400).send("All input is required")
+        }else{
         const student = await School.StudentModel.findOne({ Email });
-        if (student && (await authStudent.comparePass(Password, student.Password))) {
+        const cmp =await authStudent.comparePass(Password, student.Password)
+      if (student && cmp) {
             const token = jwt.sign(
                 { student_id: student._id },
                 process.env.TOKEN_KEY,
@@ -58,8 +61,8 @@ exports.login = async (req, res) => {
                 }
             )
             student.token = token
-            res.status(200).json(student)
-
+           return res.status(200).json(student.token)
+        }
         }
     } catch (err) {
         console.log(err)

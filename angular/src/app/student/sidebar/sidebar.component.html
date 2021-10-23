@@ -2,8 +2,8 @@
   <div class="text-center p-6  border-b">
     <img class="h-24 w-24 rounded-full mx-auto" [src]="dataStudent.ImageUrl"
       [alt]="dataStudent.User" />
-    <p class="pt-2 text-lg font-semibold">{{dataStudent.User}}</p>
-    <p class="text-sm text-gray-600" >{{dataStudent.Email}}</p>
+    <p class="pt-2 text-lg font-semibold" dataStudent>{{dataStudent.User}}</p>
+    <p class="text-sm text-gray-600"dataStudent >{{dataStudent.Email}}</p>
   </div>
   <div class="border-b">
     <a routerLink="../student-Lecture" class=" px-4 py-2 hover:bg-gray-100 flex no-underline">
