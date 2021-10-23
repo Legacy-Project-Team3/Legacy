@@ -39,8 +39,6 @@ import { NavbarComponent } from './teacher/navbar/navbar.component';
 import { CreatLectureComponent } from './teacher/creat-lecture/creat-lecture.component';
 import { CalanderComponent } from './teacher/calander/calander.component';
 import { RequestComponent } from './teacher/request/request.component';
-import { ChatComponent } from './teacher/chat/chat.component';
-import { FormsModule } from '@angular/forms';
 
 
 import { ClassComponent } from './admin/class/class.component';
@@ -75,6 +73,7 @@ const appRoutes:Routes=[
   {path:"student-Messanger",component:MessangerComponent},
   {path:"student-Account",component:ManageAccountComponent},
   {path:"lecture",component:LectureComponent},
+  {path:"chekpoint-to-do", component:CheckpointToDoComponent},
   //student path
 
   {path:'lecture',component:LectureComponent},
@@ -134,9 +133,8 @@ FullCalendarModule.registerPlugins([
      MessangerComponent,
      CalendarComponent,
      ChatComponent,
-     LectureComponent
-
      LectureComponent,
+
      ClassComponent,
      HomevueComponent,
      CheckpointToDoComponent,
