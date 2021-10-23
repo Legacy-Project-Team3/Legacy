@@ -1,26 +1,10 @@
 
-
-//check the register 
-POST http://localhost:3000/student/register
-
-Content-Type: application/json
-
+POST http://localhost:3000/student/login
+ Content-Type: application/json
 {
- "StudentName":"ghassen[o",
-  "StudentLastName":"bendza mchilia"
-  , "Email":"ghar@gmail.com",
-   "Password":"123123",
-    "ImageUrl":"haha.jpeg", 
-   "Age":14,
-    "Phone":"451356" 
-}
-///check the login if it's work 
-
-# POST http://localhost:3000/student/login
-# Content-Type: application/json
-# {
-
-# }
+ "Email":"firas@gmail.com",
+ "Password":"22451356"
+ }
 
 
 # ///check the valid authorization 

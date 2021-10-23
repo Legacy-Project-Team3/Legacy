@@ -80,14 +80,14 @@ var TeacherModel = mongoose.model("teacher", createTeacherSchema)
 
 // this schema has relation to the teacher ***one teacher has many student***
 var createStudentSchema = mongoose.Schema({
-  User: { type: String},
-  StudentName: { type: String, required: true },
-  StudentLastName: { type: String, required: true },
-  Email: { type: String, unique: true, required: true },
-  Password: { type: String, required: true },
-  ImageUrl: { type: String, required: true },
-  Age: { type: Number, required: true },
-  Phone: { type: Number, required: true },
+  User: { type: String,required:true},
+  StudentName: { type: String ,required:true},
+  StudentLastName: { type: String ,required:true},
+  Email: { type: String, unique: true,required:true},
+  Password: { type: String,required:true},
+  ImageUrl: { type: String ,required:true},
+  Age: { type: Number ,required:true},
+  Phone: { type: Number ,required:true},
   token:String,
   
   Teacher: {

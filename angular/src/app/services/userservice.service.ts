@@ -9,8 +9,19 @@ export class UserserviceService {
 
 
   }
+  registerAndGetRegisterData(body){
 
-  getRegisterData(){
-      return this.http.get('http://localhost:3000/student')
+    return this.http.post('http://localhost:3000/student/register',body)
   }
-}
+
+  managaAccount(body ,Authorization,id ){
+  
+    const headers={'Authorization':`${Authorization}`}
+    return this.http.put(`http://localhost:3000/student/update/${id}`,body ,{headers})
+   }
+   signIn(body){
+     return this.http.post(`http://localhost:3000/student/login`,body)
+   }
+
+  }
+

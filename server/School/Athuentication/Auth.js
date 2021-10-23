@@ -4,7 +4,8 @@ const bcrypt = require('bcrypt')
 // first argument is the password that come from the client 
 // second argument is the salt round which means the cost factor 
 //the cost factor controls how mush time needed to calculate a single bcry
-exports.HashPass= (passwordFromClient,saltRound=10 )=>{
+exports.HashPass= (passwordFromClient,saltRound=10)=>{
+   
    //return the password hashed 
 return bcrypt.hash(passwordFromClient,saltRound)
 }
