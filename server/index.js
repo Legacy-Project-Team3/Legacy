@@ -9,7 +9,11 @@ var result = require("./School/Result/ResultRouter")
 var contactUs = require("./School/ContactUs/ContactUsRouter")
 var Lecture = require("./School/Lecture/lectureRouter")
 var Exercice = require("./School/exercice/exerciceRouter")
-let app = express();
+let Event=require('./School/Event/eventrouter')
+var cors = require('cors')
+var app = express()
+
+app.use(cors())
 
 let http = require('http');
 let server = http.Server(app);
@@ -30,6 +34,7 @@ app.use("/", Lecture)
 app.use("/", Exercice)
 app.use("/", checkPoint)
 app.use("/", result)
+app.use("/", Event)
 app.use("/", contactUs)
 app.get("/test",(req,res)=>{
   res.send("adzazd")

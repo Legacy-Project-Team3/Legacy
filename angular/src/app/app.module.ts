@@ -49,6 +49,10 @@ import { SignupteacherComponent } from './teacher/signupteacher/signupteacher.co
 import { StudentsTabelComponent } from './admin/students-tabel/students-tabel.component';
 import { StudentNavBarComponent } from './admin/student-nav-bar/student-nav-bar.component';
 import { ReqwestOfDeliteComponent } from './admin/reqwest-of-delite/reqwest-of-delite.component';
+FullCalendarModule.registerPlugins([
+  dayGridPlugin,
+  interactionPlugin
+])
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'teacher',component:TeacherComponent},
@@ -84,10 +88,7 @@ const appRoutes:Routes=[
   {path:'homeVue',component:HomevueComponent},
   {path:'**',component:ErrorsComponent}
 ]
-FullCalendarModule.registerPlugins([
-  dayGridPlugin,
-  interactionPlugin
-])
+
 @NgModule({
   declarations: [
     AppComponent,

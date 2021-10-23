@@ -46,6 +46,15 @@
                  </div>
                  <div class="col-sm-12">
                   <div class="form-group">
+                        <label>Studen Name</label>
+                        <input placeholder="Add Event Title" type="text" formControlName="namestudent" class="titleinp form-control" [ngClass]="{ 'is-invalid': submitted && f.namestudent.errors }" />
+                        <div *ngIf="submitted && f.namestudent.errors" class="invalid-feedback">
+                              <div *ngIf="f.namestudent.errors.required">namestudent is required</div>
+                        </div>
+                     </div>
+               </div>
+                 <div class="col-sm-12">
+                  <div class="form-group">
                         <label>Event Date:</label>
                         <div class="form-control eventstarttitle"></div>
                      </div>
