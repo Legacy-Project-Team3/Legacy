@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 declare let $: any;
 import { CalendarOptions } from '@fullcalendar/angular';
+import { EventService } from 'src/app/services/Event/event.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,15 +14,38 @@ import Swal from 'sweetalert2';
 export class CalanderComponent {
   addEventForm: FormGroup;
   submitted = false;
-  //Add user form actions
-  get f() { return this.addEventForm.controls; }
+
+
+constructor(private formBuilder: FormBuilder , private route: ActivatedRoute, private router: Router,private eventservice:EventService){
+
+}
+
+  title = 'angularadmintemplates';
+  calendarOptions: CalendarOptions;
+  ngOnInit() {
+    this.calendarOptions = {
+      initialView: 'dayGridMonth',
+      dateClick: this.handleDateClick.bind(this)
+  };
+  //Add User form validations
+  this.addEventForm = this.formBuilder.group({
+    title: ['', [Validators.required]],
+    namestudent:['', [Validators.required]],
+    date:this.calendarOptions.dateClick
+    });
+}
+ //Add user form actions
+ get f() { return this.addEventForm.controls; }
  onSubmit() {
 
-  this.submitted = true;
-  // stop here if form is invalid and reset the validations
-  this.addEventForm.get('title').setValidators([Validators.required]);
-  this.addEventForm.get('title').updateValueAndValidity();
 
+
+
+  this.submitted = true;
+
+ console.log(this.addEventForm.value);
+
+this.eventservice.postevent(this.addEventForm.value).subscribe((res)=>{console.log(res)})
 
   if (this.addEventForm.invalid) {
 
@@ -28,23 +53,6 @@ export class CalanderComponent {
 
       return Swal.fire('You must make title to your event');
   }
-}
-constructor(private formBuilder: FormBuilder){}
-  title = 'angularadmintemplates';
-  calendarOptions: CalendarOptions;
-  ngOnInit() {
-    this.calendarOptions = {
-      initialView: 'dayGridMonth',
-      dateClick: this.handleDateClick.bind(this),
-    events: [
-      { title: 'event 1', date: '2021-10-20' },
-      { title: 'event 2', date: '2021-10-30' }
-    ]
-  };
-  //Add User form validations
-  this.addEventForm = this.formBuilder.group({
-    title: ['', [Validators.required]]
-    });
 }
 //Show Modal with Forn on dayClick Event
 handleDateClick(arg) {
@@ -57,7 +65,11 @@ handleDateClick(arg) {
 //Hide Modal PopUp and clear the form validations
 hideForm(){
   this.addEventForm.patchValue({ title : ""});
+  this.addEventForm.patchValue({ namestudent : ""});
+
   this.addEventForm.get('title').clearValidators();
   this.addEventForm.get('title').updateValueAndValidity();
+  this.addEventForm.get('namestudent').clearValidators();
+  this.addEventForm.get('namestudent').updateValueAndValidity();
   }
 }
