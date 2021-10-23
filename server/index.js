@@ -55,7 +55,6 @@ passport.use(new LocalStrategy(
       }
   }
 ));
-//Definig the serialize and deserialize methodes to facilitate user data storage
 passport.serializeUser(function(user, done) {
   if(user) done(null, user);
 });
