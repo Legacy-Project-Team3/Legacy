@@ -1,6 +1,7 @@
 require("dotenv").config();
 var express = require('express');
 var morgan = require('morgan');
+const cors = require("cors")
 var teacher = require("./School/teacher/teacherRoute")
 var student = require("./School/student/studentRouter")
 var admin = require("./School/Admin/AdminRouter")
@@ -16,7 +17,17 @@ const session = require('express-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const LocalStrategy = require('passport-local').Strategy;
+let app = express();
 app.use(cors())
+let http = require('http');
+let server = http.Server(app);
+
+const io = require("socket.io")(server, {
+    cors: {
+      origin: "http://localhost:4200",
+      methods: ["GET", "POST"]
+    }
+  });
 app.use(morgan('dev'));
 app.use(express.json())
 app.use(express.static(__dirname + '/../client/dist'));
@@ -87,3 +98,14 @@ const { API_PORT } = process.env;
 app.listen(API_PORT, function () {
   console.log('School-MongoDB RESTful API listening on http://localhost:' + API_PORT);
 });
+io.on('connection', (socket) => {
+  console.log('user connected');
+  socket.on('message', (msg) => {
+      console.log(msg);
+      socket.broadcast.emit('message-broadcast', msg);
+     });
+    })
+server.listen(API_PORT,  ()=> {
+  console.log('School-MongoDB RESTful API listening on http://localhost:' + API_PORT)
+})
+

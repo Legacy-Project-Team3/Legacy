@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular'
+// import { UserserviceService } from '../services/userservice.service';
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
@@ -20,6 +21,7 @@ export class StudentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+   
   }
 
 }

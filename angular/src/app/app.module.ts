@@ -1,6 +1,11 @@
-import { Component, NgModule } from '@angular/core';
+
+
+import { HttpClientModule } from '@angular/common/http';
+import { Component, Directive, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';  
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -21,8 +26,6 @@ import { ExerciceComponent } from './student/exercice/exercice.component';
 import { MessangerComponent } from './student/messanger/messanger.component';
 import { ManageAccountComponent } from './student/manage-account/manage-account.component';
 import { CalendarComponent } from './student/calendar/calendar.component';
-/*student*/
-import { ReactiveFormsModule } from '@angular/forms';
 // teacher
 import { TeacherComponent } from './teacher/teacher.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
@@ -37,6 +40,10 @@ import { RequestComponent } from './teacher/request/request.component';
 import { CheckpointToDoComponent } from './student/checkpoint/checkpoint-to-do/checkpoint-to-do.component';
 import { AuthGuardService as AuthGard } from './auth-guard.service';
 //admin//
+import { ChatComponent } from './teacher/chat/chat.component';
+import { SigninteacherComponent } from './teacher/signinteacher/signinteacher.component';
+import { SignupteacherComponent } from './teacher/signupteacher/signupteacher.component';
+
 import { StudentsTabelComponent } from './admin/students-tabel/students-tabel.component';
 import { StudentNavBarComponent } from './admin/student-nav-bar/student-nav-bar.component';
 import { ComingRequestComponent } from './admin/coming-request/coming-request.component';
@@ -48,9 +55,15 @@ import { TeatchersComponent } from './admin/teatchers/teatchers.component';
 import { AdminComponent } from './admin/admin.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
+  //teacherpath
   {path:'teacher',component:TeacherComponent},
   {path:'profil',component:ProfilComponent},
   {path:'request',component:RequestComponent},
+  {path:'chat',component:ChatComponent},
+
+  {path: 'teacher/signup', component:SignupteacherComponent},
+  {path: 'teacher/signin', component:SigninteacherComponent},
+
   //student path component
   {path:'cours',component:CreatLectureComponent},
   {path:'calander',component:CalanderComponent},
@@ -61,9 +74,14 @@ const appRoutes:Routes=[
   {path:"student-Checkpoint",component:CheckpointComponent},
   {path:"student-Messanger",component:MessangerComponent},
   {path:"student-Account",component:ManageAccountComponent},
-  {path:'lecture',component:LectureComponent},
+  {path:"lecture",component:LectureComponent},
+  //student path
 
-  
+  {path:'lecture',component:LectureComponent},
+  {path:'chat',component:ChatComponent},
+
+
+
   //home path
   {path:'signin',component:SigninComponent},
   {path:'signup',component:SignupComponent},
@@ -116,19 +134,25 @@ FullCalendarModule.registerPlugins([
      ManageAccountComponent,
      MessangerComponent,
      CalendarComponent,
+     ChatComponent,
      LectureComponent,
      ClassComponent,
      HomevueComponent,
      CheckpointToDoComponent,
+     ChatComponent,
+     SignupteacherComponent,
      StudentsTabelComponent,
      StudentNavBarComponent,
-     ComingRequestComponent
+     ComingRequestComponent,
   ],
   imports: [
     BrowserModule,
     FullCalendarModule,
     ReactiveFormsModule,
     FormsModule,
+
+    HttpClientModule,
+
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

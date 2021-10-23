@@ -1,26 +1,69 @@
 
 var School = require("../School")
 var mongoose = require('mongoose');
+require("dotenv").config();
+var authTeacher = require("../Athuentication/Auth")
+var jwt = require("jsonwebtoken")
+//
+
 //to create teacher 
-exports.createTeacher = (req, res) => {
-    // taking the information for the teacher that comes from the client side 
-    const teacherData = req.body
-
-    // save the information into the data base 
-    School.TeacherModel.create(teacherData)
-        //if the data is saved without problem 
-        .then((data) => {
-            School.TeacherModel.find({}, (err, result) => {
-                res.status(201).send(result)
-            })
-
-            // if there is an error
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+exports.createTeacher = async function(req, res) {
+    const { Role, TeacherName, TeacherLastName, Email, Password, ImageUrl, Field, Phone, Experience} = req.body
+    try {
+        if (!(Role && TeacherName && TeacherLastName && Email && Password && ImageUrl && Field && Phone && Experience)) {
+            res.status(400).send("all inputs are required")
+        }
+        const existingUser = await School.TeacherModel.findOne({ Email })
+        if (existingUser) {
+            return res.status(409).send("Teacher already exists")
+        }
+        let passwordHased = await authTeacher.HashPass(Password)
+        console.log("here is the hashed password " + passwordHased)
+        const teacher = await School.TeacherModel.create({ Role, TeacherName, TeacherLastName, Email: Email.toLowerCase(), Password: passwordHased, ImageUrl, Field, Phone, Experience})
+        const token = jwt.sign(
+            { teacher_id: teacher._id, Email },
+            process.env.TOKEN_KEY,
+            {
+                expiresIn: "1h"
+            }
+        )
+        console.log("here is the token " + token)
+        teacher.token = token
+        res.status(201).json(teacher)
+        console.log("check" + teacher)
+    } catch (err) {
+        console.log(err)
+    }
 
 };
+
+exports.login = async (req, res) => {
+    try {
+        const { Email, Password } = req.body
+        if (!(Email && Password)) {
+            res.status(400).send("All inputs are required")
+        }
+        const teacher = await School.TeacherModel.findOne({ Email });
+        if (teacher && (await authTeacher.comparePass(Password, teacher.Password))) {
+            const token = jwt.sign(
+                { teacher_id: teacher._id },
+                process.env.TOKEN_KEY,
+                {
+                    expiresIn: "1h",
+                }
+            )
+            teacher.token = token
+            res.status(200).json(teacher)
+        }
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+exports.checkTheToken = (req, res) => {
+    res.status(200).send("valid token")
+    }
+    
 // to get all the student 
 exports.getAllStudent = (req, res) => {
     //take the id of the specfic teacher 
