@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReqwestOfDeliteComponent } from './reqwest-of-delite.component';
+import { ComingRequestComponent } from './coming-request.component';
 
-describe('ReqwestOfDeliteComponent', () => {
-  let component: ReqwestOfDeliteComponent;
-  let fixture: ComponentFixture<ReqwestOfDeliteComponent>;
+describe('ComingRequestComponent', () => {
+  let component: ComingRequestComponent;
+  let fixture: ComponentFixture<ComingRequestComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReqwestOfDeliteComponent ]
+      declarations: [ ComingRequestComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReqwestOfDeliteComponent);
+    fixture = TestBed.createComponent(ComingRequestComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
