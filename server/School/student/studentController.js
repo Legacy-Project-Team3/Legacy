@@ -22,9 +22,12 @@ exports.createStudent = async function (req, res) {
             
             let passwordHased = await authStudent.HashPass(Password)
 
+            
             const student = await School.StudentModel.create({ User, StudentName, StudentLastName, Email: Email, Password:passwordHased, Age, Phone })
+    
             const token = jwt.sign(
-                { student_id: student._id, Email,User,StudentName,StudentLastName ,Phone},
+
+                { student_id: student._id, Email,User,StudentName,StudentLastName ,Phone },
                 process.env.TOKEN_KEY,
                 {
                     expiresIn: "1h"

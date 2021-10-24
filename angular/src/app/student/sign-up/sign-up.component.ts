@@ -29,7 +29,8 @@ export class SignUpComponentStudent implements OnInit {
     fd.append("image",this.ImageUrl,this.ImageUrl.name)
       this.userservice.sendImage(fd).subscribe(res=>{
         console.log(res)
-        localStorage.setItem("image",JSON.stringify(res)) })
+        localStorage.setItem("image",JSON.stringify(res)) 
+      })
   }
   onSelect(e:any){
       this.Role = e.target.value

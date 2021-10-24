@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserserviceService } from '../../services/userservice.service';
 import { JwtHelperService } from "@auth0/angular-jwt";
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-manage-account',
   templateUrl: './manage-account.component.html',
@@ -17,9 +18,13 @@ export class ManageAccountComponent implements OnInit {
   ImageUrl:File; 
   Age:Number;
   Phone:Number; 
-  constructor(private userservice:UserserviceService) { }
+  constructor(private userservice:UserserviceService,private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    var Token = localStorage.getItem("acces_token")
+    if(!Token){
+      this.router.navigate(["../student-Signin"])
+    }
   }
   onSubmit(form: NgForm ){
     const  token= localStorage.getItem("acces_token")
