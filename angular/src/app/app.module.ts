@@ -41,7 +41,7 @@ import { TeacherCheckpointComponent } from './teacher/checkpoint/checkpoint.comp
 import { CheckpointToDoComponent } from './student/checkpoint/checkpoint-to-do/checkpoint-to-do.component';
 import { AuthGuardService as AuthGard } from './auth-guard.service';
 //admin//
-import { ChatComponent } from './teacher/chat/chat.component';
+import { ChatComponent } from './student/chat/chat.component';
 import { SigninteacherComponent } from './teacher/signinteacher/signinteacher.component';
 import { SignupteacherComponent } from './teacher/signupteacher/signupteacher.component';
 

@@ -31,8 +31,11 @@ export class UserserviceService {
      return this.http.post("http://localhost:3000/teacher/signin",body)
 
    }
-   createTeacher(data){
-     return this.http.post('http://localhost:3000/Checkpoint',data)
+   sendImage(body){
+     return this.http.post("http://localhost:3000/image",body)
+   }
+   createTeacher(body){
+     return this.http.post('http://localhost:3000/Checkpoint',body)
 
    }
   }
