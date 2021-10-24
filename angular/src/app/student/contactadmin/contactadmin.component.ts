@@ -24,7 +24,7 @@ onSend(){
   console.log(this.Name , this.Email,this.Subject,this.Message)
   this.userservice.studentRequestAdmin({Name:this.Name ,Email: this.Email,Subject:this.Subject,Message:this.Message}).subscribe(res=>{
     console.log(res)
-  
+    window.location.reload()
   })
 
 }
