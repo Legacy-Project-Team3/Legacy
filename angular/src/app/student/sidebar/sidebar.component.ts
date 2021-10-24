@@ -12,16 +12,17 @@ dataStudent :any;
 image:any;
   constructor(private router:Router,private route:ActivatedRoute) { }
 logOut(){
-  console.log("faefaz")
+  
   localStorage.removeItem("acces_token")
+  // localStorage.removeItem("image")
 }
   ngOnInit(): void {
 
     const helper = new JwtHelperService();
     var Token = localStorage.getItem("acces_token")
-    if(!Token){
-      this.router.navigate(["../student-Signin"])
-    }
+    // if(!Token){
+    //   this.router.navigate(["../student-Signin"])
+    // }
     var  data=helper.decodeToken(Token)
     this.dataStudent=data
     var image = localStorage.getItem("image")

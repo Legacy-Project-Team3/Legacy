@@ -8,8 +8,7 @@ exports.saveImages = async(req,res)=>{
 
     try{
         const result = await cloudinary.uploader.upload(req.file.path);
-    // console.log(req.file.path)
-    //create instance of image 
+   
      let img =  ({
        name : req.body.name,
        avatar : result.secure_url,

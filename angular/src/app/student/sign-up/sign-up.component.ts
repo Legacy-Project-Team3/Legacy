@@ -29,7 +29,8 @@ export class SignUpComponentStudent implements OnInit {
     fd.append("image",this.ImageUrl,this.ImageUrl.name)
       this.userservice.sendImage(fd).subscribe(res=>{
         console.log(res)
-        localStorage.setItem("image",JSON.stringify(res)) })
+        localStorage.setItem("image",JSON.stringify(res)) 
+      })
   }
   onSelect(e:any){
       this.Role = e.target.value
@@ -41,7 +42,7 @@ export class SignUpComponentStudent implements OnInit {
 
     console.log(form.value)
     this.userservice.registerAndGetRegisterData({...form.value,ImageUrl:this.ImageUrl}).subscribe(res=>{
-      // console.log(helper.isTokenExpired(JSON.stringify(res) ))
+   
       
       localStorage.setItem("acces_token",JSON.stringify(res ))
       this.router.navigate(["../student"])

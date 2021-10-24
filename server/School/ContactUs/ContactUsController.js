@@ -6,11 +6,11 @@ exports.saveContactUs = (req, res) => {
     School.contactUsModel.create(contactUs)
         .then(() => {
             //if the data save it response with 201 status
-            res.sendStatus(201)
+            res.status(201).send()
         })
         // if there is an error response with 404 status 
-        .catch(() => {
-            res.sendStatus(404)
+        .catch((err) => {
+            res.status(404).send(err)
         })
 }
 
