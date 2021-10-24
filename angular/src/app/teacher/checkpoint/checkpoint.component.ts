@@ -15,7 +15,6 @@ export class TeacherCheckpointComponent implements OnInit {
     quizArray= [] as any;
     Title: any;
     
-
   constructor() { }
 
   ngOnInit(): void {
@@ -30,6 +29,7 @@ export class TeacherCheckpointComponent implements OnInit {
   }
 
   Save(){
+    //creating the input field on click
     const element = document.createElement("input");
     element.setAttribute("type", "text")
     element.setAttribute("placeholder", "Title")
@@ -41,10 +41,11 @@ export class TeacherCheckpointComponent implements OnInit {
   }
   
   Submit() {
+    //getting the value of all inputs and pushing them intp quizArray
     this.Title = (<HTMLInputElement>document.getElementById("inputTitle")).value;
     console.log(this.Title)
     this.quizArray.push(this.Title);  
     console.log('second',this.quizArray)
-   
   }
+  
 }
