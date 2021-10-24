@@ -1,7 +1,7 @@
 
 
 import { HttpClientModule } from '@angular/common/http';
-import { Component, Directive, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -60,6 +60,7 @@ import { StatsComponent } from './admin/stats/stats.component';
 import { SidebareComponent } from './admin/sidebare/sidebare.component';
 import { TeatchersComponent } from './admin/teatchers/teatchers.component';
 import { AdminComponent } from './admin/admin.component';
+import { CreateExerciesComponent } from './teacher/create-exercies/create-exercies.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   //teacherpath
@@ -68,11 +69,13 @@ const appRoutes:Routes=[
   {path:'request',component:RequestComponent},
   {path:'chat',component:ChatComponent},
   {path: 'create-checkpoint', component:TeacherCheckpointComponent},
+  {path: 'create-exercies', component:CreateExerciesComponent},
+  {path:'cours',component:CreatLectureComponent},
+
   {path: 'teacher/signup', component:SignupteacherComponent},
   {path: 'teacher/signin', component:SigninteacherComponent},
 
   //student path component
-  {path:'cours',component:CreatLectureComponent},
   {path:'calander',component:CalanderComponent},
   {path:"student",component:StudentComponent},
   {path:"signup-student",component:SignUpComponentStudent},
@@ -153,13 +156,14 @@ const appRoutes:Routes=[
      LecturestudentComponent,
 
      ComingRequestComponent,
+
+       CreateExerciesComponent,
   ],
   imports: [
     BrowserModule,
     FullCalendarModule,
     ReactiveFormsModule,
     FormsModule,
-
     HttpClientModule,
 
     RouterModule.forRoot(appRoutes)

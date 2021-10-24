@@ -1,69 +1,37 @@
 
-<nav class=" bg-indigo-700 ">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-            <div class="flex items-center">
-                <div class="flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="white">
-                        <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                        <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-                      </svg>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#" class="
-              text-gray-300
-              hover:bg-gray-700 hover:text-white
-              px-3
-              py-2
-              rounded-md
-              no-underline
-              text-sm
-              font-medium
-            "  routerLink='student-Signin' >Sign In Student</a>
+<nav class="bg-indigo-700">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="white">
+            <path d="M12 14l9-5-9-5-9 5 9 5z" />
+            <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+          </svg>
+        </div>
+        <div class="hidden md:block">
 
-                        <a href="#" class="
-              text-gray-300
-              hover:bg-gray-700 hover:text-white
-              px-3
-              py-2
-              rounded-md
-              no-underline
-              text-sm
-              font-medium
-            " routerLink='signup-student'>Sign Up Student</a>
-            <a href="#" class="
-              text-gray-300
-              hover:bg-gray-700 hover:text-white
-              px-3
-              py-2
-              rounded-md
-              no-underline
-              text-sm
-              font-medium
-            " routerLink='teacher/signup'>Sign Up Teacher</a>
+        </div>
+      </div>
+      <div class="hidden md:block">
+        <div class="ml-4 flex items-center md:ml-6">
 
-            <a href="#" class="
-              text-gray-300
-              hover:bg-gray-700 hover:text-white
-              px-3
-              py-2
-              rounded-md
-              no-underline
-              text-sm
-              font-medium
-            " routerLink='teacher/signin'>Sign In Teacher</a>
+          <div >
+            <a class="text-gray-50 hover:bg-white hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium no-underline" routerLink='teacher/signup' >signup</a>
+            <a class="text-gray-50 hover:bg-white hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium no-underline" routerLink='teacher/signin' >signin</a>
 
+          </div>
+          <!-- Profile dropdown -->
+        </div>
+      </div>
 
-
-                    </div>
-                </div>
-            </div>
-            </div>
     </div>
+  </div>
 
-    </nav>
+  <!-- Mobile menu, show/hide based on menu state. -->
+
+</nav>
 
 
 
@@ -129,7 +97,7 @@
                             </p>
                             <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                               <div class="rounded-md shadow">
-                                <a href="#" class="no-underline w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" routerLink='signup'>
+                                <a href="#" class="no-underline w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" routerLink='teacher/signup'>
                                   Join Us
                                 </a>
                               </div>

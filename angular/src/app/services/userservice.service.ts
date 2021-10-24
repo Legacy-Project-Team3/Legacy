@@ -11,7 +11,7 @@ export class UserserviceService {
 
   }
   registerAndGetRegisterDataTeacher(body){
-     return this.http.post("http://localhost:3000/teacher/signup",body) 
+     return this.http.post("http://localhost:3000/teacher/signup",body)
   }
   registerAndGetRegisterData(body){
 
@@ -27,5 +27,13 @@ export class UserserviceService {
      return this.http.post(`http://localhost:3000/student/login`,body)
    }
 
+   signInTeacher(body){
+     return this.http.post("http://localhost:3000/teacher/signin",body)
+
+   }
+   createTeacher(data){
+     return this.http.post('http://localhost:3000/Checkpoint',data)
+
+   }
   }
 

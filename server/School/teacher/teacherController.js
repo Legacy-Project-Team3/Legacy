@@ -46,14 +46,14 @@ exports.login = async (req, res) => {
         const teacher = await School.TeacherModel.findOne({ Email });
         if (teacher && (await authTeacher.comparePass(Password, teacher.Password))) {
             const token = jwt.sign(
-                { teacher_id: teacher._id },
+                { teacher_id: teacher._id,Email:teacher.Email , Role:teacher.Role , TeacherName:teacher.TeacherName ,TeacherLastName:teacher.TeacherLastName,ImageUrl:teacher.ImageUrl,Field:teacher.Field,Phone:teacher.Phone },
                 process.env.TOKEN_KEY,
                 {
                     expiresIn: "1h",
                 }
             )
             teacher.token = token
-            res.status(200).json(teacher)
+            res.status(200).json(teacher.token)
         }
     } catch (err) {
         console.log(err)
