@@ -20,7 +20,7 @@
             <a  class="text-gray-50 hover:bg-white hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium no-underline" routerLink='../cours'>Courses</a>
 
             <a  class="text-gray-50 hover:bg-white hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium no-underline" routerLink='../calander'>Calendar</a>
-            
+
             <a  class="text-gray-50 hover:bg-white hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium no-underline" routerLink='../create-checkpoint'>Checkpoint</a>
 
           </div>
@@ -29,9 +29,12 @@
       <div class="hidden md:block">
         <div class="ml-4 flex items-center md:ml-6">
 
-
+          <div >
+            <button class="text-gray-50 hover:bg-white hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium no-underline" (click)="logOut()">Logout</button>
+          </div>
           <!-- Profile dropdown -->
           <div class="ml-3 relative">
+
             <div>
               <button type="button" class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                 <span class="sr-only">Open user menu</span>

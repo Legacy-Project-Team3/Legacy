@@ -13,7 +13,8 @@ export class TeacherCheckpointComponent implements OnInit {
     Answer3: string;
     RightAnswer: string;
     quizArray= [] as any;
-    Title: string;
+    Title: any;
+    
 
   constructor() { }
 
@@ -33,9 +34,17 @@ export class TeacherCheckpointComponent implements OnInit {
     element.setAttribute("type", "text")
     element.setAttribute("placeholder", "Title")
     element.setAttribute("name", "Title")
-    // element.setAttribute("[(ngModel)]", "Title")
+    element.setAttribute("id", "inputTitle")
     element.setAttribute("class","appearance-none block w-full bg-white text-gray-700  border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none focus:border-gray-500");
     document.getElementById("title").appendChild(element)  
+   
   }
-
+  
+  Submit() {
+    this.Title = (<HTMLInputElement>document.getElementById("inputTitle")).value;
+    console.log(this.Title)
+    this.quizArray.push(this.Title);  
+    console.log('second',this.quizArray)
+   
+  }
 }
