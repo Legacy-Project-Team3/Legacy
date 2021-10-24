@@ -60,10 +60,6 @@ export class ChatComponent implements OnInit {
      element.style.background = 'white';
      element.style.padding =  '15px 30px';
      element.style.color = 'red';
-<<<<<<< HEAD
-
-=======
->>>>>>> d6fba8d7069930658531257d4cdb17d807b8b264
      element.style.margin = '10px';
      document.getElementById('message-list').appendChild(element);
      }
@@ -78,10 +74,6 @@ export class ChatComponent implements OnInit {
    element.style.margin = '10px';
    element.style.textAlign = 'right';
     element.style.color = 'black';
-<<<<<<< HEAD
-
-=======
->>>>>>> d6fba8d7069930658531257d4cdb17d807b8b264
    document.getElementById('message-list').appendChild(element);
    this.message = '';
 }

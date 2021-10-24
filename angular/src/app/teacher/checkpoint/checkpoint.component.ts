@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms'
 
 @Component({
@@ -12,7 +12,6 @@ export class TeacherCheckpointComponent implements OnInit {
     Answer2: string;
     Answer3: string;
     RightAnswer: string;
-    
     quizArray= [] as any;
 
   constructor() { }
@@ -28,8 +27,12 @@ export class TeacherCheckpointComponent implements OnInit {
     console.log(this.quizArray)
   }
 
-  onSave(form:NgForm){
-  console.log(form.value)
+  Save(){
+    const element = document.createElement("input");
+    element.setAttribute("type", "text")
+    element.setAttribute("placeholder", "Title")
+    element.setAttribute("class","appearance-none block w-full bg-white text-gray-700  border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none focus:border-gray-500");
+    document.getElementById("title").appendChild(element)  
   }
 
 }

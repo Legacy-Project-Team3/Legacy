@@ -14,6 +14,6 @@ Email:String;
   ngOnInit(): void {
   }
   onSubmit(form:NgForm){
-
+console.log(form.value)
 }
 }
