@@ -27,5 +27,9 @@ export class UserserviceService {
      return this.http.post(`http://localhost:3000/student/login`,body)
    }
 
+   signInTeacher(body){
+     return this.http.post("http://localhost:3000/teacher/signin",body)
+
+   }
   }
 
