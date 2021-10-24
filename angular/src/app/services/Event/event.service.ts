@@ -9,15 +9,15 @@ export class EventService {
 
   constructor(private http:HttpClient) { }
   postevent(data){
-return this.http.post(environment.url+'/event',data)
+return this.http.post('http://localhost:3000'+'/event',data)
 
   }
   get(){
-    return this.http.get(environment.url+'/getevent')
+    return this.http.get('http://localhost:3000'+'/getevent')
 
       }
    getAllstudent(){
-        return this.http.get(environment.url+'/student')
+        return this.http.get('http://localhost:3000'+'/student')
       }
 
 }
