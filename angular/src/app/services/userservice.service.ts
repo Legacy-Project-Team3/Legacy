@@ -35,6 +35,9 @@ export class UserserviceService {
    getAllS():Observable<any>{
      return this.http.get('http://localhost:3000/student');
    }
-
+   // Get All Classes
+   getAllC(body):Observable<any>{
+     return this.http.post('http://localhost:3000/class',body)
+   }
   }
 

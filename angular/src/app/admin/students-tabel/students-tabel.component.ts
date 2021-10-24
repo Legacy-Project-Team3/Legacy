@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 import { UserserviceService } from '../../services/userservice.service';
 
 
@@ -17,7 +16,6 @@ export class StudentsTabelComponent implements OnInit {
   ngOnInit(){
      this.userservise.getAllS().subscribe(res=>{
       this.data=res
-      console.log(this.data)
      })
   }
 
