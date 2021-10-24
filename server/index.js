@@ -1,7 +1,6 @@
 require("dotenv").config();
 var express = require('express');
 var morgan = require('morgan');
-const cors = require("cors")
 var teacher = require("./School/teacher/teacherRoute")
 var student = require("./School/student/studentRouter")
 var admin = require("./School/Admin/AdminRouter")
@@ -10,6 +9,11 @@ var result = require("./School/Result/ResultRouter")
 var contactUs = require("./School/ContactUs/ContactUsRouter")
 var Lecture = require("./School/Lecture/lectureRouter")
 var Exercice = require("./School/exercice/exerciceRouter")
+let Event=require('./School/Event/eventrouter')
+var cors = require('cors')
+
+
+
 var app = express();
 //This will be used in authentication the route 
 const session = require('express-session');
@@ -36,6 +40,7 @@ app.use("/", Lecture)
 app.use("/", Exercice)
 app.use("/", checkPoint)
 app.use("/", result)
+app.use("/", Event)
 app.use("/", contactUs)
 app.get("/test",(req,res)=>{
   res.send("adzazd")

@@ -207,25 +207,11 @@ class="
                   [(ngModel)]="RightAnswer"
                 />
               </div>
+              <div id="title" class="w-full md:w-full px-3 mb-6">
+
+              </div>
               <div class="flex justify-end">
-                <button
-                  class="
-                    appearance-none
-                    px-2
-                    py-1
-                    hover:bg-indigo-700
-                    border-none
-                    text-indigo-700
-                    border-white-400
-                    rounded-md
-                    shadow-inner
-                    hover:text-white
-                    mr-3
-                  "
-                  type="submit"
-                >
-                  Upload Checkpoint
-                </button>
+                
                 <div class="flex justify-end">
                     <button
                       class="
@@ -243,9 +229,48 @@ class="
                       "
                       type="submit"
                     >
-                        Add
+                        Add Question
                     </button>
                   </div>
+                  <button
+                (click)="Save()"
+                  class="
+                    appearance-none
+                    px-2
+                    py-1
+                    hover:bg-indigo-700
+                    border-none
+                    text-indigo-700
+                    border-white-400
+                    rounded-md
+                    shadow-inner
+                    hover:text-white
+                    mr-3
+                  "
+                  type="submit"
+                >
+                  Add Title
+                </button>
+                <button
+                (click)="Submit()"
+
+                  class="
+                    appearance-none
+                    px-2
+                    py-1
+                    hover:bg-indigo-700
+                    border-none
+                    text-indigo-700
+                    border-white-400
+                    rounded-md
+                    shadow-inner
+                    hover:text-white
+                    mr-3
+                  "
+                  type="submit"
+                >
+                  Submit Checkpoint
+                </button>
               </div>
             </div>
         </form>

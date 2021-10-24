@@ -1,10 +1,10 @@
 
 
 import { HttpClientModule } from '@angular/common/http';
-import { Component, Directive, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import {ReactiveFormsModule} from '@angular/forms';  
+import {ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -47,6 +47,10 @@ import { SignupteacherComponent } from './teacher/signupteacher/signupteacher.co
 
 import { StudentsTabelComponent } from './admin/students-tabel/students-tabel.component';
 import { StudentNavBarComponent } from './admin/student-nav-bar/student-nav-bar.component';
+FullCalendarModule.registerPlugins([
+  dayGridPlugin,
+  interactionPlugin
+])
 
 import { LecturestudentComponent } from './student/lecturestudent/lecturestudent.component';
 import { ComingRequestComponent } from './admin/coming-request/coming-request.component';
@@ -56,6 +60,7 @@ import { StatsComponent } from './admin/stats/stats.component';
 import { SidebareComponent } from './admin/sidebare/sidebare.component';
 import { TeatchersComponent } from './admin/teatchers/teatchers.component';
 import { AdminComponent } from './admin/admin.component';
+
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   //teacherpath
@@ -80,7 +85,7 @@ const appRoutes:Routes=[
   {path:"lecture",component:LectureComponent},
   {path:"chekpoint-to-do", component:CheckpointToDoComponent},
   {path:"student-Lecutre",component:LecturestudentComponent},
-  
+
   //student path
 
   {path:'lecture',component:LectureComponent},
@@ -101,10 +106,7 @@ const appRoutes:Routes=[
   {path:'comingreq',component:ComingRequestComponent},
   {path:'**',component:ErrorsComponent}
 ]
-FullCalendarModule.registerPlugins([
-  dayGridPlugin,
-  interactionPlugin
-])
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -148,9 +150,9 @@ FullCalendarModule.registerPlugins([
      SignupteacherComponent,
      StudentsTabelComponent,
      StudentNavBarComponent,
-  
+
      LecturestudentComponent,
- 
+
      ComingRequestComponent,
   ],
   imports: [
@@ -158,7 +160,6 @@ FullCalendarModule.registerPlugins([
     FullCalendarModule,
     ReactiveFormsModule,
     FormsModule,
-
     HttpClientModule,
 
     RouterModule.forRoot(appRoutes)

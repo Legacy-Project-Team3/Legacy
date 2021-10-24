@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class UserserviceService {
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
 
 
   }
@@ -18,7 +19,7 @@ export class UserserviceService {
   }
 
   managaAccount(body ,Authorization,id ){
-  
+
     const headers={'Authorization':`${Authorization}`}
     return this.http.put(`http://localhost:3000/student/update/${id}`,body ,{headers})
    }
@@ -26,5 +27,9 @@ export class UserserviceService {
      return this.http.post(`http://localhost:3000/student/login`,body)
    }
 
+   signInTeacher(body){
+     return this.http.post("http://localhost:3000/teacher/signin",body)
+
+   }
   }
 

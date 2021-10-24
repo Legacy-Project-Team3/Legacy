@@ -24,7 +24,7 @@ logOut(){
     var  data=helper.decodeToken(Token)
     this.dataStudent=data
     
-    console.log( this.dataStudent)
+    console.log(this.dataStudent)
   
   }
 

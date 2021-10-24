@@ -5,8 +5,27 @@ var mongoose = require('mongoose');
 const db = require('../db/index.js');
 mongoose.Promise = global.Promise;
 
+//event Schema
+var eventSchema = mongoose.Schema({
+  title: { type: String, required: true },
+  namestudent :{type:mongoose.Schema.Types.ObjectId,ref:'student'},
+  teacher:{type:mongoose.Schema.Types.ObjectId,ref:'teacher'},
+  date:{  type: Date,
+    default: Date.now()}
+ 
+}, {
+  timestamps: true
+})
+var EventModel = mongoose.model("Event", eventSchema)
 
-//
+//message Schema
+var messageSchema = mongoose.Schema({
+  text: { type: String, unique: true, required: true },
+}, {
+  timestamps: true
+})
+
+var MessageModel = mongoose.model("Message", messageSchema)
 //this the admin to create his account
 var adminSchema = mongoose.Schema({
   User: { type: String, unique: true, required: true },
@@ -68,7 +87,7 @@ var createTeacherSchema = mongoose.Schema({
   Exercice: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Exercice"
-  }]
+  }],
 }, {
   timestamps: true
 });
@@ -189,5 +208,7 @@ module.exports = {
   checkPointModel,
   LectureModel,
   ResultModel,
-  exerciceModel
+  exerciceModel,
+  EventModel,
+  MessageModel
 };
