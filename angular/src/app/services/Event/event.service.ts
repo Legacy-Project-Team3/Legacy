@@ -16,7 +16,7 @@ return this.http.post(environment.url+'/event',data)
     return this.http.get(environment.url+'/getevent')
 
       }
-      getAllstudent(){
+   getAllstudent(){
         return this.http.get(environment.url+'/student')
       }
 

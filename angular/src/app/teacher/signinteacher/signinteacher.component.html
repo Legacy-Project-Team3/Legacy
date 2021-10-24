@@ -3,7 +3,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
           <div class="flex items-center">
-              <div class="flex-shrink-0">
+              <div  routerLink='' class="flex-shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="white" routerLink='../'>
                       <path d="M12 14l9-5-9-5-9 5 9 5z" />
                       <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
@@ -32,11 +32,11 @@
     <div class="mt-8 space-y-6"  >      <input type="hidden" name="remember" value="true">
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
-          <label for="email-address" class="sr-only" >Email address</label>
+          <label for="email-address" class="font-bold" >Email address</label>
           <input id="email-address" name="Email" #box (keyup)="OnInput(box.value)" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address">
         </div>
         <div>
-          <label for="password" class="sr-only" >Password</label>
+          <label for="password" class="font-bold" >Password</label>
           <input  name="Password" type="password"  autocomplete="current-password" #box1 (keyup)="OnInput1(box1.value)"  required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password">
         </div>
       </div>
