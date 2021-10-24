@@ -60,6 +60,7 @@ import { StatsComponent } from './admin/stats/stats.component';
 import { SidebareComponent } from './admin/sidebare/sidebare.component';
 import { TeatchersComponent } from './admin/teatchers/teatchers.component';
 import { AdminComponent } from './admin/admin.component';
+
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   //teacherpath
