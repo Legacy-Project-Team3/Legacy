@@ -17,7 +17,7 @@ export class TeacherCheckpointComponent implements OnInit {
     RightAnswer: string;
 
     quizArray= [] as any;
-    Title: any;
+    Title=[]as any;
     dataTeacher:any;
     teacherId:string;
 
@@ -36,39 +36,37 @@ export class TeacherCheckpointComponent implements OnInit {
   }
 
 
-  add(form:NgForm){
+  add(){
     let result  = {} as any;
-     result={Quiz:form.value}
+     result={Question:this.Question,Answer1:this.Answer1,Answer2:this.Answer2,Answer3:this.Answer3,RightAnswer:this.RightAnswer}
     this.quizArray.push(result);
-    console.log(result)
+
     console.log(this.quizArray)
   }
-
+  onTypeTilte($event){
+    let array = []as any
+    this[$event.target.name]=$event.target.value;
+    console.log(($event.target.value))
+  
+  }
   Save(){
     //creating the input field on click
     const element = document.createElement("input");
     element.setAttribute("type", "text")
     element.setAttribute("placeholder", "Title")
     element.setAttribute("name", "Title")
-    element.setAttribute("id", "inputTitle")
+    element.addEventListener("change",this.onTypeTilte)
     element.setAttribute("class","appearance-none block w-full bg-white text-gray-700  border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none focus:border-gray-500");
     document.getElementById("title").appendChild(element)
 
   }
-
+  
+  onChangeCheck(e){
+    this[e.target.name]=e.target.value
+  }
   Submit() {
-    //getting the value of all inputs and pushing them intp quizArray
-    // console.log(form1.value)
-    // this.userservice.createTeacher({...form1.value}).subscribe(res=>{
-    //   console.log(res);
-
-
-
-    // })
-    this.Title = (<HTMLInputElement>document.getElementById("inputTitle")).value;
-    console.log(this.Title)
-    this.quizArray.push(this.Title);
-    console.log('second',this.quizArray)
+   console.log(this.Title)
+    
   }
 
 }
