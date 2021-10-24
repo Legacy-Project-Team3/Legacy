@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {UserserviceService} from "../../services/userservice.service"
 @Component({
   selector: 'app-contactadmin',
   templateUrl: './contactadmin.component.html',
@@ -10,7 +10,7 @@ export class ContactadminComponent implements OnInit {
   Email: String;
   Subject: String;
   Message: String;
-  constructor() { }
+  constructor(private userservice:UserserviceService) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +22,10 @@ export class ContactadminComponent implements OnInit {
 
 onSend(){
   console.log(this.Name , this.Email,this.Subject,this.Message)
+  this.userservice.studentRequestAdmin({Name:this.Name ,Email: this.Email,Subject:this.Subject,Message:this.Message}).subscribe(res=>{
+    console.log(res)
   
+  })
+
 }
 }
