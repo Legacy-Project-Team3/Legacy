@@ -12,4 +12,12 @@ export class EventService {
 return this.http.post(environment.url+'/event',data)
 
   }
+  get(){
+    return this.http.get(environment.url+'/getevent')
+
+      }
+      getAllstudent(){
+        return this.http.get(environment.url+'/student')
+      }
+
 }

@@ -5,6 +5,8 @@ declare let $: any;
 import { CalendarOptions } from '@fullcalendar/angular';
 import { EventService } from 'src/app/services/Event/event.service';
 import Swal from 'sweetalert2';
+import { JwtHelperService } from "@auth0/angular-jwt";
+
 
 @Component({
   selector: 'app-calander',
@@ -14,7 +16,8 @@ import Swal from 'sweetalert2';
 export class CalanderComponent {
   addEventForm: FormGroup;
   submitted = false;
-
+  dataTeacher:any;
+  students:any
 
 constructor(private formBuilder: FormBuilder , private route: ActivatedRoute, private router: Router,private eventservice:EventService){
 
@@ -23,6 +26,16 @@ constructor(private formBuilder: FormBuilder , private route: ActivatedRoute, pr
   title = 'angularadmintemplates';
   calendarOptions: CalendarOptions;
   ngOnInit() {
+    this.eventservice.getAllstudent().subscribe((res)=>{ console.log(res);
+
+      this.students=res})
+    const helper = new JwtHelperService();
+    var Token = localStorage.getItem("acces_token");
+    if(!Token){
+      this.router.navigate(["../teacher/signup"])
+    }
+    this.dataTeacher = helper.decodeToken(Token)
+    console.log(this.dataTeacher)
     this.calendarOptions = {
       initialView: 'dayGridMonth',
       dateClick: this.handleDateClick.bind(this)
@@ -31,6 +44,7 @@ constructor(private formBuilder: FormBuilder , private route: ActivatedRoute, pr
   this.addEventForm = this.formBuilder.group({
     title: ['', [Validators.required]],
     namestudent:['', [Validators.required]],
+    teacher:[this.dataTeacher.teacher_id],
     date:this.calendarOptions.dateClick
     });
 }

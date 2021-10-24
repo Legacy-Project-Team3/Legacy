@@ -96,7 +96,7 @@ exports.manageAccount = (req, res) => {
 }
 exports.getStudent = async (req, res) => {
     try {
-        const data = await School.StudentModel.find({})
+        const data = await School.StudentModel.find({}).populate('teacher')
 
         res.status(200).json(data)
     } catch (err) {

@@ -1,7 +1,7 @@
 
 
 import { HttpClientModule } from '@angular/common/http';
-import { Component, Directive, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -60,6 +60,7 @@ import { StatsComponent } from './admin/stats/stats.component';
 import { SidebareComponent } from './admin/sidebare/sidebare.component';
 import { TeatchersComponent } from './admin/teatchers/teatchers.component';
 import { AdminComponent } from './admin/admin.component';
+
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   //teacherpath
@@ -159,7 +160,6 @@ const appRoutes:Routes=[
     FullCalendarModule,
     ReactiveFormsModule,
     FormsModule,
-
     HttpClientModule,
 
     RouterModule.forRoot(appRoutes)

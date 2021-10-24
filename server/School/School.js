@@ -8,7 +8,7 @@ mongoose.Promise = global.Promise;
 //event Schema
 var eventSchema = mongoose.Schema({
   title: { type: String, required: true },
-  namestudent :{type :String,required:true},
+  namestudent :{type:mongoose.Schema.Types.ObjectId,ref:'student'},
   teacher:{type:mongoose.Schema.Types.ObjectId,ref:'teacher'},
   date:{  type: Date,
     default: Date.now()}
