@@ -42,7 +42,7 @@ export class SignUpComponentStudent implements OnInit {
 
     console.log(form.value)
     this.userservice.registerAndGetRegisterData({...form.value,ImageUrl:this.ImageUrl}).subscribe(res=>{
-      // console.log(helper.isTokenExpired(JSON.stringify(res) ))
+   
       
       localStorage.setItem("acces_token",JSON.stringify(res ))
       this.router.navigate(["../student"])

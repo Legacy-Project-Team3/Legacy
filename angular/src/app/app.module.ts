@@ -61,6 +61,7 @@ import { SidebareComponent } from './admin/sidebare/sidebare.component';
 import { TeatchersComponent } from './admin/teatchers/teatchers.component';
 import { AdminComponent } from './admin/admin.component';
 import { CreateExerciesComponent } from './teacher/create-exercies/create-exercies.component';
+import { ContactadminComponent } from './student/contactadmin/contactadmin.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   //teacherpath
@@ -87,6 +88,7 @@ const appRoutes:Routes=[
   {path:"lecture",component:LectureComponent},
   {path:"chekpoint-to-do", component:CheckpointToDoComponent},
   {path:"student-Lecutre",component:LecturestudentComponent},
+  {path:"admin/contact",component:ContactadminComponent},
 
   //student path
 
@@ -158,6 +160,7 @@ const appRoutes:Routes=[
      ComingRequestComponent,
 
        CreateExerciesComponent,
+         ContactadminComponent,
   ],
   imports: [
     BrowserModule,
