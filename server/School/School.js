@@ -118,7 +118,11 @@ var createCheckPoint = mongoose.Schema({
   teacher: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "teacher"
-  }
+  },
+  class :  [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Class"
+  }]
 },
   {
     timestamps: true
@@ -128,8 +132,18 @@ var createCheckPoint = mongoose.Schema({
 // checkpoint model
 var checkPointModel = mongoose.model("Quiz", createCheckPoint)
 
+// class Schema
+var createClass = mongoose.Schema({
+  name : String,
+  teacherId: String,
+  teacher : {
+    type : mongoose.Schema.Types.ObjectId,
+    ref:"teacher"
+  },
+  level:Number
+})
 
-
+var classModel = mongoose.model("Class",createClass)
 
 
 // lecture schema
@@ -189,5 +203,6 @@ module.exports = {
   checkPointModel,
   LectureModel,
   ResultModel,
-  exerciceModel
+  exerciceModel,
+  classModel
 };

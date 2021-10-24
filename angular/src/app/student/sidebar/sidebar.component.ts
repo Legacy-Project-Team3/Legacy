@@ -13,7 +13,7 @@ dataStudent :any;
   ngOnInit(): void {
     const helper = new JwtHelperService();
     var Token = localStorage.getItem("acces_token")
-    var  data=helper.isTokenExpired(Token)
+    var  data=helper.decodeToken(Token)
     this.dataStudent= data
     console.log( this.dataStudent)
   

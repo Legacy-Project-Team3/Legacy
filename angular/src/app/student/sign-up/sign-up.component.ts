@@ -24,7 +24,6 @@ export class SignUpComponentStudent implements OnInit {
   }
   onSubmit(form: NgForm){
   
-    console.log(form.value)
     this.userservice.registerAndGetRegisterData(form.value).subscribe(res=>{
       // console.log(helper.isTokenExpired(JSON.stringify(res) ))
       
