@@ -29,7 +29,7 @@
         </h2>
        
       </div>
-      <form class="mt-8 space-y-6" action="#" method="POST" #authForm = "ngForm" (ngSubmit) = "onSignup(authForm)">
+      <form [formGroup]="addEventForm" class="mt-8 space-y-6" action="#" method="POST" #authForm = "ngForm" (ngSubmit) = "onSignup(authForm)">
         <input type="hidden" name="remember" value="true">
         <div class="rounded-md shadow-sm -space-y-px">
           <div>
@@ -41,13 +41,19 @@
             </select>
             <!-- <input id="name" name="Role" type="text" [(ngModel)]="Role" required  placeholder="Name"> -->
           </div> 
-          <div>
+          <div class="form-group">
             <label for="TeacherName" class="font-bold">Teacher Name</label>
-            <input id="name" name="TeacherName" type="text" [(ngModel)]="TeacherName" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Name">
+            <input [ngClass]="{ 'is-invalid': submitted && f.TeacherName.errors }" formControlName="TeacherName" id="name" name="TeacherName" type="text" [(ngModel)]="TeacherName" required class="form-control appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Name">
+            <div *ngIf="submitted && f.TeacherName.errors" class="invalid-feedback">
+              <div *ngIf="f.TeacherName.errors.required">Teacher's name is required</div>
+        </div>
           </div> 
-          <div>
-            <label for="TeacherLastName" class="font-bold">Teacher Lastname</label>
-            <input id="name" name="TeacherLastName" type="text" [(ngModel)]="TeacherLastName" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Lastname">
+          <div class="form-group">
+            <label  for="TeacherLastName" class="font-bold">Teacher's Lastname</label>
+            <input [ngClass]="{ 'is-invalid': submitted && f.TeacherLastName.errors }" formControlName="TeacherLastName" id="name" name="TeacherLastName" type="text" [(ngModel)]="TeacherLastName" required class="form-control appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Lastname">
+            <div *ngIf="submitted && f.TeacherLastName.errors" class="invalid-feedback">
+              <div *ngIf="f.TeacherLastName.errors.required">Teacher's lastname is required</div>
+        </div>
           </div> 
 
            <div>
@@ -55,34 +61,52 @@
             <!-- <input id="name" name="ImageUrl" type="text"  [(ngModel)]="ImageUrl" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="ImageUrl"> -->
           </div>
 
-          <div class='w-full md:w-full px-3 mb-6'>
+          <div class='form-group w-full md:w-full px-3 mb-6'>
             <label
                 class="w-64 flex flex-col items-center px-4 pb-2 bg-white rounded-md change-color shadow-md tracking-wide uppercase border border-blue cursor-pointer  hover:text-indigo-700 hover:bg-indigo-700 text-indigo-700 ease-linear transition-all duration-150">
                 <i class="fas fa-cloud-upload-alt fa-3x"></i>
                 <span class="mt-2 text-base font-bold leading-normal">Upload photo</span>
-                <input type='file' name="ImageUrl"  required [(ngModel)]="ImageUrl" class="hidden" />
+                <input [ngClass]="{ 'is-invalid': submitted && f.ImageUrl.errors }" formControlName="ImageUrl" type='file' name="ImageUrl"  required [(ngModel)]="ImageUrl" class="form-control hidden" />
             </label>
+            <div *ngIf="submitted && f.ImageUrl.errors" class="invalid-feedback">
+              <div *ngIf="f.ImageUrl.errors.required">Image is required</div>
+        </div>
         </div>
 
-          <div>
+          <div class='form-group'>
             <label for="email-address" class="font-bold">Email address</label>
-            <input  id="email-address" [(ngModel)]="Email" name="Email" type="email" autocomplete="email" required email class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address">
+            <input [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" formControlName="Email"   id="email-address" [(ngModel)]="Email" name="Email" type="email" autocomplete="email" required email class="form-control appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address">
+            <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+              <div *ngIf="f.Email.errors.required">An Email address must be provided</div>
+        </div>
           </div>   
-           <div>
+          <div class='form-group'>
             <label for="Field" class="font-bold">Field</label>
-            <input id="email-address" name="Field" [(ngModel)]="Field" type="text" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Field">
+            <input [ngClass]="{ 'is-invalid': submitted && f.Field.errors }" formControlName="Field"  id="email-address" name="Field" [(ngModel)]="Field" type="text" autocomplete="email" required class="form-control  appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Field">
+            <div *ngIf="submitted && f.Field.errors" class="invalid-feedback">
+              <div *ngIf="f.Field.errors.required">The field is required</div>
+        </div>
           </div>          
-          <div>
+          <div class='form-group'>
             <label for="Phone" class="font-bold">Phone</label>
-            <input id="name" name="Phone" type="text" [(ngModel)]="Phone"  required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Phone">
+            <input [ngClass]="{ 'is-invalid': submitted && f.Phone.errors }" formControlName="Phone"  id="name" name="Phone" type="text" [(ngModel)]="Phone"  required class="aform-control ppearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Phone">
+            <div *ngIf="submitted && f.Phone.errors" class="invalid-feedback">
+              <div *ngIf="f.Phone.errors.required">The phone number is required</div>
+        </div>
           </div>          
-          <div>
+          <div class='form-group'>
             <label for="Experience" class="font-bold">Experience</label>
-            <input id="name" name="Experience" type="text" [(ngModel)]="Experience"   required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Experience">
+            <input [ngClass]="{ 'is-invalid': submitted && f.Experience.errors }" formControlName="Experience"  id="name" name="Experience" type="text" [(ngModel)]="Experience"   required class="form-control appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Experience">
+            <div *ngIf="submitted && f.Experience.errors" class="invalid-feedback">
+              <div *ngIf="f.Experience.errors.required">The experience is required</div>
+        </div>
           </div>
-          <div>
+          <div class='form-group'>
             <label for="password" class="">Password</label>
-            <input id="password" name="Password" type="password" autocomplete="current-password" required minlength="8" [(ngModel)]="Password" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password">
+            <input [ngClass]="{ 'is-invalid': submitted && f.Password.errors }" formControlName="Password"  id="password" name="Password" type="password" autocomplete="current-password" required minlength="8" [(ngModel)]="Password" class="form-control appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password">
+            <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+              <div *ngIf="f.Password.errors.required">The password must be at least 8 characters long</div>
+        </div>
           </div>
         </div>
   
