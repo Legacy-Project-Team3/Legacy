@@ -11,7 +11,7 @@ export class UserserviceService {
 
   }
   registerAndGetRegisterDataTeacher(body){
-     return this.http.post("http://localhost:3000/teacher/signup",body) 
+     return this.http.post("http://localhost:3000/teacher/signup",body)
   }
   registerAndGetRegisterData(body){
 
@@ -33,6 +33,10 @@ export class UserserviceService {
    }
    sendImage(body){
      return this.http.post("http://localhost:3000/image",body)
+   }
+   createTeacher(body){
+     return this.http.post('http://localhost:3000/Checkpoint',body)
+
    }
   }
 
