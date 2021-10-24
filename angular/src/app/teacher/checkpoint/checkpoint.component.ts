@@ -17,7 +17,7 @@ export class TeacherCheckpointComponent implements OnInit {
     RightAnswer: string;
 
     quizArray= [] as any;
-    Title=[]as any;
+    Title: any;
     dataTeacher:any;
     teacherId:string;
 
@@ -44,11 +44,12 @@ export class TeacherCheckpointComponent implements OnInit {
     console.log(this.quizArray)
   }
   onTypeTilte($event){
-    let array = []as any
-    this[$event.target.name]=$event.target.value;
+   
+    this.Title=$event.target.value;
     console.log(($event.target.value))
   
   }
+  
   Save(){
     //creating the input field on click
     const element = document.createElement("input");
