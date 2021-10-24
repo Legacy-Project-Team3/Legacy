@@ -53,7 +53,18 @@ var contactUsSchema = mongoose.Schema({
 /// contact us model 
 var contactUsModel = mongoose.model("contactUs", contactUsSchema)
 
-
+const imageSchema = new mongoose.Schema({
+  name : {
+    type : String 
+  },
+  avatar : {
+    type : String
+  },
+  cloudinary_id : {
+    type : String
+  }
+})
+var imges = mongoose.model("image",imageSchema)
 
 
 // this for the admin after he create his account know he can add a teacher 
@@ -104,7 +115,7 @@ var createStudentSchema = mongoose.Schema({
   StudentLastName: { type: String ,required:true},
   Email: { type: String, unique: true,required:true},
   Password: { type: String,required:true},
-  ImageUrl: { type: String ,required:true},
+  
   Age: { type: Number ,required:true},
   Phone: { type: Number ,required:true},
   token:String,
@@ -210,5 +221,6 @@ module.exports = {
   ResultModel,
   exerciceModel,
   EventModel,
-  MessageModel
+  MessageModel,
+  imges
 };

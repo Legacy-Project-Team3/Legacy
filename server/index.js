@@ -11,7 +11,7 @@ var Lecture = require("./School/Lecture/lectureRouter")
 var Exercice = require("./School/exercice/exerciceRouter")
 let Event=require('./School/Event/eventrouter')
 var cors = require('cors')
-
+var images = require("./School/images/imagesRouter")
 
 
 var app = express();
@@ -30,6 +30,7 @@ const io = require("socket.io")(server, {
       methods: ["GET", "POST"]
     }
   });
+ app.use("/",images) 
 app.use(morgan('dev'));
 app.use(express.json())
 app.use(express.static(__dirname + '/../client/dist'));

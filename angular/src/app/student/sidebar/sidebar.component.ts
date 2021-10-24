@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class SidebarComponent implements OnInit {
 dataStudent :any;
+image:any;
   constructor(private router:Router,private route:ActivatedRoute) { }
 logOut(){
   console.log("faefaz")
@@ -23,8 +24,10 @@ logOut(){
     }
     var  data=helper.decodeToken(Token)
     this.dataStudent=data
-    
-    console.log(this.dataStudent)
+    var image = localStorage.getItem("image")
+      this.image=JSON.parse( image)
+       
+    console.log(this.image.ImageUrl)
   
   }
 

@@ -18,7 +18,7 @@ dataTeacher:any;
     const helper = new JwtHelperService();
     var Token = localStorage.getItem("acces_token");
     if(!Token){
-      this.router.navigate(["../teacher/signup"])
+      this.router.navigate(["../teacher/signin"])
     }
     this.dataTeacher = helper.decodeToken(Token)
     console.log(this.dataTeacher)

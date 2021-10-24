@@ -22,6 +22,15 @@ export class SignUpComponentStudent implements OnInit {
   
   ngOnInit(): void {
   }
+  onFileSlected(event){
+    this.ImageUrl=<File>event.target.files[0];
+
+    const fd = new FormData();
+    fd.append("image",this.ImageUrl,this.ImageUrl.name)
+      this.userservice.sendImage(fd).subscribe(res=>{
+        console.log(res)
+        localStorage.setItem("image",JSON.stringify(res)) })
+  }
   onSelect(e:any){
       this.Role = e.target.value
       if(this.Role==="Teacher"){
@@ -29,9 +38,9 @@ export class SignUpComponentStudent implements OnInit {
       }
   }
   onSubmit(form: NgForm){
-  
+
     console.log(form.value)
-    this.userservice.registerAndGetRegisterData(form.value).subscribe(res=>{
+    this.userservice.registerAndGetRegisterData({...form.value,ImageUrl:this.ImageUrl}).subscribe(res=>{
       // console.log(helper.isTokenExpired(JSON.stringify(res) ))
       
       localStorage.setItem("acces_token",JSON.stringify(res ))

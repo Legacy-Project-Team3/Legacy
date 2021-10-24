@@ -5,7 +5,7 @@ var jwt = require("jsonwebtoken")
 //
 exports.createStudent = async function (req, res) {
 
-    const { User, StudentName, StudentLastName, Email, Password, ImageUrl, Age, Phone } = req.body
+    const { User, StudentName, StudentLastName, Email, Password, Age, Phone } = req.body
 
     try {
 
@@ -22,9 +22,9 @@ exports.createStudent = async function (req, res) {
             
             let passwordHased = await authStudent.HashPass(Password)
 
-            const student = await School.StudentModel.create({ User, StudentName, StudentLastName, Email: Email, Password:passwordHased, ImageUrl, Age, Phone })
+            const student = await School.StudentModel.create({ User, StudentName, StudentLastName, Email: Email, Password:passwordHased, Age, Phone })
             const token = jwt.sign(
-                { student_id: student._id, Email,User,StudentName,StudentLastName ,ImageUrl,Phone},
+                { student_id: student._id, Email,User,StudentName,StudentLastName ,Phone},
                 process.env.TOKEN_KEY,
                 {
                     expiresIn: "1h"
@@ -54,7 +54,7 @@ exports.login = async (req, res) => {
         const cmp =await authStudent.comparePass(Password, student.Password)
       if (student && cmp) {
             const token = jwt.sign(
-                { student_id: student._id ,Email:student.Email,User:student.User,StudentName:student.StudentName,StudentLastName:student.StudentLastName ,ImageUrl:student.ImageUrl,Phone:student.Phone},
+                { student_id: student._id ,Email:student.Email,User:student.User,StudentName:student.StudentName,StudentLastName:student.StudentLastName ,Phone:student.Phone},
                 process.env.TOKEN_KEY,
                 {
                     expiresIn: "1h",
