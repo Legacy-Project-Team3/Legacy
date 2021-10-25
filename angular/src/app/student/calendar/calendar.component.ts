@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import {EventService} from "../../services/Event/event.service"
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare let $: any;
 import { CalendarOptions } from '@fullcalendar/angular';
@@ -32,10 +33,14 @@ export class CalendarComponent implements OnInit {
       return Swal.fire('You must make title to your event');
   }
 }
-constructor(private formBuilder: FormBuilder){}
+constructor(private formBuilder: FormBuilder,private router:Router,private route:ActivatedRoute,private userservice:EventService,){}
   title = 'angularadmintemplates';
   calendarOptions: CalendarOptions;
   ngOnInit() {
+    var Token = localStorage.getItem("acces_token")
+    if(!Token){
+      this.router.navigate(["../student-Signin"])
+    }
     this.calendarOptions = {
       initialView: 'dayGridMonth',
       dateClick: this.handleDateClick.bind(this),
