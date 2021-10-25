@@ -12,7 +12,7 @@ dataStudent :any;
 image:any;
   constructor(private router:Router,private route:ActivatedRoute) { }
 logOut(){
-  
+
   localStorage.removeItem("acces_token")
   // localStorage.removeItem("image")
 }
@@ -30,8 +30,7 @@ logOut(){
     var image = localStorage.getItem("image")
       this.image=JSON.parse( image)
        
-    console.log(this.image.ImageUrl)
-  
+
   }
 
 }
