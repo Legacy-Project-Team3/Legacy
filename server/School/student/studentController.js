@@ -98,7 +98,7 @@ exports.manageAccount = (req, res) => {
             }
         )
         student.token = token
-        res.status(201).send(student.token)
+        res.status(201).json(student.token)
     })
 
 
