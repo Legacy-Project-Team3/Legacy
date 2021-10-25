@@ -65,5 +65,8 @@ export class UserserviceService {
    getCheckpoint(){
      return this.http.get("http://localhost:3000/Checkpoint")
    }
+   saveImage(body){
+     return this.http.post("http://localhost:3000/image",body)
+   }
   }
 

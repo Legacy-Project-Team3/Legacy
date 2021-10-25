@@ -44,12 +44,14 @@ export class SignUpComponentStudent implements OnInit {
       // console.log(helper.isTokenExpired(JSON.stringify(res) ))
 
     console.log(form.value)
-    this.userservice.registerAndGetRegisterData({...form.value,ImageUrl:this.ImageUrl}).subscribe(res=>{
-   
-      
+    // this.userservice.registerAndGetRegisterData({...form.value}).subscribe(res=>{
+    //   // this.userservice.saveImage({ImageUrl:this.ImageUrl}).subscribe(result=>{
+    //   //   localStorage.setItem("image",JSON.stringify(result))
+    //   })
+
       localStorage.setItem("acces_token",JSON.stringify(res ))
       this.router.navigate(["../student"])
-    })
+    // })
  })
 }
 }
