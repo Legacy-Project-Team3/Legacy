@@ -18,6 +18,7 @@ export class ManageAccountComponent implements OnInit {
   ImageUrl:File; 
   Age:Number;
   Phone:Number; 
+  ComfirmedPassword:String;
   constructor(private userservice:UserserviceService,private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -40,5 +41,10 @@ export class ManageAccountComponent implements OnInit {
     this.router.navigate(["../student"])
 
   })
+  
+}
+change(e){
+  this.ComfirmedPassword = e.target.value
+  console.log(this.ComfirmedPassword , this.Password)
 }
 }

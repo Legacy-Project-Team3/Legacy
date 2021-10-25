@@ -32,15 +32,10 @@ exports.createCheckPoint = (req, res) => {
 
 /// git all quiz for spsific teacher that he created
 exports.getCheckponit = (req, res) => {
-    // taking the id of specific teacher
-    var teacherId = req.params.id.replace(' "','')
-    
-
-    
-    School.checkPointModel.find({teacherId: JSON.parse(teacherId)},(err,rst)=> {
+    School.checkPointModel.find({},(err,result)=> {
         if(err) res.status(500).send(err)
-        console.log(rst)
-        res.status(200).send(rst)})
+        res.status(200).json(result)
+    })
   
 
 
