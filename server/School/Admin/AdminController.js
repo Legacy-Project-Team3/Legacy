@@ -1,3 +1,4 @@
+require("dotenv").config();
 var AuthAdmin = require("../Athuentication/Auth")
 var School = require("../School")
 var jwte = require("jsonwebtoken")

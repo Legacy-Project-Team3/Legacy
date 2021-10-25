@@ -62,6 +62,7 @@ import { TeatchersComponent } from './admin/teatchers/teatchers.component';
 import { AdminComponent } from './admin/admin.component';
 import { CreateExerciesComponent } from './teacher/create-exercies/create-exercies.component';
 import { ContactadminComponent } from './student/contactadmin/contactadmin.component';
+import { SignInAdmComponent } from './admin/sign-in-adm/sign-in-adm.component';
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   //teacherpath
@@ -89,6 +90,7 @@ const appRoutes:Routes=[
   {path:"chekpoint-to-do", component:CheckpointToDoComponent},
   {path:"student-Lecutre",component:LecturestudentComponent},
   {path:"admin/contact",component:ContactadminComponent},
+  {path:"admin-Signin",component:SignInAdmComponent},
 
   //student path
 
@@ -161,6 +163,7 @@ const appRoutes:Routes=[
 
        CreateExerciesComponent,
          ContactadminComponent,
+         SignInAdmComponent,
   ],
   imports: [
     BrowserModule,

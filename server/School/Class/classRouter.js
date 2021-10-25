@@ -7,7 +7,7 @@ classRouter.route('/class/:id')
 .delete(classController.deleteClass)
 
 classRouter.route('/class')
-.post(classController.allClass)
+.get(classController.allClass)
 
 
 module.exports = classRouter

@@ -27,6 +27,10 @@ export class UserserviceService {
    signIn(body){
      return this.http.post(`http://localhost:3000/student/login`,body)
    }
+   // admin signIn
+   signInA(body){
+    return this.http.post(`http://localhost:3000/student/login`,body)
+  }
     //Get All the teacher
     getAll():Observable<any> {
       return this.http.get('http://localhost:3000/teacher');
@@ -40,8 +44,8 @@ export class UserserviceService {
      return this.http.get('http://localhost:3000/student');
    }
    // Get All Classes
-   getAllC(body):Observable<any>{
-     return this.http.post('http://localhost:3000/class',body)
+   getAllC():Observable<any>{
+     return this.http.get('http://localhost:3000/class')
    }
    //create a class
    createClass(body,Authorization,id){
@@ -60,7 +64,9 @@ export class UserserviceService {
    }
    studentRequestAdmin(body){
      return this.http.post("http://localhost:3000/contactus",body)
-
+   }
+   getAllReq(){
+     return this.http.get("http://localhost:3000/contactus")
    }
 }
 

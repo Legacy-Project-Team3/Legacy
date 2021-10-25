@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserserviceService } from '../../services/userservice.service';
-import { JwtHelperService } from "@auth0/angular-jwt";
-import {NgForm} from '@angular/forms';
+
 
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
@@ -19,17 +18,14 @@ export class ClassComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const helper = new JwtHelperService();
-    var Token = localStorage.getItem("acces_token");
-    if(!Token){
-      this.router.navigate(["../teacher/signup"])
-    }
-    this.dataTeacher = helper.decodeToken(Token)
-    console.log(this.dataTeacher)
+  this.userservice.getAllC().subscribe(res =>{
+    this.data =res
+    console.log(this.data)
+  })
   }
-  onChange(e){
-    this[e.target.name] = e.target.value;
-  }
+  // onChange(e){
+  //   this[e.target.name] = e.target.value;
+  // }
   // onSend(form:NgForm) {
   //   this.userservise.createClass({namme:this.namme,level:this.level}).subscribe(res =>{
   //     window.location.reload()
