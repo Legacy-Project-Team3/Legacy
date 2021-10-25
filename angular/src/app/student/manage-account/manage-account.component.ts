@@ -36,6 +36,7 @@ export class ManageAccountComponent implements OnInit {
   
   this.userservice.managaAccount(form.value ,Id.student_id).subscribe(res=>{
     console.log(res)
+    localStorage.setItem("acces_token",JSON.stringify(res))
     this.router.navigate(["../student"])
 
   })
