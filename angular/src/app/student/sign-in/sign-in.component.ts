@@ -16,8 +16,7 @@ export class SignInComponentStudent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(form: NgForm){
-      console.log(form.value)
-      this.userservice.signIn(form.value).subscribe(res=>{
+    this.userservice.signIn(form.value).subscribe(res=>{
         localStorage.setItem("acces_token",JSON.stringify(res))
         this.router.navigate(["../student"])
       })

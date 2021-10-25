@@ -39,6 +39,9 @@ export class SignUpComponentStudent implements OnInit {
       }
   }
   onSubmit(form: NgForm){
+  
+    this.userservice.registerAndGetRegisterData(form.value).subscribe(res=>{
+      // console.log(helper.isTokenExpired(JSON.stringify(res) ))
 
     console.log(form.value)
     this.userservice.registerAndGetRegisterData({...form.value,ImageUrl:this.ImageUrl}).subscribe(res=>{
@@ -47,5 +50,6 @@ export class SignUpComponentStudent implements OnInit {
       localStorage.setItem("acces_token",JSON.stringify(res ))
       this.router.navigate(["../student"])
     })
- }
+ })
+}
 }
