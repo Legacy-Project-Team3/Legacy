@@ -43,9 +43,13 @@ export class UserserviceService {
    getAllC(body):Observable<any>{
      return this.http.post('http://localhost:3000/class',body)
    }
+   //create a class
+   createClass(body,Authorization,id){
+    const headers={'Authorization':`${Authorization}`}
+     return this.http.post(`${'http://localhost:3000/class/'}${id}`,body ,{headers})
+   }
    signInTeacher(body){
      return this.http.post("http://localhost:3000/teacher/signin",body)
-
    }
    sendImage(body){
      return this.http.post("http://localhost:3000/image",body)

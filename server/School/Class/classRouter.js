@@ -1,7 +1,6 @@
 var classRouter = require('express').Router();
 var classController = require("../Class/classController")
 
-//
 classRouter.route('/class/:id')
 .post(classController.createClass)
 .get(classController.getClass)
