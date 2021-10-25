@@ -21,7 +21,7 @@ exports.createTeacher = async function(req, res) {
         console.log("here is the hashed password " + passwordHased)
         const teacher = await School.TeacherModel.create({ Role, TeacherName, TeacherLastName, Email: Email.toLowerCase(), Password: passwordHased, ImageUrl, Field, Phone, Experience})
         const token = jwt.sign(
-            { teacher_id: teacher._id, Email },
+            { teacher_id: teacher._id, Email , Role , TeacherName ,TeacherLastName,Email,ImageUrl,Field,Phone},
             process.env.TOKEN_KEY,
             {
                 expiresIn: "1h"
@@ -29,7 +29,7 @@ exports.createTeacher = async function(req, res) {
         )
         console.log("here is the token " + token)
         teacher.token = token
-        res.status(201).json(teacher)
+        res.status(201).json(teacher.token)
         console.log("check" + teacher)
     } catch (err) {
         console.log(err)
@@ -46,14 +46,14 @@ exports.login = async (req, res) => {
         const teacher = await School.TeacherModel.findOne({ Email });
         if (teacher && (await authTeacher.comparePass(Password, teacher.Password))) {
             const token = jwt.sign(
-                { teacher_id: teacher._id },
+                { teacher_id: teacher._id,Email:teacher.Email , Role:teacher.Role , TeacherName:teacher.TeacherName ,TeacherLastName:teacher.TeacherLastName,ImageUrl:teacher.ImageUrl,Field:teacher.Field,Phone:teacher.Phone },
                 process.env.TOKEN_KEY,
                 {
                     expiresIn: "1h",
                 }
             )
             teacher.token = token
-            res.status(200).json(teacher)
+            res.status(200).json(teacher.token)
         }
     } catch (err) {
         console.log(err)

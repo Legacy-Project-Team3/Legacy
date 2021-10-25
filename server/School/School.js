@@ -5,8 +5,27 @@ var mongoose = require('mongoose');
 const db = require('../db/index.js');
 mongoose.Promise = global.Promise;
 
+//event Schema
+var eventSchema = mongoose.Schema({
+  title: { type: String, required: true },
+  namestudent :{type:mongoose.Schema.Types.ObjectId,ref:'student'},
+  teacher:{type:mongoose.Schema.Types.ObjectId,ref:'teacher'},
+  date:{  type: Date,
+    default: Date.now()}
+ 
+}, {
+  timestamps: true
+})
+var EventModel = mongoose.model("Event", eventSchema)
 
-//
+//message Schema
+var messageSchema = mongoose.Schema({
+  text: { type: String, unique: true, required: true },
+}, {
+  timestamps: true
+})
+
+var MessageModel = mongoose.model("Message", messageSchema)
 //this the admin to create his account
 var adminSchema = mongoose.Schema({
   User: { type: String, unique: true, required: true },
@@ -34,7 +53,18 @@ var contactUsSchema = mongoose.Schema({
 /// contact us model 
 var contactUsModel = mongoose.model("contactUs", contactUsSchema)
 
-
+const imageSchema = new mongoose.Schema({
+  name : {
+    type : String 
+  },
+  avatar : {
+    type : String
+  },
+  cloudinary_id : {
+    type : String
+  }
+})
+var imges = mongoose.model("image",imageSchema)
 
 
 // this for the admin after he create his account know he can add a teacher 
@@ -68,7 +98,7 @@ var createTeacherSchema = mongoose.Schema({
   Exercice: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Exercice"
-  }]
+  }],
 }, {
   timestamps: true
 });
@@ -85,7 +115,7 @@ var createStudentSchema = mongoose.Schema({
   StudentLastName: { type: String ,required:true},
   Email: { type: String, unique: true,required:true},
   Password: { type: String,required:true},
-  ImageUrl: { type: String ,required:true},
+  
   Age: { type: Number ,required:true},
   Phone: { type: Number ,required:true},
   token:String,
@@ -204,5 +234,8 @@ module.exports = {
   LectureModel,
   ResultModel,
   exerciceModel,
-  classModel
+  classModel,
+  EventModel,
+  MessageModel,
+  imges
 };

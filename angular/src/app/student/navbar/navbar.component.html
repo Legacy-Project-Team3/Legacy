@@ -2,7 +2,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <div class="flex items-center">
-        <div class="flex-shrink-0">
+        <div class="flex-shrink-0" (click)="navigate()">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="white">
             <path d="M12 14l9-5-9-5-9 5 9 5z" />
             <path
@@ -18,11 +18,11 @@
               routerLink=''>Home</a>
 
             <a class=" hover:bg-white text-hover px-3 py-2  rounded-md text-sm font-medium no-underline"
-              routerLink='../student/request1'>Requests</a>
+              routerLink='../admin/contact'>Requests</a>
 
 
             <a
-              class=" hover:bg-white hover:text-white px-3 py-2 rounded-md text-sm font-medium no-underline text-hover">Calendar</a>
+              class=" hover:bg-white hover:text-white px-3 py-2 rounded-md text-sm font-medium no-underline text-hover" routerLink="../student">Calendar</a>
 
           </div>
         </div>

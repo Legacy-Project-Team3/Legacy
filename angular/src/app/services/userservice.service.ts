@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class UserserviceService {
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
 
 
+  }
+  registerAndGetRegisterDataTeacher(body){
+     return this.http.post("http://localhost:3000/teacher/signup",body)
   }
   registerAndGetRegisterData(body){
 
@@ -16,7 +20,7 @@ export class UserserviceService {
   }
 
   managaAccount(body ,Authorization,id ){
-  
+
     const headers={'Authorization':`${Authorization}`}
     return this.http.put(`http://localhost:3000/student/update/${id}`,body ,{headers})
    }
@@ -39,5 +43,20 @@ export class UserserviceService {
    getAllC(body):Observable<any>{
      return this.http.post('http://localhost:3000/class',body)
    }
-  }
+   signInTeacher(body){
+     return this.http.post("http://localhost:3000/teacher/signin",body)
+
+   }
+   sendImage(body){
+     return this.http.post("http://localhost:3000/image",body)
+   }
+   createTeacher(body){
+     return this.http.post('http://localhost:3000/Checkpoint',body)
+
+   }
+   studentRequestAdmin(body){
+     return this.http.post("http://localhost:3000/contactus",body)
+
+   }
+}
 
