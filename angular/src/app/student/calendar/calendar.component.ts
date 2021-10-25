@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 export class CalendarComponent implements OnInit {
 
 
-
+data:any
     addEventForm: FormGroup;
   submitted = false;
   //Add user form actions
@@ -37,6 +37,9 @@ constructor(private formBuilder: FormBuilder,private router:Router,private route
   title = 'angularadmintemplates';
   calendarOptions: CalendarOptions;
   ngOnInit() {
+    this.userservice.get().subscribe((res)=>{this.data=res[0]
+    console.log(this.data)}
+    )
     var Token = localStorage.getItem("acces_token")
     if(!Token){
       this.router.navigate(["../student-Signin"])

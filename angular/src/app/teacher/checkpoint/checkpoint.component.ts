@@ -17,7 +17,7 @@ export class TeacherCheckpointComponent implements OnInit {
     RightAnswer: string;
 
     quizArray= [] as any;
-    Title: any;
+    Title: String;
     dataTeacher:any;
     teacherId:string;
 
@@ -25,50 +25,49 @@ export class TeacherCheckpointComponent implements OnInit {
   constructor(private router:Router,private userservice:UserserviceService) { }
 
   ngOnInit(): void {
-
+    console.log("az")
     const helper = new JwtHelperService();
     var Token = localStorage.getItem("acces_token");
-    if(!Token){
+    this.dataTeacher = helper.decodeToken(Token)
+    this.teacherId=this.dataTeacher.teacher_id
+      console.log(this.dataTeacher.Role)
+    if(!Token || helper.isTokenExpired(Token)===true || this.dataTeacher.Role!=="Teacher" ){
       this.router.navigate(["../teacher/signup"])
     }
-    this.dataTeacher = helper.decodeToken(Token)
-    console.log(this.dataTeacher)
+       
   }
 
 
-  add(form:NgForm){
+  add(){
     let result  = {} as any;
-     result={Quiz:form.value}
+     result={Question:this.Question,Answer1:this.Answer1,Answer2:this.Answer2,Answer3:this.Answer3,RightAnswer:this.RightAnswer}
     this.quizArray.push(result);
-    console.log(result)
-    console.log(this.quizArray)
+
+    console.log(this.quizArray,this.Answer1)
   }
 
-  Save(){
-    //creating the input field on click
+  
+  Save(){ 
+   
     const element = document.createElement("input");
     element.setAttribute("type", "text")
     element.setAttribute("placeholder", "Title")
     element.setAttribute("name", "Title")
-    element.setAttribute("id", "inputTitle")
+    element.addEventListener("change",this.onTypeTilte)
     element.setAttribute("class","appearance-none block w-full bg-white text-gray-700  border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none focus:border-gray-500");
     document.getElementById("title").appendChild(element)
 
   }
-
-  Submit() {
-    //getting the value of all inputs and pushing them intp quizArray
-    // console.log(form1.value)
-    // this.userservice.createTeacher({...form1.value}).subscribe(res=>{
-    //   console.log(res);
-
-
-
-    // })
-    this.Title = (<HTMLInputElement>document.getElementById("inputTitle")).value;
-    console.log(this.Title)
-    this.quizArray.push(this.Title);
-    console.log('second',this.quizArray)
+  onTypeTilte=($event)=>{
+   return  this.Title=$event.target.value;
   }
+  onChangeCheck=(e)=>{
+    this[e.target.name]=e.target.value
+  }
+  Submit=() =>{
+    this.userservice.createCheckpoint({quizArray:this.quizArray,name:this.Title},this.teacherId).subscribe(res=>{
+        console.log(res)
+      })   
+}
 
 }

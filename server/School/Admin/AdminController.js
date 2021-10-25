@@ -88,7 +88,7 @@ exports.deleteOneStudent = (req,res) => {
    if(!req.body){
        return res.status(400).send('can not delete this Student');
    }
-   const id = req.params._id;
+   const id = req.params.id;
    console.log(id)
    School.StudentModel.findByIdAndDelete(id,(err,data) =>{
     if(err) {

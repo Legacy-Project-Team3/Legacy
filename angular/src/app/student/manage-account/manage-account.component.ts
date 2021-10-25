@@ -18,21 +18,33 @@ export class ManageAccountComponent implements OnInit {
   ImageUrl:File; 
   Age:Number;
   Phone:Number; 
+  ComfirmedPassword:String;
   constructor(private userservice:UserserviceService,private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    const helper = new JwtHelperService();
     var Token = localStorage.getItem("acces_token")
-    if(!Token){
+    if(!Token || helper.isTokenExpired(Token)===true){
       this.router.navigate(["../student-Signin"])
     }
+    const Id = helper.decodeToken(localStorage.getItem("acces_token"))
+  
   }
   onSubmit(form: NgForm ){
     const  token= localStorage.getItem("acces_token")
     const helper = new JwtHelperService();
     const Id = helper.decodeToken(localStorage.getItem("acces_token"))
-    console.log(Id.student_id)
-  this.userservice.managaAccount(form.value ,token,Id.student_id).subscribe(res=>{
+  
+  this.userservice.managaAccount(form.value ,Id.student_id).subscribe(res=>{
     console.log(res)
+    localStorage.setItem("acces_token",JSON.stringify(res))
+    this.router.navigate(["../student"])
+
   })
+  
+}
+change(e){
+  this.ComfirmedPassword = e.target.value
+  console.log(this.ComfirmedPassword , this.Password)
 }
 }

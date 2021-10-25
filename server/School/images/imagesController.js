@@ -18,7 +18,7 @@ exports.saveImages = async(req,res)=>{
     
     await School.imges.create(img)
    
-    res.send({ImageUrl : result.secure_url})
+    res.json({ImageUrl : result.secure_url})
         } 
       catch(err){
     console.log(err)

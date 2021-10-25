@@ -59,10 +59,9 @@ onSignup(form:NgForm){
      localStorage.setItem("acces_token" ,JSON.stringify(res))
      this.router.navigate(["../teacher"])
    })
-  // this.teacherService.CreateTeacher(form.value.Role, form.value.TeacherName,form.value.TeacherLastName,form.value.Password,form.value.ImageUrl,form.value.Email,form.value.Field,form.value.Phone, form.value.Experience)
   this.submitted = true;
 
-  console.log(this.addEventForm.value);
+
 
 }
 

@@ -12,7 +12,7 @@ dataStudent :any;
 image:any;
   constructor(private router:Router,private route:ActivatedRoute) { }
 logOut(){
-  
+
   localStorage.removeItem("acces_token")
   // localStorage.removeItem("image")
 }
@@ -20,19 +20,17 @@ logOut(){
 
     const helper = new JwtHelperService();
     var Token = localStorage.getItem("acces_token")
-    var  data=helper.decodeToken(Token)
-    this.dataStudent= data
-    console.log( this.dataStudent)
-    // if(!Token){
-    //   this.router.navigate(["../student-Signin"])
-    // }
+    if(!Token || helper.isTokenExpired(Token) ===true){
+      this.router.navigate(["../student-Signin"])
+    localStorage.removeItem("acces_token")
+
+    }
     var  data=helper.decodeToken(Token)
     this.dataStudent=data
     var image = localStorage.getItem("image")
       this.image=JSON.parse( image)
        
-    console.log(this.image.ImageUrl)
-  
+
   }
 
 }
