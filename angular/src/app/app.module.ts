@@ -61,8 +61,10 @@ import { TeatchersComponent } from './admin/teatchers/teatchers.component';
 import { AdminComponent } from './admin/admin.component';
 import { CreateExerciesComponent } from './teacher/create-exercies/create-exercies.component';
 import { ContactadminComponent } from './student/contactadmin/contactadmin.component';
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
+import { SignInAdmComponent } from './admin/sign-in-adm/sign-in-adm.component';
+const appRoutes:Routes=[
+  {path:'',component:HomeComponent},
+
   //teacherpath
   { path: 'teacher', component: TeacherComponent },
   { path: 'profil', component: ProfilComponent },
@@ -76,6 +78,7 @@ const appRoutes: Routes = [
   { path: 'teacher/signin', component: SigninteacherComponent },
 
   //student path component
+
   { path: 'calander', component: CalanderComponent },
   { path: "student", component: StudentComponent },
   { path: "signup-student", component: SignUpComponentStudent },
@@ -134,6 +137,7 @@ const appRoutes: Routes = [
     SidebareComponent,
     StatsComponent,
     ErrorsComponent,
+
     ProfilComponent,
 
     RequestComponent,

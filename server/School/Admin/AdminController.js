@@ -1,49 +1,69 @@
-var Auth = require("../Athuentication/Auth")
+require("dotenv").config();
+var AuthAdmin = require("../Athuentication/Auth")
 var School = require("../School")
+var jwte = require("jsonwebtoken")
 //
-exports.createAdmin = (req, res) => {
+exports.createAdmin = async function (req, res)  {
     // taking the information of the admin 
     // and use distructing to take the password 
 console.log(req.body)
     let { User, Password, Email ,ImageUrl} = req.body
     /// hash the password 
-    Auth.HashPass(Password).then(Hashed => {
-        //save it into the data base  with the hashed password 
-        School.AdminModel.create({ User, Password: Hashed, Email,ImageUrl })
-            .then(() => {
-                res.sendStatus(201)
-            })
-            //if there is an error 
-            .catch((err) => {
-               res.sendStatus(404).send(err)
-            })
-    })
+    try {
+        const existingUser = await School.AdminModel.findOne({ Email })
+        if (existingUser) {
+            return res.status(409).send("Adlin is already exist ")
+        }
+        else{
+            let passwordHased = await AuthAdmin.HashPass(Password)
 
+            
+            const admin = await School.AdminModel.create({ User, Password : passwordHased, Email:Email ,ImageUrl})
+    
+            const token = jwte.sign(
+
+                { admin_id: admin._id, Email,User,ImageUrl},
+                process.env.TOKEN_KEY,
+                {
+                    expiresIn: "1h"
+                }
+            )
+        
+            admin.token = token
+            res.status(201).json(admin.token)
+        }
+    }
+    catch (err) {
+        console.log(err)
+    }
 };
 
-exports.CheckIfThePassRight = (req, res) => {
+exports.CheckIfThePassRight = async function (req, res)  {
    
-    let { User, Password } = req.body
-    
-    School.AdminModel.findOne({User:User}, (err, result) => {
-        let hashedPass = result.Password
-        let UserNameFromDataBase = result.User
-       
-        if (UserNameFromDataBase === User) {
-            Auth.comparePass(Password, hashedPass).then(bool => {
-                
-                if (bool) {
-                   
-                    res.status(201).send(result)
-                } else {
-                    res.status(404).send(err)
+    let { Email, Password } = req.body
+    try {
+  
+        if (!(Email && Password)) {
+           return  res.status(400).send("All input is required")
+        }else{
+        const admin = await School.AdminModel.findOne({ Email });
+        const cmp =await AuthAdmin.comparePass(Password, admin.Password)
+      if (admin && cmp) {
+            const token = jwte.sign(
+                { admin_id: admin._id ,Email:admin.Email,User:admin.User},
+                process.env.TOKEN_KEY,
+                {
+                    expiresIn: "1h",
                 }
-            })
-        } else if (err) {
-            res.status(500).send(err)
+            )
+            admin.token = token
+           return res.status(200).json(admin.token)
         }
-
-    })
+        }
+    } catch (err) {
+        console.log(err)
+    }
+   
 
 }
 
