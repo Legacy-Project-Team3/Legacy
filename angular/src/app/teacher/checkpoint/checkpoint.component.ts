@@ -17,7 +17,7 @@ export class TeacherCheckpointComponent implements OnInit {
     RightAnswer: string;
 
     quizArray= [] as any;
-    Title: any;
+    Title: String;
     dataTeacher:any;
     teacherId:string;
 
@@ -43,15 +43,10 @@ export class TeacherCheckpointComponent implements OnInit {
 
     console.log(this.quizArray)
   }
-  onTypeTilte($event){
-   
-    this.Title=$event.target.value;
-    console.log(($event.target.value))
-  
-  }
+
   
   Save(){
-    //creating the input field on click
+   
     const element = document.createElement("input");
     element.setAttribute("type", "text")
     element.setAttribute("placeholder", "Title")
@@ -61,13 +56,17 @@ export class TeacherCheckpointComponent implements OnInit {
     document.getElementById("title").appendChild(element)
 
   }
-  
+  onTypeTilte=($event)=>{
+   return  this.Title=$event.target.value;
+  }
   onChangeCheck(e){
     this[e.target.name]=e.target.value
   }
-  Submit() {
+  Submit=() =>{
    console.log(this.Title)
-    
-  }
+      this.userservice.createCheckpoint({quizArray:this.quizArray,name:this.Title}).subscribe(res=>{
+        console.log(res)
+      })   
+}
 
 }

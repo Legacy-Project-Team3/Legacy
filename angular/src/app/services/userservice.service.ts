@@ -42,5 +42,8 @@ export class UserserviceService {
      return this.http.post("http://localhost:3000/contactus",body)
 
    }
+   createCheckpoint(body){
+    return this.http.post("http://localhost:3000/Checkpoint",body)
+   }
   }
 
