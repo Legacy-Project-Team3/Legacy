@@ -23,7 +23,7 @@ Email:String;
     }
   onSubmit1(){
      this.userservice.signInTeacher({Email:this.Email ,Password:this.Password }).subscribe(res=>{
-       console.log(res)
+     
        localStorage.setItem("acces_token" ,JSON.stringify(res))
      this.router.navigate(["../teacher"])
      })  
