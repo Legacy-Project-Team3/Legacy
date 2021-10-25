@@ -1,9 +1,131 @@
-<div><button ej-button id='print' (click)='Add()'>Show stats</button>
-  <div *ngFor="let item of items">
-    <ejs-chart [id]="id" [title]='title'>
-      <e-series-collection>
-        <e-series [dataSource]='chartData' type='Line' xName='x' yName='y' name='Germany' [marker]='marker'></e-series>
-      </e-series-collection>
-    </ejs-chart>
-  </div>
-</div>
+<app-student-nav-bar></app-student-nav-bar>
+<h2 class="text-2xl text-indigo-700 text-center">
+  Create A Class
+</h2>
+<form class="mt-6 border-t border-indigo-700 pt-4">
+  <div class="flex flex-wrap -mx-3 mb-6">
+    
+    
+
+    <div class="w-full md:w-full px-3 mb-6">
+      <label
+        class="
+          block
+          uppercase
+          tracking-wide
+          text-gray-700 text-xs
+          font-bold
+          mb-2
+        "
+        for="grid-text-1"
+        >Name of the class</label
+      >
+      <input
+        class="
+          appearance-none
+          block
+          w-full
+          bg-white
+          text-gray-700
+          border border-gray-400
+          shadow-inner
+          rounded-md
+          py-3
+          px-4
+          leading-tight
+          focus:outline-none focus:border-gray-500
+        "
+        id="grid-text-1"
+        type="text"
+        placeholder="Class Name"
+        required
+      />
+    </div>
+
+    <div class="w-full md:w-full px-3 mb-6">
+      <label
+        class="
+          block
+          uppercase
+          tracking-wide
+          text-gray-700 text-xs
+          font-bold
+          mb-2
+        "
+        for="grid-text-1"
+        >Teacher Name</label
+      >
+      <input
+        class="
+          appearance-none
+          block
+          w-full
+          bg-white
+          text-gray-700
+          border border-gray-400
+          shadow-inner
+          rounded-md
+          py-3
+          px-4
+          leading-tight
+          focus:outline-none focus:border-gray-500
+        "
+        id="grid-text-1"
+        type="text"
+        placeholder="Teacher"
+        required
+      />
+    </div>
+    <div class="w-full md:w-full px-3 mb-6">
+      <label
+      class="
+        block
+        uppercase
+        tracking-wide
+        text-gray-700 text-xs
+        font-bold
+        mb-2
+      "
+      for="grid-text-1"
+      >Level</label
+    >
+      <input
+        class="
+          appearance-none
+          block
+          w-full
+          bg-white
+          text-gray-700
+          border border-gray-400
+          shadow-inner
+          rounded-md
+          py-3
+          px-4
+          leading-tight
+          focus:outline-none focus:border-gray-500
+        "
+        id="grid-text-1"
+        type="text"
+        placeholder="Class Level"
+        required
+      />
+      <div class="flex justify-end">
+        <button
+          class="
+            appearance-none
+            px-2
+            py-1
+            hover:bg-indigo-700
+            border-none
+            text-indigo-700
+            border-white-400
+            rounded-md
+            shadow-inner
+            hover:text-white
+            mr-3
+          "
+          type="submit"
+        >
+          Create Class
+        </button>
+      </div>
