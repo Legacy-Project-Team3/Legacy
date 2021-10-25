@@ -31,9 +31,7 @@ constructor(private formBuilder: FormBuilder , private route: ActivatedRoute, pr
       this.students=res})
     const helper = new JwtHelperService();
     var Token = localStorage.getItem("acces_token");
-    if(!Token){
-      this.router.navigate(["../teacher/signup"])
-    }
+  
     this.dataTeacher = helper.decodeToken(Token)
     console.log(this.dataTeacher)
     this.calendarOptions = {
@@ -47,6 +45,9 @@ constructor(private formBuilder: FormBuilder , private route: ActivatedRoute, pr
     teacher:[this.dataTeacher.teacher_id],
     date:this.calendarOptions.dateClick
     });
+    if(!Token || helper.isTokenExpired(Token)===true || this.dataTeacher.Role!=="Teacher" ){
+      this.router.navigate(["../teacher/signup"])
+    }
 }
  //Add user form actions
  get f() { return this.addEventForm.controls; }

@@ -144,7 +144,7 @@ var StudentModel = mongoose.model("student", createStudentSchema)
 var createCheckPoint = mongoose.Schema({
   quizArray: { type: Array, "default": [] },
   name: String,
-  teacherId: String,
+
   teacher: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "teacher"
