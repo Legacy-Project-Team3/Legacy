@@ -37,6 +37,8 @@ constructor(private formBuilder: FormBuilder,private router:Router,private route
   title = 'angularadmintemplates';
   calendarOptions: CalendarOptions;
   ngOnInit() {
+    this.userservice.get().subscribe((res)=>console.log(res)
+    )
     var Token = localStorage.getItem("acces_token")
     if(!Token){
       this.router.navigate(["../student-Signin"])

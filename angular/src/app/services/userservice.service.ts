@@ -19,10 +19,10 @@ export class UserserviceService {
     return this.http.post('http://localhost:3000/student/register',body)
   }
 
-  managaAccount(body ,Authorization,id ){
+  managaAccount(body ,id ){
 
-    const headers={'Authorization':`${Authorization}`}
-    return this.http.put(`http://localhost:3000/student/update/${id}`,body ,{headers})
+   
+    return this.http.put(`http://localhost:3000/student/update/${id}`,body )
    }
    signIn(body){
      return this.http.post(`http://localhost:3000/student/login`,body)
@@ -58,5 +58,12 @@ export class UserserviceService {
      return this.http.post("http://localhost:3000/contactus",body)
 
    }
-}
+   createCheckpoint(body,id){
+    
+    return this.http.post(`http://localhost:3000/Checkpoint/${id}`,body)
+   }
+   getCheckpoint(){
+     return this.http.get("http://localhost:3000/Checkpoint")
+   }
+  }
 

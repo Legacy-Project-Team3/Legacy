@@ -24,7 +24,7 @@ exports.createTeacher = async function(req, res) {
             { teacher_id: teacher._id, Email , Role , TeacherName ,TeacherLastName,Email,ImageUrl,Field,Phone},
             process.env.TOKEN_KEY,
             {
-                expiresIn: "1h"
+                expiresIn: "5m"
             }
         )
         console.log("here is the token " + token)
@@ -49,7 +49,7 @@ exports.login = async (req, res) => {
                 { teacher_id: teacher._id,Email:teacher.Email , Role:teacher.Role , TeacherName:teacher.TeacherName ,TeacherLastName:teacher.TeacherLastName,ImageUrl:teacher.ImageUrl,Field:teacher.Field,Phone:teacher.Phone },
                 process.env.TOKEN_KEY,
                 {
-                    expiresIn: "1h",
+                    expiresIn: "5m",
                 }
             )
             teacher.token = token
