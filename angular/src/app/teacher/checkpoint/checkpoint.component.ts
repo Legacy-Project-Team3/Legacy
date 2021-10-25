@@ -25,14 +25,16 @@ export class TeacherCheckpointComponent implements OnInit {
   constructor(private router:Router,private userservice:UserserviceService) { }
 
   ngOnInit(): void {
-
+    console.log("az")
     const helper = new JwtHelperService();
     var Token = localStorage.getItem("acces_token");
-    if(!Token){
+    this.dataTeacher = helper.decodeToken(Token)
+    this.teacherId=this.dataTeacher.teacher_id
+      console.log(this.dataTeacher.Role)
+    if(!Token || helper.isTokenExpired(Token)===true || this.dataTeacher.Role!=="Teacher" ){
       this.router.navigate(["../teacher/signup"])
     }
-    this.dataTeacher = helper.decodeToken(Token)
-    console.log(this.dataTeacher)
+       
   }
 
 
@@ -41,11 +43,11 @@ export class TeacherCheckpointComponent implements OnInit {
      result={Question:this.Question,Answer1:this.Answer1,Answer2:this.Answer2,Answer3:this.Answer3,RightAnswer:this.RightAnswer}
     this.quizArray.push(result);
 
-    console.log(this.quizArray)
+    console.log(this.quizArray,this.Answer1)
   }
 
   
-  Save(){
+  Save(){ 
    
     const element = document.createElement("input");
     element.setAttribute("type", "text")
@@ -59,12 +61,11 @@ export class TeacherCheckpointComponent implements OnInit {
   onTypeTilte=($event)=>{
    return  this.Title=$event.target.value;
   }
-  onChangeCheck(e){
+  onChangeCheck=(e)=>{
     this[e.target.name]=e.target.value
   }
   Submit=() =>{
-   console.log(this.Title)
-      this.userservice.createCheckpoint({quizArray:this.quizArray,name:this.Title}).subscribe(res=>{
+    this.userservice.createCheckpoint({quizArray:this.quizArray,name:this.Title},this.teacherId).subscribe(res=>{
         console.log(res)
       })   
 }

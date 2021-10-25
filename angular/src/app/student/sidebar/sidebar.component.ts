@@ -20,7 +20,7 @@ logOut(){
 
     const helper = new JwtHelperService();
     var Token = localStorage.getItem("acces_token")
-    if(!Token || !helper.isTokenExpired(Token)){
+    if(!Token || helper.isTokenExpired(Token) ===true){
       this.router.navigate(["../student-Signin"])
     localStorage.removeItem("acces_token")
 

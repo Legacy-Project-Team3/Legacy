@@ -30,7 +30,7 @@ exports.createStudent = async function (req, res) {
                 { student_id: student._id, Email,User,StudentName,StudentLastName ,Phone },
                 process.env.TOKEN_KEY,
                 {
-                    expiresIn: "1h"
+                    expiresIn: "5m"
                 }
             )
         
@@ -60,7 +60,7 @@ exports.login = async (req, res) => {
                 { student_id: student._id ,Email:student.Email,User:student.User,StudentName:student.StudentName,StudentLastName:student.StudentLastName ,Phone:student.Phone},
                 process.env.TOKEN_KEY,
                 {
-                    expiresIn: "1h",
+                    expiresIn: "5m",
                 }
             )
             student.token = token
@@ -84,13 +84,21 @@ exports.manageAccount = (req, res) => {
 
 
     const ID = req.params.id;
-    console.log(ID)
+
     const data = req.body
 
 
-    School.StudentModel.findOneAndUpdate({ ID }, data, (err, result) => {
+    School.StudentModel.findOneAndUpdate({ ID }, data, (err, student) => {
         if (err) res.status(404).send(err)
-        res.status(201).send(result)
+        const token = jwt.sign(
+            { student_id: student._id ,Email:student.Email,User:student.User,StudentName:student.StudentName,StudentLastName:student.StudentLastName ,Phone:student.Phone},
+            process.env.TOKEN_KEY,
+            {
+                expiresIn: "5m",
+            }
+        )
+        student.token = token
+        res.status(201).send(student.token)
     })
 
 

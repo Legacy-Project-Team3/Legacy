@@ -4,7 +4,7 @@ var mid = require('./middlwareAuth')
 
 
 studentRouter.route("/student/update/:id")
-.put(mid,studentController.manageAccount)
+.put(studentController.manageAccount)
 studentRouter.route("/student/login")
   .post(studentController.login)
 studentRouter.route('/student')
