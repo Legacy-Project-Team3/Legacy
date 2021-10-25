@@ -1,71 +1,42 @@
 <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
 <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
 <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-    <app-student-nav-bar></app-student-nav-bar>
-				
-    <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
-        <thead>
-            <tr>
-                <th data-priority="1">First Name</th>
-                <th data-priority="2">Last Name</th>
-                <th data-priority="3">Email</th>
-                <th data-priority="4">Field</th>
-                <th data-priority="5">Phone</th>
-                <th data-priority="6">Experience</th>
-                <th data-priority="7">Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Tiger </td>
-                <td> Architect</td>
-                <td>Edinburgh@whatever.com</td>
-                <td>DataBase</td>
-                <td>20110425</td>
-                <td>3 years</td>
-                <td>
-                <div className="relative">
-                    <td><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                      </svg></td>
-                    </div>
-                </td>
-            </tr>
-         
-            <tr>
-                <td>Donna</td>
-                <td>Customer </td>
-                <td>NewYork@whatever.com</td>
-                <td>React</td>
-                <td>20110125</td>
-                <td>1 years</td>
-                <td>
-                    <div className="relative">
-                        <td><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                          </svg></td>
-                        </div>
-                    </td>
-            </tr>
+  <app-student-nav-bar></app-student-nav-bar>
 
-            <tr>
-                <td>Donna</td>
-                <td>Customer </td>
-                <td>NewYork@whatever.com</td>
-                <td>React</td>
-                <td>20110125</td>
-                <td>1 years</td>
-                <td>
-                    <div className="relative">
-                        <td><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                          </svg></td>
-                        </div>
-                    </td>
-            </tr>
-        </tbody>
-        
-    </table>
-    
-    
+  <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+    <thead>
+      <tr>
+        <th data-priority="1">First Name</th>
+        <th data-priority="2">Last Name</th>
+        <th data-priority="3">Email</th>
+        <th data-priority="4">Field</th>
+        <th data-priority="5">Phone</th>
+        <th data-priority="6">Experience</th>
+        <th data-priority="7">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let teacher of data">
+        <td>{{teacher.TeacherName}} </td>
+        <td> {{teacher.TeacherLastName}}</td>
+        <td>{{teacher.Email}}</td>
+        <td>{{teacher.Field}}</td>
+        <td>{{teacher.Phone}}</td>
+        <td> {{teacher.Experience}}years</td>
+        <td>
+          <div className="relative">
+        <td>
+            <button >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" >
+            <path fill-rule="evenodd"
+              d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+              clip-rule="evenodd" />
+          </svg>
+        </button>
+    </td>
 </div>
+</td>
+</tr>
+
+</tbody>
+</table>
