@@ -36,7 +36,7 @@ exports.createTeacher = async function(req, res) {
     }
 
 };
-
+//login teacher
 exports.login = async (req, res) => {
     try {
         const { Email, Password } = req.body
@@ -59,7 +59,7 @@ exports.login = async (req, res) => {
         console.log(err)
     }
 }
-
+//check token teacher
 exports.checkTheToken = (req, res) => {
     res.status(200).send("valid token")
     }
@@ -83,6 +83,7 @@ exports.getAllStudent = (req, res) => {
 
 
 }
+//get All teacher and sutudent
 exports.getAllTeachersAndStudent = (req, res) => {
 
     School.TeacherModel.find({}, (err, result) => {
@@ -107,7 +108,7 @@ exports.deleteTeacher = (req, res) => {
 
     })
 }
-
+//update teacher
 exports.updateTeacher = (req, res) => {
     let teacherId = req.params.id
     let dataToUpdate = req.body
@@ -118,7 +119,7 @@ exports.updateTeacher = (req, res) => {
     })
 }
 
-
+// fin one teacher
 exports.findTeacher = (req, res) => {
     condition = req.body
    console.log('cc')
@@ -129,7 +130,7 @@ exports.findTeacher = (req, res) => {
 }
 
 
-
+//find lecture
 exports.findAllWork = (req,res) => {
     condition = req.params.id 
     
@@ -144,6 +145,15 @@ exports.findAllWork = (req,res) => {
 
 }
 
-
-
+//delete one teacher
+exports.deleteTeacher=(req,res)=>{
+    let _id = req.params.id
+    School.TeacherModel.deleteOne({_id:_id})
+    .then((res)=>{
+        console.log('deleted',res)
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+}
 
